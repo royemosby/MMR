@@ -1,0 +1,22 @@
+{
+  "name": "mmr",
+  "version": "1.0.0",
+  "description": "portfolio site",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/egomadking/MMR.git"
+  },
+  "author": "Roy Mosby",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/egomadking/MMR/issues"
+  },
+  "homepage": "https://github.com/egomadking/MMR#readme",
+  "dependencies": {
+    "@11ty/eleventy": "^0.7.1"
+  }
+}
