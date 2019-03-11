@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/egomadking/MMR#readme",
   "dependencies": {
-    "@11ty/eleventy": "^0.7.1"
+    "@11ty/eleventy": "^0.7.1",
+    "gulp": "^4.0.0"
   }
 }
