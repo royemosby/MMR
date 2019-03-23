@@ -27,4 +27,4 @@ bottomWork.addEventListener('mouseout', () => {
   }, (1000));
 });
 
-//need to deal with fingers and onclicks
+// need to deal with fingers and onclicks
