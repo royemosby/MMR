@@ -1,0 +1,170 @@
+@import 'vendor/normalize';
+@import 'vendor/border-box';
+@import 'theme';
+@import 'index';
+@import 'resume';
+@import 'work';
+
+body {
+  color: $text-on-bright;
+  background-color: $background-primary;
+  font-family: $body-font;
+  font-size: 1.2em;
+}
+
+a {
+  color: lighten($text-on-bright, 10%)
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: $heading-font;
+}
+
+header {
+  background-color: $callout-secondary;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+}
+
+.header-logo-text {
+  font-size: 5em;
+  margin: 16px;
+}
+
+.header-menu {
+  & ul {
+    display: flex;
+    flex-flow: row nowrap;
+    list-style: none;
+    padding: 16px;
+  }
+
+  & .work-submenu {
+    flex-flow: column;
+    padding: 30px;
+    position: absolute;
+    right: 25px;
+    text-align: right;
+    top: 54px;
+    transform: rotate(-15deg);
+
+    & li {
+      transform: rotate(15deg);
+    }
+  }
+
+  & li {
+    margin-left: 16px;
+
+    &:nth-child(3)::before {
+      content: '\002b';
+    }
+  }
+
+
+}
+
+.work-submenu {
+  background-color: $text-on-bright;
+  line-height: 2em;
+  transition-duration: 0.2s;
+
+  & a {
+    color: $background-primary;
+  }
+
+  &:hover {
+    opacity: 1;
+    pointer-events: all;
+  }
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  background-color: $distinguishing;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  width: 100%;
+
+  & ul {
+    list-style: none;
+    padding: 0 16px;
+  }
+}
+
+.footer-menu {
+  & .work-submenu {
+    position: absolute;
+    bottom: 0;
+    left: 160px;
+    transform: skew(-40deg, 0);
+    text-align: center;
+
+    & li {
+      transform: skew(40deg, 0);
+    }
+
+    &:hover {
+      opacity: 1;
+      pointer-events: all;
+    }
+  }
+
+  li:nth-child(3)::after {
+    content: '\002b';
+  }
+}
+
+.footer-social-media {
+  & img {
+    height: 70px;
+    opacity: 0.5;
+  }
+
+  & ul {
+    display: flex;
+    flex-basis: row nowrap;
+  }
+
+  & li {
+    margin-left: 16px;
+  }
+}
+
+.notice {
+  display: flex;
+  flex-flow: column nowrap;
+  font-size: .8em;
+  justify-content: center;
+  text-align: center;
+
+  & img {
+    height: 70px;
+    opacity: 0.7;
+    ;
+  }
+
+  /*
+  background-image: url("/images/rp.png");
+  background-position-x: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  text-align: center;
+  */
+}
+
+.is-hidden {
+  opacity: 0;
+  pointer-events: none;
+}
