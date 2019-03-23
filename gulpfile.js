@@ -7,6 +7,7 @@ const paths = {
   sass: {
     source: 'sass/app.scss',
     dest: './styles',
+    watch: 'sass/**/*.scss',
   },
 };
 
@@ -30,5 +31,5 @@ gulp.task('css:compile', () => gulp
   .pipe(gulp.dest(paths.sass.dest)));
 
 gulp.task('watch', () => {
-  gulp.watch(paths.sass.source, gulp.parallel('css:compile'));
+  gulp.watch(paths.sass.watch, gulp.parallel('css:compile'));
 });
