@@ -303,7 +303,9 @@ template {
 [hidden] {
   display: none; }
 
-*, *:before, *:after {
+*,
+*:before,
+*:after {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box; }
@@ -311,8 +313,14 @@ template {
 body {
   color: #444139;
   background-color: #fffcef;
+  display: flex;
+  flex-flow: column;
   font-family: "Raleway", sans-serif;
-  font-size: 1.2em; }
+  font-size: 1.2em;
+  height: 100%; }
+
+html {
+  height: 100%; }
 
 a {
   color: #605c50; }
@@ -327,8 +335,10 @@ h6 {
 
 header {
   background-color: #ffcb8a;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
   display: flex;
   flex-flow: row nowrap;
+  flex-shrink: 0;
   justify-content: space-between; }
 
 .header-logo-text {
@@ -359,6 +369,7 @@ header {
 
 .work-submenu {
   background-color: #444139;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
   line-height: 2em;
   transition-duration: 0.2s; }
   .work-submenu a {
@@ -367,12 +378,17 @@ header {
     opacity: 1;
     pointer-events: all; }
 
+.content {
+  align-items: center;
+  display: flex;
+  flex-flow: column;
+  flex: 1 0 auto; }
+
 footer {
-  position: absolute;
-  bottom: 0;
   background-color: #DEDFD4;
   display: flex;
   flex-flow: row nowrap;
+  flex-shrink: 0;
   justify-content: space-between;
   width: 100%; }
   footer ul {
@@ -380,19 +396,7 @@ footer {
     padding: 0 16px; }
 
 .footer-menu .work-submenu {
-  position: absolute;
-  bottom: 0;
-  left: 160px;
-  transform: skew(-40deg, 0);
-  text-align: center; }
-  .footer-menu .work-submenu li {
-    transform: skew(40deg, 0); }
-  .footer-menu .work-submenu:hover {
-    opacity: 1;
-    pointer-events: all; }
-
-.footer-menu li:nth-child(3)::after {
-  content: '\002b'; }
+  display: none; }
 
 .footer-social-media img {
   height: 70px;
@@ -410,17 +414,7 @@ footer {
   flex-flow: column nowrap;
   font-size: .8em;
   justify-content: center;
-  text-align: center;
-  /*
-  background-image: url("/images/rp.png");
-  background-position-x: center;
-  background-repeat: no-repeat;
-  background-size: contain;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  text-align: center;
-  */ }
+  text-align: center; }
   .notice img {
     height: 70px;
     opacity: 0.7; }
@@ -428,3 +422,26 @@ footer {
 .is-hidden {
   opacity: 0;
   pointer-events: none; }
+
+/* begin index */
+.bio,
+.expertise,
+.strengths {
+  display: flex;
+  flex-flow: column; }
+
+.bio-statement {
+  align-self: center;
+  display: flex;
+  max-width: 1200px; }
+  .bio-statement p {
+    flex-grow: 1; }
+
+.bio-img {
+  max-width: 300px; }
+
+/* end index */
+/* begin resume */
+/* end resume */
+/* begin work */
+/* end work */
