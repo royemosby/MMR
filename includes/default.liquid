@@ -1,9 +1,11 @@
-<!doctype html>
+<!doctype html lang="en-US">
   {% include head %}
   <body>
     {% include ie9 %}
     {% include header %}
-    {{ content }}
+    <div class="content">
+      {{ content }}
+      </div>
     {% include footer %}
     {% include analytics %}
     <script src="../scripts/app.js" defer></script>
