@@ -18,7 +18,11 @@ html {
 }
 
 a {
-  color: lighten($text-on-bright, 10%)
+  color: lighten($text-on-bright, 10%);
+
+  &:hover {
+    color: darken($text-on-bright, 10%);
+  }
 }
 
 h1,
@@ -37,6 +41,15 @@ header {
   flex-flow: row nowrap;
   flex-shrink: 0;
   justify-content: space-between;
+}
+
+.header-logo a {
+  color: $text-on-bright;
+  text-decoration: none;
+
+  &:hover {
+    color: darken($text-on-bright, 10%);
+  }
 }
 
 .header-logo-text {
@@ -148,11 +161,6 @@ footer {
     opacity: 0.7;
     ;
   }
-}
-
-.is-hidden {
-  opacity: 0;
-  pointer-events: none;
 }
 
 @import 'index';
