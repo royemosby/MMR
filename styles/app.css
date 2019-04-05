@@ -324,6 +324,8 @@ html {
 
 a {
   color: #605c50; }
+  a:hover {
+    color: #282622; }
 
 h1,
 h2,
@@ -340,6 +342,12 @@ header {
   flex-flow: row nowrap;
   flex-shrink: 0;
   justify-content: space-between; }
+
+.header-logo a {
+  color: #444139;
+  text-decoration: none; }
+  .header-logo a:hover {
+    color: #282622; }
 
 .header-logo-text {
   font-size: 5em;
@@ -419,10 +427,6 @@ footer {
     height: 70px;
     opacity: 0.7; }
 
-.is-hidden {
-  opacity: 0;
-  pointer-events: none; }
-
 /* begin index */
 .bio,
 .expertise,
@@ -444,4 +448,57 @@ footer {
 /* begin resume */
 /* end resume */
 /* begin work */
+#websites,
+#campaign {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  max-width: 1560px; }
+
+.card {
+  background-color: #DEDFD4;
+  box-shadow: 0 7px 10px rgba(0, 0, 0, 0.4);
+  height: 410px;
+  margin: 0 10px 40px 10px;
+  overflow: hidden;
+  width: 500px; }
+  .card figure {
+    width: 85%;
+    text-align: center;
+    margin: 15px auto; }
+  .card img {
+    width: 100%; }
+  .card h2 {
+    white-space: nowrap; }
+
+.details {
+  box-shadow: 0 7px 10px rgba(0, 0, 0, 0.4);
+  border-top: 6px solid #ADA89C;
+  height: 250px;
+  padding: 20px 10px;
+  background: white;
+  background: linear-gradient(to bottom, white 52%, rgba(255, 255, 255, 0.5) 100%);
+  position: relative;
+  width: 470px;
+  left: 15px;
+  top: -20px;
+  transition-duration: 0.3s;
+  transition-timing-function: ease-in-out; }
+  .details:hover {
+    transform: translateY(-200px); }
+    .details:hover::before {
+      transform: rotate(180deg); }
+  .details::before {
+    content: "";
+    border-right: 15px solid transparent;
+    border-bottom: 15px solid #ADA89C;
+    border-left: 15px solid transparent;
+    display: inline-block;
+    position: relative;
+    top: -15px;
+    width: 0;
+    height: 0;
+    transition-duration: 0.4s;
+    transition-timing-function: ease-out; }
+
 /* end work */
