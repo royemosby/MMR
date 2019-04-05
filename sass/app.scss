@@ -81,10 +81,6 @@ header {
 
   & li {
     margin-left: 16px;
-
-    &:nth-child(3)::before {
-      content: '\002b';
-    }
   }
 
 
