@@ -1,25 +1,109 @@
-/* begin index */
+/* begin work */
 
-.bio,
-.expertise,
-.strengths {
-  display: flex;
-  flex-flow: column;
-  //align-self: center;
-}
+.hero {
+  width: 100vw;
+  max-width: 100%;
 
-.bio-statement {
-  align-self: center;
-  display: flex;
-  max-width: 1200px;
-
-  & p {
-    flex-grow: 1;
+  & img {
+    width: 100%;
   }
 }
 
-.bio-img {
-  max-width: 300px;
+#websites,
+#campaign {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  max-width: 2000px;
 }
 
-/* end index */
+.card {
+  background-color: $background-primary;
+  box-shadow: 0 4px 5px hsla(0, 0, 0, 0.2);
+  //height: 410px;
+  margin: 0 10px 40px 10px;
+  overflow: hidden;
+  width: 45vw;
+  min-width: 500px;
+  max-width: 950px;
+  height: 30vw;
+  min-height: 380px;
+  max-height: 640px;
+
+  & figure {
+    width: 100%;
+    text-align: center;
+    margin: 0 auto 10px auto;
+  }
+
+  img {
+    width: 100%;
+  }
+
+  & h2 {
+    white-space: nowrap;
+  }
+}
+
+.details {
+  box-shadow: 0 0px 10px hsla(0, 0, 0, 0.4);
+  //border-top: 3px solid $text-faded;
+  padding: 20px 10px 200px 10px;
+  background: rgba(255, 255, 255, 1);
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 1) 52%,
+    rgba(255, 255, 255, 0.5) 100%
+  );
+  position: relative;
+  width: 98%;
+  left: 1%;
+  top: -10%; //top: -20px;
+  transition-duration: 0.3s;
+  transition-timing-function: ease-in-out;
+
+  & h2 {
+    display: inline-block;
+    margin: 0px 10px;
+  }
+  /*
+  &:hover {
+    transform: translateY(-200px);
+
+    &::before {
+      transform: rotate(180deg);
+    }
+  }
+*/
+  &::before {
+    content: '';
+    border-right: 15px solid transparent;
+    border-bottom: 15px solid $text-faded;
+    border-left: 15px solid transparent;
+    display: inline-block;
+    position: relative;
+    top: -5px;
+    width: 0;
+    height: 0;
+    transition-duration: 0.4s;
+    transition-timing-function: ease-out;
+  }
+  &.is-active {
+    transform: translateY(-200px);
+    &::before {
+      transform: rotate(180deg);
+    }
+  }
+}
+
+@media (hover: hover) {
+  .details:hover {
+    transform: translateY(-200px);
+
+    &::before {
+      transform: rotate(180deg);
+    }
+  }
+}
+
+/* end work */
