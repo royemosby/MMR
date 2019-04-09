@@ -22,5 +22,17 @@
     "gulp-notify": "^3.2.0",
     "gulp-plumber": "^1.2.1",
     "gulp-sass": "^4.0.2"
+  },
+  "eslintConfig": {
+    "parserOptions": {},
+    "rules": {
+      "no-plusplus": [
+        "error",
+        {
+          "allowForLoopAfterthoughts": true
+        }
+      ],
+      "comma-dangle": "ignore"
+    }
   }
 }
