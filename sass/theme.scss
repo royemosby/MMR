@@ -1,15 +1,22 @@
 //colors
-
+/*
 $callout-primary: #ff8949;
 $callout-secondary: #ffcb8a;
 $distinguishing: #DEDFD4;
 $text-on-bright: #444139;
 $text-faded: #ADA89C;
 $background-primary: #fffcef;
+*/
+
+$callout-primary: #f76b21;
+$callout-secondary: #ff8949;
+$distinguishing: #d8d8d8;
+$text-on-bright: #1a1917;
+$text-on-dark: #fff;
+$text-faded: #dbdbdb;
+$background-primary: #fffcef;
 
 //typographic
 $title-font: 'Arvo';
-$body-font: 'Open Sans',
-sans-serif;
-$heading-font: 'Raleway',
-serif;
+$body-font: 'Open Sans', sans-serif;
+$heading-font: 'Raleway', serif;
