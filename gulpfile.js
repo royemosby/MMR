@@ -6,7 +6,7 @@ const plumber = require('gulp-plumber');
 const paths = {
   sass: {
     source: 'sass/app.scss',
-    dest: 'includes/styles',
+    dest: 'styles/',
     watch: 'sass/**/*.scss',
   },
 };
