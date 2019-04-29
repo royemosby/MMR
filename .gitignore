@@ -2,3 +2,4 @@ node_modules
 _site
 styles/*
 designAssets/*
+includes/styles/app.css
