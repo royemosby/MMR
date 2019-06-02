@@ -16,9 +16,35 @@ $text-on-dark: #fff;
 $text-faded: #dbdbdb;
 $background-primary: #fffcef;
 
+$default-shadow: 0 4px 5px hsla(0, 0, 0, 0.2);
+$deep-shadow: 0 4px 10px hsla(0, 0, 0, 0.4);
+
 //typographic
 $title-font: 'Arvo';
 $body-font: 'Open Sans',
 sans-serif;
 $heading-font: 'Raleway',
 serif;
+
+//content
+@mixin narrow-section {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  max-width: 1200px;
+  margin: 10px;
+}
+
+@mixin wide-section {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  max-width: 2000px;
+  margin: 10px;
+}
+
+//interation:
+@mixin hover-transform {
+  transition-duration: .2s;
+  transition-timing-function: ease-out;
+}
