@@ -335,6 +335,11 @@ a {
   a:hover {
     color: black; }
 
+h1 {
+  font-size: 1.8em;
+  width: 100%;
+  text-align: center; }
+
 h1,
 h2,
 h3,
@@ -345,13 +350,15 @@ h6 {
 
 header {
   background-color: #ff8949;
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 5px rgba(0, 0, 0, 0.2);
   display: flex;
   flex-flow: row nowrap;
   flex-shrink: 0;
   justify-content: space-between; }
   header a {
-    color: #fff; }
+    color: #fff;
+    transition-duration: .2s;
+    transition-timing-function: ease-out; }
     header a:hover {
       color: #e6e6e6; }
 
@@ -362,17 +369,20 @@ header {
   text-decoration: none; }
 
 .header-logo-text {
-  font-size: 5em;
-  margin: 16px; }
+  font-size: 3em;
+  margin: 30px 12px 0 12px; }
 
 .header-menu ul {
   display: flex;
-  flex-flow: row nowrap;
+  flex-flow: column nowrap;
   list-style: none;
-  padding: 16px; }
+  margin: 5px;
+  padding: 0 20px 0 5px; }
 
 .header-menu li {
-  margin-left: 16px; }
+  margin: 0 0 15px 0; }
+  .header-menu li:last-child {
+    margin: 0 0 5px 0; }
 
 .content {
   align-items: center;
@@ -390,17 +400,26 @@ footer {
   footer ul {
     list-style: none;
     padding: 0 16px; }
+  footer li {
+    margin-bottom: 10px; }
 
-.footer-menu .work-submenu {
-  display: none; }
+.footer-menu {
+  order: 3; }
+  .footer-menu ul {
+    padding: 0 5px; }
 
 .footer-social-media img {
-  height: 70px;
-  opacity: 0.5; }
+  height: 35px;
+  opacity: 0.5;
+  transition-duration: .2s;
+  transition-timing-function: ease-out;
+  order: 2; }
+  .footer-social-media img:hover {
+    opacity: .7; }
 
 .footer-social-media ul {
   display: flex;
-  flex-basis: row nowrap; }
+  flex-flow: column nowrap; }
 
 .footer-social-media li {
   margin-left: 16px; }
@@ -410,15 +429,57 @@ footer {
   flex-flow: column nowrap;
   font-size: 0.8em;
   justify-content: center;
+  padding: 0 5px;
   text-align: center; }
   .notice img {
     height: 70px;
-    opacity: 0.7; }
+    opacity: 0.7;
+    transition-duration: .2s;
+    transition-timing-function: ease-out; }
+    .notice img:hover {
+      opacity: 1; }
 
-/* begin work */
+/******* Begin app media queries *******/
+@media (min-width: 450px) {
+  .header-menu ul {
+    flex-flow: row nowrap;
+    margin: 19px 0;
+    padding: 5px 25px 0 5px; }
+  .header-menu li {
+    margin: 0 0 0 30px; }
+    .header-menu li:last-child {
+      margin: 0 0 0 30px; }
+  .header-logo-text {
+    margin: 16px 10px; }
+  .footer-menu {
+    order: 1; }
+    .footer-menu ul {
+      padding: 0 16px; }
+  .footer-social-media {
+    order: 3; }
+    .footer-social-media img {
+      height: 70px; }
+    .footer-social-media ul {
+      flex-flow: row nowrap; }
+  .notice {
+    order: 2; } }
+
+@media (min-width: 600px) {
+  h1 {
+    font-size: 2em; }
+  .header-logo-text {
+    font-size: 5em;
+    margin: 16px; }
+  .header-menu {
+    padding: 25px 16px; } }
+
+/* begin index */
 .hero {
   width: 100vw;
-  max-width: 100%; }
+  max-width: 100%;
+  margin-top: 0px; }
+  .hero + h1 {
+    font-size: 1.2em; }
   .hero img {
     width: 100%; }
 
@@ -427,18 +488,24 @@ footer {
   display: flex;
   flex-flow: row wrap;
   justify-content: space-around;
-  max-width: 2000px; }
+  max-width: 2000px;
+  margin: 10px; }
+
+#creative {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  max-width: 1200px;
+  margin: 10px; }
 
 .card {
   background-color: #fffcef;
   box-shadow: 0 4px 5px rgba(0, 0, 0, 0.2);
   margin: 0 10px 40px 10px;
   overflow: hidden;
-  width: 45vw;
-  min-width: 500px;
-  max-width: 950px;
-  height: 30vw;
-  min-height: 380px;
+  width: 95vw;
+  height: 70vw;
+  min-height: 260px;
   max-height: 640px; }
   .card figure {
     width: 100%;
@@ -446,15 +513,14 @@ footer {
     margin: 0 auto 10px auto; }
   .card img {
     width: 100%; }
-  .card h2 {
-    white-space: nowrap; }
 
 .details {
-  box-shadow: 0 0px 10px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
   padding: 20px 10px 200px 10px;
   background: white;
   background: linear-gradient(to bottom, white 52%, rgba(255, 255, 255, 0.5) 100%);
   position: relative;
+  font-size: 0.75em;
   width: 98%;
   left: 1%;
   top: -10%;
@@ -470,7 +536,7 @@ footer {
   }
 */ }
   .details h2 {
-    display: inline-block;
+    display: inline;
     margin: 0px 10px; }
   .details::before {
     content: '';
@@ -495,15 +561,101 @@ footer {
     .details:hover::before {
       transform: rotate(180deg); } }
 
-/* end work */
+/******* Begin index media queries *******/
+@media (min-width: 450px) {
+  .hero + h1 {
+    font-size: 2em; } }
+
+@media (min-width: 600px) {
+  .card {
+    margin: 0 10px 40px 10px;
+    overflow: hidden;
+    width: 45vw;
+    min-width: 500px;
+    max-width: 950px;
+    height: 30vw;
+    min-height: 380px;
+    max-height: 640px; }
+  .details {
+    font-size: 1em; } }
+
+/* end index */
 /* begin resume */
+.resume-section {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  max-width: 1200px;
+  margin: 10px;
+  border-bottom: 2px solid #1a1917;
+  font-size: 0.8em; }
+  .resume-section:last-child {
+    border-bottom: none; }
+
+.resume-entry {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center; }
+  .resume-entry h2 {
+    flex-basis: 100%; }
+  .resume-entry h4 {
+    margin: 5px; }
+  .resume-entry .logo {
+    width: 100px;
+    margin: 0 5px 0 0; }
+  .resume-entry hr {
+    border: 1px solid #1a1917;
+    height: 0px;
+    width: 100%;
+    margin-top: 10px; }
+  .resume-entry p {
+    margin-bottom: 5px; }
+  .resume-entry ul {
+    flex-basis: 100%;
+    margin-bottom: 30px;
+    margin: 5px; }
+
+.resume-entry-headers {
+  max-width: 50%;
+  max-width: calc(100vw - 140px); }
+
+.logo img {
+  width: 100%; }
+
+/******* Begin resume media queries *******/
+@media (min-width: 600px) {
+  .card {
+    margin: 0 10px 40px 10px;
+    overflow: hidden;
+    width: 45vw;
+    min-width: 500px;
+    max-width: 950px;
+    height: 30vw;
+    min-height: 380px;
+    max-height: 640px; }
+  .details {
+    font-size: 1em; } }
+
+@media (min-width: 450px) {
+  .resume-entry .logo {
+    margin: 0 20px 0 0; } }
+
+@media (min-width: 600px) {
+  .resume-section {
+    font-size: 1em; } }
+
 /* end resume */
-/* begin index */
+/*Begin about*/
 .bio,
 .expertise,
 .strengths {
+  font-size: 0.8em;
   display: flex;
-  flex-flow: column; }
+  flex-flow: column;
+  margin: 10px; }
+
+.expertise {
+  display: block; }
 
 .bio-statement {
   align-self: center;
@@ -513,6 +665,20 @@ footer {
     flex-grow: 1; }
 
 .bio-img {
-  max-width: 300px; }
+  max-width: 200px; }
 
-/* end index */
+.expertise-group {
+  padding: 10px; }
+
+/******* Begin index media queries *******/
+@media (min-width: 600px) {
+  .bio,
+  .expertise,
+  .strengths {
+    font-size: 1em; }
+  .expertise {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around; } }
+
+/*  End about*/
