@@ -1,0 +1,56 @@
+/*Begin about*/
+
+.bio,
+.expertise,
+.strengths {
+  font-size: 0.8em;
+  display: flex;
+  flex-flow: column;
+  margin: 10px;
+  //align-self: center;
+}
+
+.expertise {
+  display: block;
+}
+
+.bio-statement {
+  align-self: center;
+  display: flex;
+  max-width: 1200px;
+
+  & p {
+    flex-grow: 1;
+  }
+}
+
+.bio-img {
+  max-width: 200px;
+  ;
+}
+
+.expertise-group {
+  padding: 10px;
+}
+
+/******* Begin index media queries *******/
+
+@media(min-width: 450px) {}
+
+@media(min-width: 600px) {
+
+  .bio,
+  .expertise,
+  .strengths {
+    font-size: 1em;
+  }
+
+  .expertise {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+  }
+
+}
+
+/*  End about*/
