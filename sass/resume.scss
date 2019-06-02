@@ -1,3 +1,92 @@
 /* begin resume */
+.resume-section {
+  @include narrow-section;
+  border-bottom: 2px solid $text-on-bright;
+  font-size: 0.8em;
+
+  &:last-child {
+    border-bottom: none;
+  }
+}
+
+.resume-entry {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+
+  & h2 {
+    flex-basis: 100%;
+  }
+
+  & h4 {
+    margin: 5px;
+  }
+
+  & .logo {
+    width: 100px;
+    margin: 0 5px 0 0;
+  }
+
+  & hr {
+    border: 1px solid $text-on-bright;
+    height: 0px;
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  & p {
+    margin-bottom: 5px;
+  }
+
+  & ul {
+    flex-basis: 100%;
+    margin-bottom: 30px;
+    margin: 5px;
+  }
+}
+
+.resume-entry-headers {
+  max-width: 50%;
+  max-width: calc(100vw - 140px);
+}
+
+.logo img {
+  width: 100%;
+}
+
+/******* Begin resume media queries *******/
+
+@media(min-width: 450px) {}
+
+@media(min-width: 600px) {
+  .card {
+    margin: 0 10px 40px 10px;
+    overflow: hidden;
+    width: 45vw;
+    min-width: 500px;
+    max-width: 950px;
+    height: 30vw;
+    min-height: 380px;
+    max-height: 640px;
+  }
+
+  .details {
+    font-size: 1em;
+  }
+}
+
+@media(min-width: 450px) {
+  .resume-entry {
+    .logo {
+      margin: 0 20px 0 0;
+    }
+  }
+}
+
+@media(min-width: 600px) {
+  .resume-section {
+    font-size: 1em;
+  }
+}
 
 /* end resume */
