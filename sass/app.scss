@@ -24,6 +24,12 @@ a {
   }
 }
 
+h1 {
+  font-size: 1.8em;
+  width: 100%;
+  text-align: center;
+}
+
 h1,
 h2,
 h3,
@@ -35,13 +41,15 @@ h6 {
 
 header {
   background-color: $callout-secondary;
-  box-shadow: 0 5px 10px hsla(0, 0, 0, 0.1);
+  box-shadow: $default-shadow;
   display: flex;
   flex-flow: row nowrap;
   flex-shrink: 0;
   justify-content: space-between;
+
   & a {
     color: $text-on-dark;
+    @include hover-transform;
 
     &:hover {
       color: darken($text-on-dark, 10%);
@@ -53,26 +61,33 @@ header {
   &-text {
     font-family: $title-font;
   }
+
   & a {
     text-decoration: none;
   }
 }
 
 .header-logo-text {
-  font-size: 5em;
-  margin: 16px;
+  font-size: 3em;
+  margin: 30px 12px 0 12px;
+  ;
 }
 
 .header-menu {
   & ul {
     display: flex;
-    flex-flow: row nowrap;
+    flex-flow: column nowrap;
     list-style: none;
-    padding: 16px;
+    margin: 5px;
+    padding: 0 20px 0 5px;
   }
 
   & li {
-    margin-left: 16px;
+    margin: 0 0 15px 0;
+
+    &:last-child {
+      margin: 0 0 5px 0;
+    }
   }
 }
 
@@ -95,23 +110,36 @@ footer {
     list-style: none;
     padding: 0 16px;
   }
+
+  & li {
+    margin-bottom: 10px;
+  }
 }
 
 .footer-menu {
-  & .work-submenu {
-    display: none;
+  & ul {
+    padding: 0 5px;
   }
+
+  order: 3;
 }
 
 .footer-social-media {
   & img {
-    height: 70px;
+    height: 35px;
     opacity: 0.5;
+    @include hover-transform;
+
+    &:hover {
+      opacity: .7;
+    }
+
+    order: 2;
   }
 
   & ul {
     display: flex;
-    flex-basis: row nowrap;
+    flex-flow: column nowrap;
   }
 
   & li {
@@ -124,14 +152,86 @@ footer {
   flex-flow: column nowrap;
   font-size: 0.8em;
   justify-content: center;
+  padding: 0 5px;
   text-align: center;
 
   & img {
     height: 70px;
     opacity: 0.7;
+    @include hover-transform;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+
+}
+
+/******* Begin app media queries *******/
+
+@media(min-width: 450px) {
+  .header-menu {
+    & ul {
+      flex-flow: row nowrap;
+      margin: 19px 0;
+      padding: 5px 25px 0 5px;
+    }
+
+    & li {
+      margin: 0 0 0 30px;
+
+      &:last-child {
+        margin: 0 0 0 30px;
+      }
+    }
+  }
+
+  .header-logo-text {
+    margin: 16px 10px;
+  }
+
+  .footer-menu {
+    & ul {
+      padding: 0 16px;
+    }
+
+    order: 1;
+  }
+
+  .footer-social-media {
+    & img {
+      height: 70px;
+    }
+
+    & ul {
+      flex-flow: row nowrap;
+    }
+
+    order: 3;
+  }
+
+  .notice {
+    order: 2;
   }
 }
 
+@media(min-width: 600px) {
+  h1 {
+    font-size: 2em;
+  }
+
+  .header-logo-text {
+    font-size: 5em;
+    margin: 16px;
+  }
+
+  .header-menu {
+    padding: 25px 16px;
+  }
+}
+
+
+
 @import 'index';
 @import 'resume';
-@import 'work';
+@import 'about';
