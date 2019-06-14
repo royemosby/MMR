@@ -3,8 +3,8 @@
 @import 'theme';
 
 body {
-  color: $text-on-bright;
-  background-color: $background-primary;
+  color: $brown-black;
+  background-color: $white;
   display: flex;
   flex-flow: column;
   font-family: $body-font;
@@ -17,10 +17,10 @@ html {
 }
 
 a {
-  color: lighten($text-on-bright, 10%);
+  color: lighten($brown-black, 10%);
 
   &:hover {
-    color: darken($text-on-bright, 10%);
+    color: darken($brown-black, 10%);
   }
 }
 
@@ -37,10 +37,11 @@ h4,
 h5,
 h6 {
   font-family: $heading-font;
+  color: $heading-on-bright;
 }
 
 header {
-  background-color: $callout-secondary;
+  background-color: $orange-primary;
   box-shadow: $default-shadow;
   display: flex;
   flex-flow: row nowrap;
@@ -68,9 +69,9 @@ header {
 }
 
 .header-logo-text {
+  color: $text-on-dark;
   font-size: 3em;
   margin: 30px 12px 0 12px;
-  ;
 }
 
 .header-menu {
@@ -96,10 +97,12 @@ header {
   display: flex;
   flex-flow: column;
   flex: 1 0 auto;
+  box-shadow: $default-shadow;
+  position: relative;
 }
 
 footer {
-  background-color: $distinguishing;
+  background-color: $gray-mid;
   display: flex;
   flex-flow: row nowrap;
   flex-shrink: 0;
