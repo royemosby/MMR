@@ -1,7 +1,7 @@
 /* begin resume */
 .resume-section {
   @include narrow-section;
-  border-bottom: 2px solid $text-on-bright;
+  border-bottom: 2px solid $brown-black;
   font-size: 0.8em;
 
   &:last-child {
@@ -28,7 +28,7 @@
   }
 
   & hr {
-    border: 1px solid $text-on-bright;
+    border: 1px solid $brown-black;
     height: 0px;
     width: 100%;
     margin-top: 10px;
