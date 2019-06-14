@@ -1,5 +1,35 @@
 /*Begin about*/
 
+.hero {
+  width: 100vw;
+  max-width: 100%;
+  margin-top: 0px;
+
+  & img {
+    width: 100%;
+  }
+}
+
+.greeting {
+  color: #fff;
+  /* background-color: rgba(255,255,255, .4); */
+  font-size: 4.8vw;
+  font-weight: normal;
+  position: absolute;
+  left: 0.5vw;
+  top: 20.5vw;
+  width: inherit;
+}
+
+.tagline {
+  color: white;
+  font-size: 2.5vw;
+  font-weight: normal;
+  position: absolute;
+  top: 27.5vw;
+  left: 3vw;
+}
+
 .bio,
 .expertise,
 .strengths {
@@ -7,7 +37,10 @@
   display: flex;
   flex-flow: column;
   margin: 10px;
-  //align-self: center;
+
+  & h1 {
+    margin: 15px;
+  }
 }
 
 .expertise {
@@ -24,13 +57,19 @@
   }
 }
 
-.bio-img {
-  max-width: 200px;
-  ;
-}
-
 .expertise-group {
   padding: 10px;
+
+  & ul {
+    list-style: none;
+    padding-left: 0;
+  }
+}
+
+.li-emphasis {
+  color: darken($heading-on-bright, 10%);
+  font-family: $heading-font;
+  font-weight: 800;
 }
 
 /******* Begin index media queries *******/
@@ -48,7 +87,7 @@
   .expertise {
     display: flex;
     flex-flow: row wrap;
-    justify-content: space-around;
+    justify-content: space-between;
   }
 
 }
