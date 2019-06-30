@@ -470,12 +470,13 @@ footer {
     padding: 25px 16px; } }
 
 /* begin index */
-#projects {
+.project {
   display: flex;
   flex-flow: row wrap;
   justify-content: space-around;
   max-width: 2000px;
-  margin: 10px; }
+  margin: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4); }
 
 #creative {
   display: flex;
@@ -492,21 +493,16 @@ footer {
 
 .campaign-card {
   background-color: #ffffff;
-  box-shadow: 0 14px 10px -11px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 33px 22px -35px rgba(0, 0, 0, 0.1);
   margin: 0 10px 40px 10px;
   width: 95vw;
   min-height: 260px; }
-  .campaign-card figure {
-    width: 100%;
-    text-align: center;
-    margin: 0 auto 10px auto; }
   .campaign-card img {
-    width: 100%; }
+    width: 100%;
+    box-shadow: 0 4px 5px rgba(0, 0, 0, 0.2);
+    margin-bottom: 1em; }
   .campaign-card .details {
     padding: 0 20px;
-    background: white;
-    background: linear-gradient(to bottom, white 52%, rgba(255, 255, 255, 0.5) 100%);
-    width: 98%;
     transition-duration: 0.3s;
     transition-timing-function: ease-in-out; }
     .campaign-card .details h2,
@@ -541,31 +537,8 @@ footer {
     left: 50%;
     top: 25px; }
 
-.process-icon {
-  box-shadow: 0 4px 5px rgba(0, 0, 0, 0.2);
-  border-radius: 50%;
-  background-color: #fde0d0;
-  border-left: 1px solid #1a1917;
-  border-right: 1px solid #1a1917;
-  border-bottom: 2px solid #1a1917;
-  height: 75px;
-  width: 75px;
-  margin: 0;
-  padding: 0; }
-  .process-icon img {
-    width: 100%; }
-
 /******* Begin index media queries *******/
 @media (min-width: 600px) {
-  .site-card {
-    margin: 0 10px 40px 10px;
-    overflow: hidden;
-    width: 45vw;
-    min-width: 500px;
-    max-width: 950px;
-    height: 30vw;
-    min-height: 380px;
-    max-height: 640px; }
   .campaign-card {
     flex-flow: column nowrap;
     margin: 0 10px 40px 10px;
@@ -575,7 +548,16 @@ footer {
 @media (min-width: 1000px) {
   .campaign-card {
     display: flex;
-    flex-flow: row nowrap; } }
+    flex-flow: row nowrap; }
+    .campaign-card figure {
+      background-color: #eee;
+      padding: 1em;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      margin: 2em 0; }
+      .campaign-card figure img {
+        width: 100%; } }
 
 /* end index */
 /* begin resume */

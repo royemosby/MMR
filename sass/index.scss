@@ -1,7 +1,8 @@
 /* begin index */
 
-#projects {
+.project {
   @include wide-section;
+  box-shadow: $shadow-deep;
 }
 
 #creative {
@@ -20,36 +21,21 @@
 
 .campaign-card {
   background-color: $white;
-  box-shadow: $narrow-shadow;
-  //height: 410px;
+  box-shadow: $shadow-subtle;
   margin: 0 10px 40px 10px;
-  //overflow: hidden;
   width: 95vw;
-  //height: 70vw;
   min-height: 260px;
-  //max-height: 640px;
-
-  & figure {
-    width: 100%;
-    text-align: center;
-    margin: 0 auto 10px auto;
-  }
 
   img {
     width: 100%;
+    box-shadow: $shadow-default;
+    margin-bottom: 1em;
   }
 
 
   & .details {
-    //box-shadow: $deep-shadow;
-    //border-top: 3px solid $text-faded;
     padding: 0 20px;
-    background: rgba(255, 255, 255, 1);
-    background: linear-gradient(to bottom,
-        rgba(255, 255, 255, 1) 52%,
-        rgba(255, 255, 255, 0.5) 100%);
-    //font-size: 0.75em;
-    width: 98%;
+    //width: 98%;
     transition-duration: 0.3s;
     transition-timing-function: ease-in-out;
 
@@ -88,7 +74,7 @@
 
   & h4::after {
     content: "";
-    border-left: 2px solid $text-faded;
+    border-left: 2px solid $gray-mid;
     display: inline-block;
     height: 20px;
     width: 0;
@@ -98,57 +84,36 @@
   }
 }
 
-.process-icon {
-  & img {
-    width: 100%;
-  }
-
-  box-shadow: $default-shadow;
-  border-radius: 50%;
-  background-color: $orange-pale;
-  border-left: 1px solid $brown-black;
-  border-right: 1px solid $brown-black;
-  border-bottom: 2px solid $brown-black;
-  height: 75px;
-  width: 75px;
-  margin: 0;
-  padding: 0;
-}
-
 /******* Begin index media queries *******/
 
 @media(min-width: 450px) {}
 
 @media(min-width: 600px) {
-  .site-card {
-    margin: 0 10px 40px 10px;
-    overflow: hidden;
-    width: 45vw;
-    min-width: 500px;
-    max-width: 950px;
-    height: 30vw;
-    min-height: 380px;
-    max-height: 640px;
-  }
 
   .campaign-card {
     flex-flow: column nowrap;
     margin: 0 10px 40px 10px;
-    //overflow: hidden;
     width: 90vw;
     min-width: 500px;
-    //max-width: 950px;
-    //height: 30vw;
-    //min-height: 380px;
-    //max-height: 640px;
   }
-
 }
 
 @media(min-width: 1000px) {
   .campaign-card {
     display: flex;
     flex-flow: row nowrap;
+    & figure{
+      background-color: #eee;
+      padding: 1em;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      margin: 2em 0;
+
+      & img{
+        width: 100%;
+      }
+    }
   }
 }
 

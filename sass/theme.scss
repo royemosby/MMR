@@ -1,18 +1,22 @@
 //colors
 
-$gray-mid: #d8d8d8;
+
+$white: #ffffff;
+$gray-light: #d8d8d8;
+$gray-mid: #a1a1a1;
+$brown-black: #1a1917;
 $orange-primary: #f76b21;
 $orange-pale:#fde0d0;
-$white: #ffffff;
+
 $heading-on-bright: $orange-primary;
-$brown-black: #1a1917;
 $text-on-dark: $white;
-$text-faded: #a1a1a1;
 $text-on-bright: $brown-black;
 
-$default-shadow: 0 4px 5px hsla(0, 0, 0, 0.2);
-$deep-shadow: 0 4px 10px hsla(0, 0, 0, 0.4);
-$narrow-shadow: 0 14px 10px -11px hsla(0, 0, 0, 0.2);
+$shadow-subtle: 0 33px 22px -35px rgba(0, 0, 0, .1);
+$shadow-narrow: 0 14px 10px -11px hsla(0, 0, 0, 0.2);
+$shadow-default: 0 4px 5px hsla(0, 0, 0, 0.2);
+$shadow-deep: 0 4px 10px hsla(0, 0, 0, 0.4);
+
 //typographic
 $title-font: 'Arvo';
 $body-font: 'Open Sans',

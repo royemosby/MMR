@@ -42,7 +42,7 @@ h6 {
 
 header {
   background-color: $orange-primary;
-  box-shadow: $default-shadow;
+  box-shadow: $shadow-default;
   display: flex;
   flex-flow: row nowrap;
   flex-shrink: 0;
@@ -97,12 +97,12 @@ header {
   display: flex;
   flex-flow: column;
   flex: 1 0 auto;
-  box-shadow: $default-shadow;
+  box-shadow: $shadow-default;
   position: relative;
 }
 
 footer {
-  background-color: $gray-mid;
+  background-color: $gray-light;
   display: flex;
   flex-flow: row nowrap;
   flex-shrink: 0;
