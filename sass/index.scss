@@ -1,81 +1,11 @@
 /* begin index */
 
-#websites,
-#campaign {
+#projects {
   @include wide-section;
 }
 
 #creative {
   @include narrow-section;
-}
-
-.site-card {
-  background-color: $white;
-  box-shadow: $default-shadow;
-  //height: 410px;
-  margin: 0 10px 40px 10px;
-  overflow: hidden;
-  width: 95vw;
-  height: 70vw;
-  min-height: 260px;
-  max-height: 640px;
-
-  & figure {
-    width: 100%;
-    text-align: center;
-    margin: 0 auto 10px auto;
-  }
-
-  img {
-    width: 100%;
-  }
-
-  & .details {
-    box-shadow: $deep-shadow;
-    border-top: 3px solid $text-faded;
-    padding: 20px 10px 200px 10px;
-    background: rgba(255, 255, 255, 1);
-    background: linear-gradient(to bottom,
-        rgba(255, 255, 255, 1) 52%,
-        rgba(255, 255, 255, 0.5) 100%);
-    position: relative;
-    //font-size: 0.75em;
-    top: -10%;
-    left: 1%;
-    width: 98%;
-    transition-duration: 0.3s;
-    transition-timing-function: ease-in-out;
-
-    & h2 {
-      display: inline;
-      margin: 0px 10px;
-    }
-
-
-    &::before {
-      content: '';
-      border-right: 15px solid transparent;
-      border-bottom: 15px solid $text-faded;
-      border-left: 15px solid transparent;
-      display: inline-block;
-      position: relative;
-      top: -5px;
-      width: 0;
-      height: 0;
-      //margin-bottom: 20px;
-      transition-duration: 0.4s;
-      transition-timing-function: ease-out;
-    }
-
-
-    &.is-active {
-      transform: translateY(-200px);
-
-      &::before {
-        transform: rotate(180deg);
-      }
-    }
-  }
 }
 
 @media (hover: hover) {
