@@ -1,4 +1,37 @@
 /* begin index */
+.hero {
+  width: 100vw;
+  max-width: 100%;
+  margin-top: 0px;
+
+
+  & img {
+    width: 100%;
+  }
+}
+
+.bio {
+  flex: 1 1 auto;
+}
+
+.greeting {
+  font-weight: normal;
+  margin: 0 0 10px 5px;
+  padding-left: 0;
+  width: inherit;
+}
+
+.tagline {
+  font-weight: normal;
+  margin: 0 0 5px 5px;
+}
+
+.bio {
+  font-size: 1em;
+  display: flex;
+  flex-flow: column;
+  margin: 10px;
+}
 
 .project {
   @include wide-section;
@@ -7,16 +40,6 @@
 
 #creative {
   @include narrow-section;
-}
-
-@media (hover: hover) {
-  .site-card .details:hover {
-    transform: translateY(-200px);
-
-    &::before {
-      transform: rotate(180deg);
-    }
-  }
 }
 
 .campaign-card {
@@ -28,16 +51,13 @@
 
   img {
     width: 100%;
-    box-shadow: $shadow-default;
+    box-shadow: $shadow-deep;
     margin-bottom: 1em;
   }
 
 
   & .details {
     padding: 0 20px;
-    //width: 98%;
-    transition-duration: 0.3s;
-    transition-timing-function: ease-in-out;
 
     & h2,
     h3 {
@@ -46,74 +66,61 @@
   }
 }
 
-.campaign-role,
-.campaign-process {
-  display: flex;
-  flex-flow: row nowrap;
-
-  &>div {
-    margin: 5px;
-  }
-
-}
-
-.campaign-process {
-  text-align: center;
-  justify-content: space-between;
-
-  &>div {
-    display: flex;
-    flex-flow: column nowrap;
-    align-items: center;
-  }
-
-  & h4 {
-    position: relative;
-    margin-top: 0;
-  }
-
-  & h4::after {
-    content: "";
-    border-left: 2px solid $gray-mid;
-    display: inline-block;
-    height: 20px;
-    width: 0;
-    position: absolute;
-    left: 50%;
-    top: 25px;
-  }
-}
-
 /******* Begin index media queries *******/
 
 @media(min-width: 450px) {}
 
 @media(min-width: 600px) {
+  .campaign-role {
+    display: flex;
+    flex-flow: row nowrap;
 
-  .campaign-card {
-    flex-flow: column nowrap;
-    margin: 0 10px 40px 10px;
-    width: 90vw;
-    min-width: 500px;
+    &>div {
+      margin: 5px;
+    }
+
   }
+
+}
+
+.campaign-card {
+  flex-flow: column nowrap;
+  margin: 0 10px 40px 10px;
+  width: 90vw;
+  //min-width: 500px;
 }
 
 @media(min-width: 1000px) {
+  .hero {
+    display: flex;
+    align-items: center;
+  }
+
+  .pic {
+    flex: 1 0 600px;
+  }
+
   .campaign-card {
     display: flex;
     flex-flow: row nowrap;
-    & figure{
+
+    & figure {
       background-color: #eee;
       padding: 1em;
       display: flex;
       flex-direction: column;
       justify-content: center;
       margin: 2em 0;
+      flex-grow: 1;
 
-      & img{
+      & img {
         width: 100%;
       }
     }
+  }
+
+  .details {
+    flex-grow: 2;
   }
 }
 
