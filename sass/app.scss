@@ -27,7 +27,8 @@ a {
 h1 {
   font-size: 1.8em;
   width: 100%;
-  text-align: center;
+  //text-align: center;
+  padding-left: 1em;
 }
 
 h1,
@@ -41,6 +42,7 @@ h6 {
 }
 
 header {
+  align-content: center;
   background-color: $orange-primary;
   box-shadow: $shadow-default;
   display: flex;
@@ -71,10 +73,14 @@ header {
 .header-logo-text {
   color: $text-on-dark;
   font-size: 3em;
-  margin: 30px 12px 0 12px;
+  margin: 20px 12px 20px 12px;
+  padding: 0;
 }
 
 .header-menu {
+  align-items: center;
+  display: flex;
+
   & ul {
     display: flex;
     flex-flow: column nowrap;
@@ -155,7 +161,7 @@ footer {
   flex-flow: column nowrap;
   font-size: 0.8em;
   justify-content: center;
-  padding: 0 5px;
+  padding: 10px;
   text-align: center;
 
   & img {
@@ -237,4 +243,3 @@ footer {
 
 @import 'index';
 @import 'resume';
-@import 'about';
