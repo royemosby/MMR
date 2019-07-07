@@ -30,7 +30,7 @@
   font-size: 1em;
   display: flex;
   flex-flow: column;
-  margin: 10px;
+  margin: 0 10px;
 }
 
 .project {
@@ -49,10 +49,13 @@
   width: 95vw;
   min-height: 260px;
 
+  &:last-child{
+    margin-bottom: 0;
+  }
+
   img {
     width: 100%;
     box-shadow: $shadow-deep;
-    margin-bottom: 1em;
   }
 
 
@@ -111,6 +114,7 @@
       flex-direction: column;
       justify-content: center;
       margin: 2em 0;
+      flex-basis: 50%;
       flex-grow: 1;
 
       & img {
@@ -120,7 +124,9 @@
   }
 
   .details {
-    flex-grow: 2;
+    flex-basis: 50%;
+    flex-grow: 1;
+    
   }
 }
 
