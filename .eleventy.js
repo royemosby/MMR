@@ -8,7 +8,17 @@ module.exports = function(eleventyConfig) {
     dir: {
       includes: 'includes',
     },
-    templateFormats: ['js', 'map', 'liquid', 'md', 'html'],
+    templateFormats: [
+      'js',
+      'map',
+      'liquid',
+      'md',
+      'html',
+      'png',
+      'xml',
+      'svg',
+      'webmanifest',
+    ],
     passthroughFileCopy: true,
   };
 };
