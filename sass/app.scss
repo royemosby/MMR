@@ -9,7 +9,6 @@ body {
   flex-flow: column;
   font-family: $body-font;
   font-size: 1.2em;
-  //min-height: 100%;
 }
 
 html {
@@ -42,16 +41,18 @@ h6 {
 }
 
 header {
-  align-content: center;
+  align-items: center;
   background-color: $orange-primary;
   box-shadow: $shadow-default;
   display: flex;
   flex-flow: row nowrap;
   flex-shrink: 0;
   justify-content: space-between;
-  //position: sticky;
-  //top: 0;
-  //z-index: 1;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  @include resize-transform;
 
   & a {
     color: $text-on-dark;
@@ -59,6 +60,21 @@ header {
 
     &:hover {
       color: darken($text-on-dark, 10%);
+    }
+  }
+}
+
+.is-scrolled {
+  & .header-logo-text {
+    @include resize-transform;
+    font-size: 1.6em;
+    margin: 5px 3px;
+  }
+
+  & .header-menu {
+    & ul {
+      @include resize-transform;
+      margin: 0;
     }
   }
 }
@@ -74,6 +90,7 @@ header {
 }
 
 .header-logo-text {
+  @include resize-transform;
   color: $text-on-dark;
   font-size: 3em;
   margin: 20px 12px 20px 12px;
@@ -85,6 +102,7 @@ header {
   display: flex;
 
   & ul {
+    @include resize-transform;
     display: flex;
     flex-flow: column nowrap;
     list-style: none;
@@ -239,6 +257,25 @@ footer {
 
   .header-menu {
     padding: 25px 16px;
+  }
+
+  .is-scrolled {
+    & .header-logo-text {
+      @include resize-transform;
+      font-size: 2.5em;
+      //margin: 5px 3px;
+    }
+
+    & .header-menu {
+      @include resize-transform;
+      padding: 0;
+
+      & ul {
+        @include resize-transform;
+        margin: 1px 5px;
+        padding: 0
+      }
+    }
   }
 }
 

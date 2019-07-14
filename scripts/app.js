@@ -1,6 +1,22 @@
+(function() {
+  var header = document.querySelector('header');
+  var isExpanded = true;
 
+  function toggle() {
+    header.classList.toggle('is-scrolled');
+  }
 
-// TODO: need to deal with fingers and onclicks
-// [ ] top menu
-// [ ] project cards
-// TODO: easter egg
+  document.addEventListener('scroll', function(e) {
+    if (isExpanded && window.scrollY > 110) {
+      window.requestAnimationFrame(function() {
+        toggle();
+        isExpanded = !isExpanded;
+      });
+    } else if (!isExpanded && window.scrollY < 30) {
+      window.requestAnimationFrame(function() {
+        toggle();
+        isExpanded = !isExpanded;
+      });
+    }
+  });
+})();

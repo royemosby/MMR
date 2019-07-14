@@ -341,19 +341,39 @@ h6 {
   color: #f76b21; }
 
 header {
-  align-content: center;
+  align-items: center;
   background-color: #f76b21;
   box-shadow: 0 4px 5px rgba(0, 0, 0, 0.2);
   display: flex;
   flex-flow: row nowrap;
   flex-shrink: 0;
-  justify-content: space-between; }
+  justify-content: space-between;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  transition-duration: .35s;
+  transition-timing-function: ease-out;
+  transition-timing-function: cubic-bezier(0.45, 1.31, 0.55, 1); }
   header a {
     color: #ffffff;
     transition-duration: .2s;
     transition-timing-function: ease-out; }
     header a:hover {
       color: #e6e6e6; }
+
+.is-scrolled .header-logo-text {
+  transition-duration: .35s;
+  transition-timing-function: ease-out;
+  transition-timing-function: cubic-bezier(0.45, 1.31, 0.55, 1);
+  font-size: 1.6em;
+  margin: 5px 3px; }
+
+.is-scrolled .header-menu ul {
+  transition-duration: .35s;
+  transition-timing-function: ease-out;
+  transition-timing-function: cubic-bezier(0.45, 1.31, 0.55, 1);
+  margin: 0; }
 
 .header-logo-text {
   font-family: "Arvo"; }
@@ -362,6 +382,9 @@ header {
   text-decoration: none; }
 
 .header-logo-text {
+  transition-duration: .35s;
+  transition-timing-function: ease-out;
+  transition-timing-function: cubic-bezier(0.45, 1.31, 0.55, 1);
   color: #ffffff;
   font-size: 3em;
   margin: 20px 12px 20px 12px;
@@ -371,6 +394,9 @@ header {
   align-items: center;
   display: flex; }
   .header-menu ul {
+    transition-duration: .35s;
+    transition-timing-function: ease-out;
+    transition-timing-function: cubic-bezier(0.45, 1.31, 0.55, 1);
     display: flex;
     flex-flow: column nowrap;
     list-style: none;
@@ -470,7 +496,23 @@ footer {
     font-size: 5em;
     margin: 16px; }
   .header-menu {
-    padding: 25px 16px; } }
+    padding: 25px 16px; }
+  .is-scrolled .header-logo-text {
+    transition-duration: .35s;
+    transition-timing-function: ease-out;
+    transition-timing-function: cubic-bezier(0.45, 1.31, 0.55, 1);
+    font-size: 2.5em; }
+  .is-scrolled .header-menu {
+    transition-duration: .35s;
+    transition-timing-function: ease-out;
+    transition-timing-function: cubic-bezier(0.45, 1.31, 0.55, 1);
+    padding: 0; }
+    .is-scrolled .header-menu ul {
+      transition-duration: .35s;
+      transition-timing-function: ease-out;
+      transition-timing-function: cubic-bezier(0.45, 1.31, 0.55, 1);
+      margin: 1px 5px;
+      padding: 0; } }
 
 /* begin index */
 .hero {
@@ -484,7 +526,6 @@ footer {
   flex: 1 1 auto; }
 
 .greeting {
-  font-weight: normal;
   margin: 0 0 10px 5px;
   padding-left: 0;
   width: inherit; }
@@ -549,7 +590,8 @@ footer {
     display: flex;
     align-items: center; }
   .pic {
-    flex: 1 0 600px; }
+    flex: 1 0 60%;
+    max-width: 950px; }
   .campaign-card {
     display: flex;
     flex-flow: row nowrap; }
