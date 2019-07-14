@@ -35,5 +35,8 @@
       ],
       "comma-dangle": "ignore"
     }
+  },
+  "devDependencies": {
+    "gulp-postcss": "^8.0.0"
   }
 }
