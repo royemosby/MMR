@@ -15,7 +15,6 @@
 }
 
 .greeting {
-  font-weight: normal;
   margin: 0 0 10px 5px;
   padding-left: 0;
   width: inherit;
@@ -49,7 +48,7 @@
   width: 95vw;
   min-height: 260px;
 
-  &:last-child{
+  &:last-child {
     margin-bottom: 0;
   }
 
@@ -100,7 +99,8 @@
   }
 
   .pic {
-    flex: 1 0 600px;
+    flex: 1 0 60%;
+    max-width: 950px;
   }
 
   .campaign-card {
@@ -126,7 +126,7 @@
   .details {
     flex-basis: 50%;
     flex-grow: 1;
-    
+
   }
 }
 
