@@ -7,7 +7,7 @@ module.exports = function(eleventyConfig) {
     dir: {
       includes: 'includes',
     },
-    templateFormats: ['css', 'js', 'map', 'liquid', 'md', 'html'],
+    templateFormats: ['css', 'js', 'map', 'liquid', 'md', 'html', 'pdf'],
     passthroughFileCopy: true,
   };
 };
