@@ -46,3 +46,9 @@ serif;
   transition-duration: .2s;
   transition-timing-function: ease-out;
 }
+
+@mixin resize-transform {
+  transition-duration: .35s;
+  transition-timing-function: ease-out;
+  transition-timing-function: cubic-bezier(.45, 1.31, .55, 1, ) //https://cubic-bezier.com/#.45,1.31,.55,1
+}
