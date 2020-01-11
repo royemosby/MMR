@@ -1,28 +1,25 @@
 //colors
 
-
 $white: #ffffff;
 $gray-light: #d8d8d8;
 $gray-mid: #a1a1a1;
 $brown-black: #1a1917;
 $orange-primary: #f76b21;
-$orange-pale:#fde0d0;
+$orange-pale: #fde0d0;
 
 $heading-on-bright: $orange-primary;
 $text-on-dark: $white;
 $text-on-bright: $brown-black;
 
-$shadow-subtle: 0 33px 22px -35px rgba(0, 0, 0, .1);
+$shadow-subtle: 0 33px 22px -35px rgba(0, 0, 0, 0.1);
 $shadow-narrow: 0 14px 10px -11px hsla(0, 0, 0, 0.2);
 $shadow-default: 0 4px 5px hsla(0, 0, 0, 0.2);
 $shadow-deep: 0 4px 10px hsla(0, 0, 0, 0.4);
 
 //typographic
 $title-font: 'Arvo';
-$body-font: 'Open Sans',
-sans-serif;
-$heading-font: 'Raleway',
-serif;
+$body-font: 'Open Sans', sans-serif;
+$heading-font: 'Raleway', serif;
 
 //content
 @mixin narrow-section {
@@ -43,12 +40,11 @@ serif;
 
 //interation:
 @mixin hover-transform {
-  transition-duration: .2s;
+  transition-duration: 0.2s;
   transition-timing-function: ease-out;
 }
 
 @mixin resize-transform {
-  transition-duration: .35s;
+  transition-duration: 0.35s;
   transition-timing-function: ease-out;
-  transition-timing-function: cubic-bezier(.45, 1.31, .55, 1, ) //https://cubic-bezier.com/#.45,1.31,.55,1
 }

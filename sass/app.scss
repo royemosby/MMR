@@ -161,7 +161,7 @@ footer {
     @include hover-transform;
 
     &:hover {
-      opacity: .7;
+      opacity: 0.7;
     }
 
     order: 2;
@@ -194,12 +194,11 @@ footer {
       opacity: 1;
     }
   }
-
 }
 
 /******* Begin app media queries *******/
 
-@media(min-width: 450px) {
+@media (min-width: 450px) {
   .header-menu {
     & ul {
       flex-flow: row nowrap;
@@ -245,7 +244,7 @@ footer {
   }
 }
 
-@media(min-width: 600px) {
+@media (min-width: 600px) {
   h1 {
     font-size: 2em;
   }
@@ -273,13 +272,11 @@ footer {
       & ul {
         @include resize-transform;
         margin: 1px 5px;
-        padding: 0
+        padding: 0;
       }
     }
   }
 }
-
-
 
 @import 'index';
 @import 'resume';
