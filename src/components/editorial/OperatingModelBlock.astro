@@ -1,0 +1,28 @@
+---
+interface Step {
+	title: string;
+	description: string;
+}
+
+interface Props {
+	heading?: string;
+	intro?: string;
+	steps: Step[];
+}
+
+const { heading, intro, steps } = Astro.props;
+---
+
+<div class="operating-model">
+	{heading && <h2 class="operating-model__heading">{heading}</h2>}
+	{intro && <p class="operating-model__intro">{intro}</p>}
+	<ol class="operating-model__steps">
+		{steps.map((step, i) => (
+			<li class="operating-model__step">
+				<span class="operating-model__step-number" aria-hidden="true">{String(i + 1).padStart(2, '0')}</span>
+				<strong class="operating-model__step-title">{step.title}</strong>
+				<p class="operating-model__step-desc">{step.description}</p>
+			</li>
+		))}
+	</ol>
+</div>

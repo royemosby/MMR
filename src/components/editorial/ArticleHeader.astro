@@ -1,0 +1,27 @@
+---
+interface Props {
+	eyebrow?: string;
+	title: string;
+	dek?: string;
+	premise?: string;
+	readingTime?: string;
+	publishDate?: string;
+	primaryTopic?: string;
+}
+
+const { eyebrow, title, dek, premise, readingTime, publishDate, primaryTopic } = Astro.props;
+---
+
+<header class="article-header">
+	{eyebrow && <p class="article-header__eyebrow">{eyebrow}</p>}
+	<h1 class="article-header__title">{title}</h1>
+	{dek && <p class="article-header__dek">{dek}</p>}
+	{premise && <p class="article-header__premise">{premise}</p>}
+	{(readingTime || publishDate || primaryTopic) && (
+		<div class="article-header__meta">
+			{primaryTopic && <span class="article-header__topic">{primaryTopic}</span>}
+			{publishDate && <span>{publishDate}</span>}
+			{readingTime && <span>{readingTime}</span>}
+		</div>
+	)}
+</header>

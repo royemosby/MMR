@@ -1,0 +1,19 @@
+---
+interface Props {
+	heading: string;
+	intro?: string;
+	items: string[];
+}
+
+const { heading, intro, items } = Astro.props;
+---
+
+<div class="checklist-callout" role="note">
+	<h3 class="checklist-callout__heading">{heading}</h3>
+	{intro && <p class="checklist-callout__intro">{intro}</p>}
+	<ul class="checklist-callout__list">
+		{items.map((item) => (
+			<li class="checklist-callout__item">{item}</li>
+		))}
+	</ul>
+</div>
