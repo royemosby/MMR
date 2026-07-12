@@ -1,8 +1,14 @@
 ---
+import { getCollection } from 'astro:content';
 import ShowcaseLayout from '../layouts/ShowcaseLayout.astro';
 import InterfaceButton from '../components/ui/InterfaceButton.astro';
 import FeatureCard from '../components/ui/FeatureCard.astro';
 import FieldNoteCard from '../components/ui/FieldNoteCard.astro';
+
+const allFieldNotes = await getCollection('field-notes', ({ data }) => data.status === 'published');
+const fieldNotes = allFieldNotes
+	.sort((a, b) => a.data.fieldNoteNumber - b.data.fieldNoteNumber)
+	.slice(0, 3);
 ---
 
 <ShowcaseLayout
@@ -86,24 +92,15 @@ import FieldNoteCard from '../components/ui/FieldNoteCard.astro';
 		<span class="section-heading__label">Observations from the space between strategy and execution.</span>
 	</div>
 	<div class="content-grid">
-		<FieldNoteCard
-			noteId="Strategy / Field Note"
-			quote="When Delivery Becomes Strategic Leadership"
-			author="The work between vision and execution deserves a name: operating structure."
-			date=""
-		/>
-		<FieldNoteCard
-			noteId="Delivery / Field Note"
-			quote="A Project Can Be On Schedule and Still Feel Unsafe"
-			author="The first signs of delivery risk often show up as confusion, churn, hesitation, or doubt."
-			date=""
-		/>
-		<FieldNoteCard
-			noteId="Operations / Field Note"
-			quote="Momentum Is Not Speed"
-			author="Progress builds trust when people can see what changed, what matters, and what comes next."
-			date=""
-		/>
+		{fieldNotes.map((note) => (
+			<FieldNoteCard
+				noteId={`${note.data.seriesLabel} — No. ${String(note.data.fieldNoteNumber).padStart(2, '0')}`}
+				quote={note.data.title}
+				author={note.data.signal}
+				date={note.data.readingTime ?? ''}
+				href={`/field-notes/${note.id}`}
+			/>
+		))}
 	</div>
 
 	<!-- Closing CTA -->

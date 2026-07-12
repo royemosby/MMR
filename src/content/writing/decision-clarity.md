@@ -6,6 +6,7 @@ dek: "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit
 premise: "Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur."
 readingTime: "8 min read"
 primaryTopic: "Decision Systems"
+featuredVisual: "https://picsum.photos/seed/mml-decision/1200/900"
 status: published
 ---
 

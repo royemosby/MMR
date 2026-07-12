@@ -7,9 +7,11 @@ interface Props {
 	readingTime?: string;
 	publishDate?: string;
 	primaryTopic?: string;
+	visualSrc?: string;
+	visualAlt?: string;
 }
 
-const { eyebrow, title, dek, premise, readingTime, publishDate, primaryTopic } = Astro.props;
+const { eyebrow, title, dek, premise, readingTime, publishDate, primaryTopic, visualSrc, visualAlt = '' } = Astro.props;
 ---
 
 <header class="article-header">
@@ -22,6 +24,11 @@ const { eyebrow, title, dek, premise, readingTime, publishDate, primaryTopic } =
 			{primaryTopic && <span class="article-header__topic">{primaryTopic}</span>}
 			{publishDate && <span>{publishDate}</span>}
 			{readingTime && <span>{readingTime}</span>}
+		</div>
+	)}
+	{visualSrc && (
+		<div class="article-header__visual-wrap">
+			<img class="article-header__visual" src={visualSrc} alt={visualAlt} loading="eager" />
 		</div>
 	)}
 </header>

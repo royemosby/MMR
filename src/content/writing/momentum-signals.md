@@ -6,6 +6,7 @@ dek: "Nam libero tempore cum soluta nobis eligendi optio cumque nihil impedit qu
 premise: "Temporibus autem quibusdam et aut officiis debitis rerum necessitatibus saepe eveniet ut et voluptates repudiandae."
 readingTime: "6 min read"
 primaryTopic: "Strategic Momentum"
+featuredVisual: "https://picsum.photos/seed/mml-momentum/1200/900"
 status: published
 ---
 

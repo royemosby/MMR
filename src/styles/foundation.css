@@ -668,6 +668,16 @@ img {
   color: #3a2f26;
 }
 
+.field-note-card__link {
+  color: inherit;
+  text-decoration: none;
+}
+
+.field-note-card__link:hover {
+  text-decoration: underline;
+  text-underline-offset: 0.1em;
+}
+
 .field-note-card__meta {
   display: flex;
   justify-content: space-between;
@@ -1369,6 +1379,20 @@ img {
 .article-header__topic {
   color: var(--color-oxblood);
   font-weight: 600;
+}
+
+.article-header__visual-wrap {
+  overflow: hidden;
+  border: 1px solid var(--color-rule);
+  margin-top: var(--space-8);
+}
+
+.article-header__visual {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  display: block;
+  filter: grayscale(15%);
 }
 
 /* RichTextArticleBody */
