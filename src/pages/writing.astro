@@ -1,0 +1,98 @@
+---
+import { getCollection } from 'astro:content';
+import ShowcaseLayout from '../layouts/ShowcaseLayout.astro';
+import EditorialPageHeader from '../components/editorial/EditorialPageHeader.astro';
+import FeaturedFlagshipArticle from '../components/editorial/FeaturedFlagshipArticle.astro';
+import EssayTeaser from '../components/editorial/EssayTeaser.astro';
+import FieldNoteArchiveRow from '../components/editorial/FieldNoteArchiveRow.astro';
+import RelatedThinkingModule from '../components/editorial/RelatedThinkingModule.astro';
+
+const allWriting = await getCollection('writing', ({ data }) => data.status === 'published');
+const flagship = allWriting.find((e) => e.data.contentType === 'flagship-essay');
+const essays = allWriting.filter((e) => e.data.contentType === 'essay');
+
+const allFieldNotes = await getCollection('field-notes', ({ data }) => data.status === 'published');
+const fieldNotes = allFieldNotes.sort((a, b) => a.data.fieldNoteNumber - b.data.fieldNoteNumber);
+
+const allWork = await getCollection('work', ({ data }) => data.status === 'published');
+const relatedWork = allWork.slice(0, 2).map((entry) => ({
+	contentType: entry.data.category,
+	title: entry.data.strategicTitle,
+	href: `/work/${entry.id}`,
+}));
+---
+
+<ShowcaseLayout
+	title="Writing"
+	description="Essays, field notes, and long-form thinking on strategy, operating systems, and the work of leading complex digital initiatives."
+	noHero
+>
+	<EditorialPageHeader
+		eyebrow="Writing"
+		heading="Thinking made visible."
+		intro="Flagship essays, field notes, and working observations on the operating layer between strategy and execution. Manually curated — not reverse-chronological."
+	/>
+
+	{flagship && (
+		<FeaturedFlagshipArticle
+			contentType="Flagship Essay"
+			title={flagship.data.title}
+			dek={flagship.data.dek}
+			premise={flagship.data.premise}
+			readingTime={flagship.data.readingTime}
+			href={`/writing/${flagship.id}`}
+			visualSrc={flagship.data.featuredVisual}
+			visualAlt=""
+		/>
+	)}
+
+	{essays.length > 0 && (
+		<>
+			<div class="section-heading">
+				<p class="section-heading__eyebrow">Essays</p>
+				<div class="section-heading__line"></div>
+			</div>
+			{essays.map((essay) => (
+				<EssayTeaser
+					contentType="Essay"
+					title={essay.data.title}
+					abstract={essay.data.dek}
+					readingTime={essay.data.readingTime}
+					topic={essay.data.primaryTopic}
+					href={`/writing/${essay.id}`}
+				/>
+			))}
+		</>
+	)}
+
+	{fieldNotes.length > 0 && (
+		<>
+			<div class="section-heading">
+				<p class="section-heading__eyebrow">Field Notes</p>
+				<div class="section-heading__line"></div>
+				<span class="section-heading__label">Systems Witch Field Notes</span>
+			</div>
+			{fieldNotes.map((note) => (
+				<FieldNoteArchiveRow
+					number={note.data.fieldNoteNumber}
+					seriesLabel={note.data.seriesLabel}
+					title={note.data.title}
+					signal={note.data.signal}
+					readingTime={note.data.readingTime}
+					href={`/field-notes/${note.id}`}
+				/>
+			))}
+		</>
+	)}
+
+	{relatedWork.length > 0 && (
+		<RelatedThinkingModule
+			eyebrow="Related Work"
+			heading="From the field."
+			body="Selected case studies on operating interventions, digital transformation, and strategic execution."
+			entries={relatedWork}
+			ctaHref="/work"
+			ctaLabel="See all work"
+		/>
+	)}
+</ShowcaseLayout>

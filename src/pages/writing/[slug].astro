@@ -1,0 +1,60 @@
+---
+import { getCollection, render, type CollectionEntry } from 'astro:content';
+import ShowcaseLayout from '../../layouts/ShowcaseLayout.astro';
+import ArticleHeader from '../../components/editorial/ArticleHeader.astro';
+import RichTextArticleBody from '../../components/editorial/RichTextArticleBody.astro';
+import CompactAuthorLine from '../../components/editorial/CompactAuthorLine.astro';
+import ReadNextModule from '../../components/editorial/ReadNextModule.astro';
+
+export async function getStaticPaths() {
+	const entries = await getCollection('writing');
+	return entries.map((entry) => ({
+		params: { slug: entry.id },
+		props: { entry },
+	}));
+}
+
+type Props = { entry: CollectionEntry<'writing'> };
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+
+const publishDateFormatted = entry.data.publishDate
+	? entry.data.publishDate.toLocaleDateString('en-US', {
+			year: 'numeric',
+			month: 'long',
+			day: 'numeric',
+		})
+	: undefined;
+
+// relatedContent is an array of slugs — full lookup can be added when content volume justifies it
+const readNextEntries: { contentType: string; title: string; description: string; href: string }[] = [];
+---
+
+<ShowcaseLayout
+	title={entry.data.seoTitle ?? entry.data.title}
+	description={entry.data.metaDescription ?? entry.data.dek}
+	noHero
+>
+	<ArticleHeader
+		eyebrow={entry.data.eyebrow ?? (entry.data.contentType === 'flagship-essay' ? 'Flagship Essay' : 'Essay')}
+		title={entry.data.title}
+		dek={entry.data.dek}
+		premise={entry.data.premise}
+		readingTime={entry.data.readingTime}
+		publishDate={publishDateFormatted}
+		primaryTopic={entry.data.primaryTopic}
+		visualSrc={entry.data.featuredVisual}
+	/>
+
+	<RichTextArticleBody>
+		<Content />
+	</RichTextArticleBody>
+
+	<CompactAuthorLine
+		name="Maggie Lynn"
+		role="Strategy and operating systems for mission-driven digital work."
+		aboutHref="/about"
+	/>
+
+	<ReadNextModule entries={readNextEntries} />
+</ShowcaseLayout>

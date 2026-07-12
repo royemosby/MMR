@@ -1,0 +1,89 @@
+---
+import { getCollection, render, type CollectionEntry } from 'astro:content';
+import ShowcaseLayout from '../../layouts/ShowcaseLayout.astro';
+import CaseStudyHeader from '../../components/editorial/CaseStudyHeader.astro';
+import CaseStudySection from '../../components/editorial/CaseStudySection.astro';
+import OutcomesBlock from '../../components/editorial/OutcomesBlock.astro';
+import LeadershipLessonBlock from '../../components/editorial/LeadershipLessonBlock.astro';
+import RichTextArticleBody from '../../components/editorial/RichTextArticleBody.astro';
+import RelatedThinkingModule from '../../components/editorial/RelatedThinkingModule.astro';
+
+export async function getStaticPaths() {
+	const entries = await getCollection('work');
+	return entries.map((entry) => ({
+		params: { slug: entry.id },
+		props: { entry },
+	}));
+}
+
+type Props = { entry: CollectionEntry<'work'> };
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+
+const metadata = [
+	entry.data.role && { label: 'Role', value: entry.data.role },
+	entry.data.sector && { label: 'Sector', value: entry.data.sector },
+	entry.data.timeline && { label: 'Timeline', value: entry.data.timeline },
+	entry.data.platform && { label: 'Platform', value: entry.data.platform },
+].filter((item): item is { label: string; value: string } => Boolean(item));
+
+const relatedEntries = [
+	{ contentType: 'Writing', title: 'Read related essays', href: '/writing' },
+	{ contentType: 'Work', title: 'See all case studies', href: '/work' },
+];
+---
+
+<ShowcaseLayout
+	title={entry.data.seoTitle ?? entry.data.strategicTitle}
+	description={entry.data.metaDescription ?? entry.data.summary}
+	noHero
+>
+	<CaseStudyHeader
+		category={entry.data.category}
+		clientName={entry.data.clientName}
+		title={entry.data.strategicTitle}
+		summary={entry.data.summary}
+		metadata={metadata.length > 0 ? metadata : undefined}
+		confidentialityNote={entry.data.confidentialityNote}
+		visualSrc={entry.data.visualAsset}
+		visualAlt=""
+	/>
+
+	<CaseStudySection heading="The Visible Problem">
+		<p>{entry.data.visibleProblem}</p>
+	</CaseStudySection>
+
+	<CaseStudySection heading="The Hidden System Issue" accent>
+		<p>{entry.data.hiddenSystemIssue}</p>
+	</CaseStudySection>
+
+	<CaseStudySection heading="What Was at Stake">
+		<p>{entry.data.stakes}</p>
+	</CaseStudySection>
+
+	<CaseStudySection heading="The Operating Intervention">
+		<p>{entry.data.operatingIntervention}</p>
+	</CaseStudySection>
+
+	<OutcomesBlock
+		heading="What Changed"
+		narrative={entry.data.whatChanged}
+		metrics={entry.data.metrics}
+	/>
+
+	<LeadershipLessonBlock>
+		<p>{entry.data.leadershipLesson}</p>
+	</LeadershipLessonBlock>
+
+	<RichTextArticleBody variant="field-note">
+		<Content />
+	</RichTextArticleBody>
+
+	<RelatedThinkingModule
+		eyebrow="Related Thinking"
+		heading="The frameworks behind this work."
+		entries={relatedEntries}
+		ctaHref="/writing"
+		ctaLabel="Explore the writing"
+	/>
+</ShowcaseLayout>

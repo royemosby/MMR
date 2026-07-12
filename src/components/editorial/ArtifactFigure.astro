@@ -1,0 +1,43 @@
+---
+interface Props {
+	src: string;
+	alt: string;
+	caption: string;
+	sourceLabel?: string;
+	/** When true, wraps the figure in a details/summary toggle for keyboard-accessible expansion */
+	expandable?: boolean;
+	expandLabel?: string;
+}
+
+const {
+	src,
+	alt,
+	caption,
+	sourceLabel,
+	expandable = false,
+	expandLabel = 'View artifact',
+} = Astro.props;
+---
+
+{expandable ? (
+	<details class="artifact-figure artifact-figure--expandable">
+		<summary class="artifact-figure__trigger">
+			{sourceLabel && <span class="artifact-figure__source-badge">{sourceLabel}</span>}
+			<span class="artifact-figure__trigger-label">{expandLabel}</span>
+		</summary>
+		<figure class="artifact-figure__content">
+			<img class="artifact-figure__image" src={src} alt={alt} loading="lazy" />
+			<figcaption class="artifact-figure__caption-wrap">
+				<p class="artifact-figure__caption">{caption}</p>
+			</figcaption>
+		</figure>
+	</details>
+) : (
+	<figure class="artifact-figure">
+		<img class="artifact-figure__image" src={src} alt={alt} loading="lazy" />
+		<figcaption class="artifact-figure__caption-wrap">
+			{sourceLabel && <span class="artifact-figure__source-label">{sourceLabel}</span>}
+			<p class="artifact-figure__caption">{caption}</p>
+		</figcaption>
+	</figure>
+)}

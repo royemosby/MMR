@@ -1,85 +1,74 @@
 ---
 import ShowcaseLayout from '../layouts/ShowcaseLayout.astro';
-import DataEntryForm from '../components/ui/DataEntryForm.astro';
-import FeatureCard from '../components/ui/FeatureCard.astro';
-import FieldNoteCard from '../components/ui/FieldNoteCard.astro';
-import InterfaceButton from '../components/ui/InterfaceButton.astro';
-import InterfaceLink from '../components/ui/InterfaceLink.astro';
-import StrategicHeroBlock from '../components/ui/StrategicHeroBlock.astro';
+import EditorialPageHeader from '../components/editorial/EditorialPageHeader.astro';
+import RelatedThinkingModule from '../components/editorial/RelatedThinkingModule.astro';
+
+const frameworks = [
+	{
+		name: 'The Operating Layer Model',
+		description:
+			'A structure for the space between strategy and execution — covering priorities, decisions, risks, rhythms, and the narrative that holds them together.',
+		slug: 'operating-layer-model',
+	},
+	{
+		name: 'Decision Clarity System',
+		description:
+			'A repeatable approach to making decisions visible, durable, and trusted — from framing through documentation and stakeholder alignment.',
+		slug: 'decision-clarity-system',
+	},
+	{
+		name: 'Stakeholder Trust Architecture',
+		description:
+			'How to design the communication rhythms, visibility structures, and narrative systems that build and maintain trust with stakeholders over time.',
+		slug: 'stakeholder-trust-architecture',
+	},
+	{
+		name: 'Strategic Momentum Diagnostics',
+		description:
+			'A set of diagnostic questions and signal patterns for identifying where momentum is stalling, what is causing it, and what to do next.',
+		slug: 'strategic-momentum-diagnostics',
+	},
+];
+
+const relatedWriting = [
+	{ contentType: 'Writing', title: 'Read the essays', href: '/writing' },
+	{ contentType: 'Work', title: 'See the case studies', href: '/work' },
+];
 ---
 
 <ShowcaseLayout
 	title="Frameworks"
-	description="A placeholder page for methods, systems, and repeatable approaches behind the work."
+	description="Strategic frameworks and repeatable operating models for mission-driven digital work."
+	noHero
 >
-	<div class="section-heading">
-		<p class="section-heading__eyebrow">02</p>
-		<div class="section-heading__line"></div>
-		<span class="section-heading__label">Strategic Hero Blocks</span>
-	</div>
-	<section class="component-grid component-grid--two">
-		<StrategicHeroBlock
-			eyebrow="Editorial Variant"
-			title="The New Standard for Strategic Operations."
-			note="Ref. Archive 2024.V2"
-		/>
-		<StrategicHeroBlock
-			title="Foundational Research"
-			mediaSrc="https://images.unsplash.com/photo-1518002054494-3a6f94352e9d?auto=format&fit=crop&w=900&q=80"
-			mediaAlt="Architectural wall with dramatic light"
-			mediaCaption="CMS Mapping: hero_headline, hero_media_url, content_tag"
-		/>
-	</section>
+	<EditorialPageHeader
+		eyebrow="Frameworks"
+		heading="Repeatable structures for complex work."
+		intro="Named frameworks drawn from direct practice — not theory. Each one is designed to be adapted to the specific operating conditions of the work, not applied wholesale."
+	/>
 
 	<div class="section-heading">
-		<p class="section-heading__eyebrow">03</p>
+		<p class="section-heading__eyebrow">The Frameworks</p>
 		<div class="section-heading__line"></div>
-		<span class="section-heading__label">Interface Controls</span>
+		<span class="section-heading__label">Detail pages coming</span>
 	</div>
-	<section class="controls-grid">
-		<div class="controls-grid__group">
-			<p class="controls-grid__label">Primary (Oxblood)</p>
-			<InterfaceButton variant="primary">Default State</InterfaceButton>
-			<InterfaceButton variant="primary">Hover / Focus</InterfaceButton>
-			<InterfaceButton variant="primary" disabled={true}>Disabled State</InterfaceButton>
-		</div>
-		<div class="controls-grid__group">
-			<p class="controls-grid__label">Secondary (Ghost)</p>
-			<InterfaceButton variant="secondary">Default State</InterfaceButton>
-			<InterfaceButton variant="secondary">Hover State</InterfaceButton>
-			<InterfaceButton variant="secondary" disabled={true}>Disabled State</InterfaceButton>
-		</div>
-		<div class="controls-grid__group">
-			<p class="controls-grid__label">Minimal (Link)</p>
-			<InterfaceLink href="/field-notes">Explore Archive</InterfaceLink>
-		</div>
-	</section>
 
-	<div class="section-heading">
-		<p class="section-heading__eyebrow">04</p>
-		<div class="section-heading__line"></div>
-		<span class="section-heading__label">Information Containers</span>
-	</div>
-	<section class="component-grid component-grid--two">
-		<FeatureCard
-			title="Project Ivory: Operational Scalability for Multi-National Logistics"
-			description="Mapping complex node-based distribution networks into an archival-friendly management interface."
-			imageSrc="https://images.unsplash.com/photo-1531297484001-80022131f5a1?auto=format&fit=crop&w=900&q=80"
-			imageAlt="Open technical notebook on a desk"
-		/>
-		<FieldNoteCard
-			quote="The quiet between decisions is where the strategy actually lives."
-			author="Authored by Maggie Lynn"
-			date="03.14.24"
-		/>
-	</section>
+	<ul class="framework-list">
+		{frameworks.map((fw) => (
+			<li class="framework-entry">
+				<h2 class="framework-entry__name">{fw.name}</h2>
+				<p class="framework-entry__description">{fw.description}</p>
+				<span class="framework-entry__coming" aria-label="Detail page coming soon">
+					In development
+				</span>
+			</li>
+		))}
+	</ul>
 
-	<div class="section-heading">
-		<p class="section-heading__eyebrow">05</p>
-		<div class="section-heading__line"></div>
-		<span class="section-heading__label">Data Entry Systems</span>
-	</div>
-	<section class="form-shell">
-		<DataEntryForm />
-	</section>
+	<RelatedThinkingModule
+		eyebrow="Related Thinking"
+		heading="The frameworks in practice."
+		body="Essays and case studies that apply these frameworks to real operating problems."
+		entries={relatedWriting}
+	/>
 </ShowcaseLayout>

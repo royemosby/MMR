@@ -1,0 +1,56 @@
+---
+interface Props {
+	contentType?: string;
+	title: string;
+	dek?: string;
+	premise?: string;
+	readingTime?: string;
+	publishDate?: string;
+	href: string;
+	ctaLabel?: string;
+	visualSrc?: string;
+	visualAlt?: string;
+}
+
+const {
+	contentType = 'Flagship Essay',
+	title,
+	dek,
+	premise,
+	readingTime,
+	publishDate,
+	href,
+	ctaLabel = 'Read the essay',
+	visualSrc,
+	visualAlt = '',
+} = Astro.props;
+
+const hasVisual = Boolean(visualSrc);
+---
+
+<article class:list={['featured-flagship', hasVisual && 'featured-flagship--has-visual']}>
+	<div class="featured-flagship__text">
+		<p class="featured-flagship__type">{contentType}</p>
+		<h2 class="featured-flagship__title">
+			<a class="featured-flagship__link" href={href}>{title}</a>
+		</h2>
+		{dek && <p class="featured-flagship__dek">{dek}</p>}
+		{premise && <p class="featured-flagship__premise">{premise}</p>}
+		<div class="featured-flagship__footer">
+			{(readingTime || publishDate) && (
+				<p class="featured-flagship__meta">
+					{publishDate && <span>{publishDate}</span>}
+					{readingTime && <span>{readingTime}</span>}
+				</p>
+			)}
+			<a class="featured-flagship__cta" href={href} aria-label={`Read: ${title}`}>
+				{ctaLabel} →
+			</a>
+		</div>
+	</div>
+	{hasVisual && (
+		<div class="featured-flagship__visual-wrap" aria-hidden="true">
+			<img class="featured-flagship__visual" src={visualSrc} alt={visualAlt} loading="lazy" />
+		</div>
+	)}
+</article>

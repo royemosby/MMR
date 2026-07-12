@@ -1,0 +1,26 @@
+---
+interface Props {
+	heading: string;
+	prompt?: string;
+	questions: string[];
+	relatedFrameworkHref?: string;
+	relatedFrameworkLabel?: string;
+}
+
+const { heading, prompt, questions, relatedFrameworkHref, relatedFrameworkLabel } = Astro.props;
+---
+
+<div class="diagnostic-callout" role="note">
+	<h3 class="diagnostic-callout__heading">{heading}</h3>
+	{prompt && <p class="diagnostic-callout__prompt">{prompt}</p>}
+	<ul class="diagnostic-callout__questions">
+		{questions.map((q) => (
+			<li class="diagnostic-callout__question">{q}</li>
+		))}
+	</ul>
+	{relatedFrameworkHref && (
+		<a class="diagnostic-callout__framework-link" href={relatedFrameworkHref}>
+			{relatedFrameworkLabel ?? 'Related framework'} →
+		</a>
+	)}
+</div>

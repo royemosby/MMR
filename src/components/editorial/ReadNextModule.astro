@@ -1,0 +1,35 @@
+---
+interface ReadNextEntry {
+	contentType: string;
+	title: string;
+	description: string;
+	href: string;
+}
+
+interface Props {
+	label?: string;
+	entries: ReadNextEntry[];
+}
+
+const { label = 'Read Next', entries } = Astro.props;
+---
+
+{entries.length > 0 && (
+	<aside class="read-next" aria-label={label}>
+		<div class="section-heading">
+			<p class="section-heading__eyebrow">{label}</p>
+			<div class="section-heading__line"></div>
+		</div>
+		<ul class="read-next__list">
+			{entries.map((entry) => (
+				<li class="read-next__item">
+					<span class="read-next__type">{entry.contentType}</span>
+					<h3 class="read-next__title">
+						<a class="read-next__link" href={entry.href}>{entry.title}</a>
+					</h3>
+					<p class="read-next__desc">{entry.description}</p>
+				</li>
+			))}
+		</ul>
+	</aside>
+)}

@@ -1,0 +1,46 @@
+---
+interface RelatedEntry {
+	contentType: string;
+	title: string;
+	href: string;
+}
+
+interface Props {
+	eyebrow?: string;
+	heading: string;
+	body?: string;
+	entries: RelatedEntry[];
+	ctaHref?: string;
+	ctaLabel?: string;
+}
+
+const {
+	eyebrow = 'Related Thinking',
+	heading,
+	body,
+	entries,
+	ctaHref,
+	ctaLabel = 'See all work',
+} = Astro.props;
+---
+
+<aside class="related-thinking" aria-label={eyebrow}>
+	<div class="related-thinking__header">
+		<p class="related-thinking__eyebrow">{eyebrow}</p>
+		<h2 class="related-thinking__heading">{heading}</h2>
+		{body && <p class="related-thinking__body">{body}</p>}
+	</div>
+	{entries.length > 0 && (
+		<ul class="related-thinking__list">
+			{entries.map((entry) => (
+				<li class="related-thinking__item">
+					<span class="related-thinking__type">{entry.contentType}</span>
+					<a class="related-thinking__link" href={entry.href}>{entry.title}</a>
+				</li>
+			))}
+		</ul>
+	)}
+	{ctaHref && (
+		<a class="related-thinking__cta" href={ctaHref}>{ctaLabel} →</a>
+	)}
+</aside>

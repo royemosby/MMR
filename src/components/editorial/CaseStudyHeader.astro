@@ -1,0 +1,63 @@
+---
+interface MetadataItem {
+	label: string;
+	value: string;
+}
+
+interface Props {
+	category: string;
+	clientName: string;
+	title: string;
+	summary: string;
+	metadata?: MetadataItem[];
+	visualSrc?: string;
+	visualAlt?: string;
+	confidentialityNote?: string;
+}
+
+const {
+	category,
+	clientName,
+	title,
+	summary,
+	metadata,
+	visualSrc,
+	visualAlt = '',
+	confidentialityNote,
+} = Astro.props;
+
+const hasVisual = Boolean(visualSrc);
+const hasMetadata = metadata && metadata.length > 0;
+---
+
+<header class:list={['case-study-header', hasVisual && 'case-study-header--has-visual']}>
+	<div class="case-study-header__text">
+		<p class="case-study-header__category">{category}</p>
+		<p class="case-study-header__client">{clientName}</p>
+		<h1 class="case-study-header__title">{title}</h1>
+		<p class="case-study-header__summary">{summary}</p>
+		{confidentialityNote && (
+			<p class="case-study-header__confidentiality">{confidentialityNote}</p>
+		)}
+		{hasMetadata && (
+			<dl class="case-study-header__metadata">
+				{metadata!.map((item) => (
+					<>
+						<dt class="case-study-header__meta-label">{item.label}</dt>
+						<dd class="case-study-header__meta-value">{item.value}</dd>
+					</>
+				))}
+			</dl>
+		)}
+	</div>
+	{hasVisual && (
+		<div class="case-study-header__visual-wrap" aria-hidden="true">
+			<img
+				class="case-study-header__visual"
+				src={visualSrc}
+				alt={visualAlt}
+				loading="eager"
+			/>
+		</div>
+	)}
+</header>

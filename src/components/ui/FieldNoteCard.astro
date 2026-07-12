@@ -4,19 +4,23 @@ interface Props {
 	quote: string;
 	author?: string;
 	date?: string;
+	href?: string;
 }
 
 const {
 	noteId = 'Field Note N12',
 	quote,
 	author = 'Authored by MMR',
-	date = '03.14.24'
+	date = '03.14.24',
+	href,
 } = Astro.props;
 ---
 
 <article class="field-note-card">
 	<p class="field-note-card__id">{noteId}</p>
-	<blockquote class="field-note-card__quote">{quote}</blockquote>
+	<blockquote class="field-note-card__quote">
+		{href ? <a class="field-note-card__link" href={href}>{quote}</a> : quote}
+	</blockquote>
 	<div class="field-note-card__meta">
 		<p>{author}</p>
 		<p>{date}</p>

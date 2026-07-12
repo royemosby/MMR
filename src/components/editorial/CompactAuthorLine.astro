@@ -1,0 +1,39 @@
+---
+interface Props {
+	name: string;
+	role: string;
+	aboutHref?: string;
+	headshotSrc?: string;
+	headshotAlt?: string;
+}
+
+const {
+	name,
+	role,
+	aboutHref = '/about',
+	headshotSrc,
+	headshotAlt,
+} = Astro.props;
+
+const hasHeadshot = Boolean(headshotSrc);
+---
+
+<div class="compact-author">
+	{hasHeadshot && (
+		<img
+			class="compact-author__headshot"
+			src={headshotSrc}
+			alt={headshotAlt ?? `Portrait of ${name}`}
+			loading="lazy"
+			width="44"
+			height="44"
+		/>
+	)}
+	<div class="compact-author__text">
+		<p class="compact-author__name">{name}</p>
+		<p class="compact-author__role">{role}</p>
+	</div>
+	{aboutHref && (
+		<a class="compact-author__link" href={aboutHref}>About {name}</a>
+	)}
+</div>

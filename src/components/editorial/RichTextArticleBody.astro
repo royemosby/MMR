@@ -1,0 +1,12 @@
+---
+interface Props {
+	/** Use 'field-note' for the narrower 660px reading width */
+	variant?: 'article' | 'field-note';
+}
+
+const { variant = 'article' } = Astro.props;
+---
+
+<div class:list={['article-body', variant === 'field-note' && 'article-body--field-note']}>
+	<slot />
+</div>

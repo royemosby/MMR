@@ -1,0 +1,31 @@
+---
+interface Props {
+	contentType?: string;
+	title: string;
+	abstract?: string;
+	readingTime?: string;
+	topic?: string;
+	href: string;
+}
+
+const {
+	contentType = 'Essay',
+	title,
+	abstract,
+	readingTime,
+	topic,
+	href,
+} = Astro.props;
+---
+
+<article class="essay-teaser">
+	<div class="essay-teaser__meta">
+		<span class="essay-teaser__type">{contentType}</span>
+		{topic && <span class="essay-teaser__topic">{topic}</span>}
+		{readingTime && <span class="essay-teaser__reading-time">{readingTime}</span>}
+	</div>
+	<h3 class="essay-teaser__title">
+		<a class="essay-teaser__link" href={href}>{title}</a>
+	</h3>
+	<p class="essay-teaser__abstract">{abstract}</p>
+</article>

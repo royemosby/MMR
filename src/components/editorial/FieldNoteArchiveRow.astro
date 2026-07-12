@@ -1,0 +1,31 @@
+---
+interface Props {
+	number: number;
+	seriesLabel?: string;
+	title: string;
+	signal: string;
+	readingTime?: string;
+	publishDate?: string;
+	href: string;
+}
+
+const { number, seriesLabel, title, signal, readingTime, publishDate, href } = Astro.props;
+
+const paddedNumber = String(number).padStart(2, '0');
+---
+
+<article class="field-note-row">
+	<a class="field-note-row__link" href={href} aria-label={`Field Note ${number}: ${title}`}>
+		<span class="field-note-row__number" aria-hidden="true">{paddedNumber}</span>
+		<div class="field-note-row__body">
+			{seriesLabel && <p class="field-note-row__series">{seriesLabel}</p>}
+			<h3 class="field-note-row__title">{title}</h3>
+			<p class="field-note-row__signal">{signal}</p>
+		</div>
+		<div class="field-note-row__trail">
+			{readingTime && <span class="field-note-row__reading-time">{readingTime}</span>}
+			{publishDate && <span class="field-note-row__date">{publishDate}</span>}
+			<span class="field-note-row__arrow" aria-hidden="true">→</span>
+		</div>
+	</a>
+</article>

@@ -1,0 +1,25 @@
+---
+interface Props {
+	heading?: string;
+	relatedFrameworkHref?: string;
+	relatedFrameworkLabel?: string;
+}
+
+const {
+	heading = 'The Leadership Lesson',
+	relatedFrameworkHref,
+	relatedFrameworkLabel = 'Related framework',
+} = Astro.props;
+---
+
+<section class="leadership-lesson">
+	<h2 class="leadership-lesson__heading">{heading}</h2>
+	<div class="leadership-lesson__body">
+		<slot />
+	</div>
+	{relatedFrameworkHref && (
+		<a class="leadership-lesson__framework-link" href={relatedFrameworkHref}>
+			{relatedFrameworkLabel} →
+		</a>
+	)}
+</section>

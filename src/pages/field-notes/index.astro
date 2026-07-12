@@ -1,0 +1,37 @@
+---
+import { getCollection } from 'astro:content';
+import ShowcaseLayout from '../../layouts/ShowcaseLayout.astro';
+import EditorialPageHeader from '../../components/editorial/EditorialPageHeader.astro';
+import FieldNoteArchiveRow from '../../components/editorial/FieldNoteArchiveRow.astro';
+
+const allFieldNotes = await getCollection('field-notes', ({ data }) => data.status === 'published');
+const fieldNotes = allFieldNotes.sort((a, b) => a.data.fieldNoteNumber - b.data.fieldNoteNumber);
+---
+
+<ShowcaseLayout
+	title="Field Notes"
+	description="Compact, numbered observations on operating systems, decision-making, and the signals that matter in complex digital work."
+	noHero
+>
+	<EditorialPageHeader
+		eyebrow="Systems Witch Field Notes"
+		heading="Signals from the field."
+		intro="Compact, numbered observations on the patterns and operating problems that show up in digital work. Short by design. Practical by intention."
+	/>
+
+	{fieldNotes.length > 0 ? (
+		<div class="field-note-archive">
+			{fieldNotes.map((note) => (
+				<FieldNoteArchiveRow
+					number={note.data.fieldNoteNumber}
+					seriesLabel={note.data.seriesLabel}
+					title={note.data.title}
+					signal={note.data.signal}
+					readingTime={note.data.readingTime}
+					href={`/field-notes/${note.id}`}
+				/>
+			))}
+		</div>
+	) : (
+		<p class="archive-empty">Field notes are on their way.</p>
+	)}
