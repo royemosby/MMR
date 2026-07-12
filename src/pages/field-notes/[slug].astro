@@ -1,6 +1,9 @@
 ---
 import { getCollection, render, type CollectionEntry } from 'astro:content';
 import ShowcaseLayout from '../../layouts/ShowcaseLayout.astro';
+import ArticleHeader from '../../components/editorial/ArticleHeader.astro';
+import RichTextArticleBody from '../../components/editorial/RichTextArticleBody.astro';
+import ReadNextModule from '../../components/editorial/ReadNextModule.astro';
 
 export async function getStaticPaths() {
 	const entries = await getCollection('field-notes');
@@ -13,13 +16,37 @@ export async function getStaticPaths() {
 type Props = { entry: CollectionEntry<'field-notes'> };
 const { entry } = Astro.props;
 const { Content } = await render(entry);
+
+const paddedNumber = String(entry.data.fieldNoteNumber).padStart(2, '0');
+const eyebrow = `${entry.data.seriesLabel} \u2014 No. ${paddedNumber}`;
+
+const publishDateFormatted = entry.data.publishDate
+	? entry.data.publishDate.toLocaleDateString('en-US', {
+			year: 'numeric',
+			month: 'long',
+			day: 'numeric',
+		})
+	: undefined;
+
+const readNextEntries: { contentType: string; title: string; description: string; href: string }[] = [];
 ---
 
-<ShowcaseLayout title={entry.data.title} description={entry.data.metaDescription ?? entry.data.signal} noHero>
-	<article>
-		<p>{entry.data.seriesLabel} — No. {entry.data.fieldNoteNumber}</p>
-		<h1>{entry.data.title}</h1>
-		{entry.data.signal && <p>{entry.data.signal}</p>}
+<ShowcaseLayout
+	title={entry.data.title}
+	description={entry.data.metaDescription ?? entry.data.signal}
+	noHero
+>
+	<ArticleHeader
+		eyebrow={eyebrow}
+		title={entry.data.title}
+		dek={entry.data.signal}
+		readingTime={entry.data.readingTime}
+		publishDate={publishDateFormatted}
+	/>
+
+	<RichTextArticleBody variant="field-note">
 		<Content />
-	</article>
+	</RichTextArticleBody>
+
+	<ReadNextModule entries={readNextEntries} />
 </ShowcaseLayout>
