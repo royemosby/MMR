@@ -1,9 +1,9 @@
 ---
-title: "The Stakeholder Who Goes Quiet"
+title: "Nemo enim ipsam voluptatem quia voluptas"
 contentType: field-note
 fieldNoteNumber: 2
 seriesLabel: "Systems Witch Field Notes"
-signal: "Disengagement is rarely passive. When a stakeholder stops asking questions, they have usually stopped trusting the answers."
+signal: "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo."
 readingTime: "3 min read"
 status: published
 ---

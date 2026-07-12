@@ -2,6 +2,7 @@
 interface NavItem {
 	href: string;
 	label: string;
+	cta?: boolean;
 }
 
 interface Props {
@@ -23,7 +24,11 @@ const { navigation, currentPath } = Astro.props;
 
 					return (
 						<li class="nav-list__item">
-							<a class="nav-list__link" href={item.href} aria-current={isCurrent ? 'page' : undefined}>
+							<a
+								class:list={[item.cta ? 'nav-list__cta' : 'nav-list__link']}
+								href={item.href}
+								aria-current={isCurrent ? 'page' : undefined}
+							>
 								{item.label}
 							</a>
 						</li>

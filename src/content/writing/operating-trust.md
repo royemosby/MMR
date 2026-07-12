@@ -1,9 +1,9 @@
 ---
-title: "The Operating Structure Behind Trust"
+title: "Lorem ipsum dolor sit amet consectetur"
 contentType: flagship-essay
 eyebrow: "Flagship Essay"
-dek: "How trust becomes a designed system rather than an assumed outcome."
-premise: "Trust is not a feeling. It is an operating condition that can be built, damaged, and repaired through deliberate structural decisions."
+dek: "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque."
+premise: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
 readingTime: "12 min read"
 primaryTopic: "Operating Systems"
 featuredVisual: "https://picsum.photos/seed/mml-trust/1200/900"

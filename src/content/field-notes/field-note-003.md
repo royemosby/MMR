@@ -1,9 +1,9 @@
 ---
-title: "Priorities Are Not a List"
+title: "Quis autem vel eum iure reprehenderit"
 contentType: field-note
 fieldNoteNumber: 3
 seriesLabel: "Systems Witch Field Notes"
-signal: "A team that lists ten priorities has no priorities. The operating problem is usually that no one has been given the authority to say what comes first."
+signal: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
 readingTime: "4 min read"
 status: published
 ---

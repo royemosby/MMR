@@ -1,10 +1,10 @@
 ---
-title: "Communications Systems Overhaul"
+title: "Ut enim ad minim veniam nostrud"
 contentType: case-study
-clientName: "National Nonprofit"
-strategicTitle: "When the Message and the Moment Finally Aligned"
-category: "Strategic Communications"
-summary: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. A national nonprofit's communications team was producing content but not movement — until the operating structure behind the messaging was rebuilt."
+clientName: "Ut Enim Ad Minim"
+strategicTitle: "Ut enim ad minim veniam quis nostrud exercitation ullamco"
+category: "Lorem Ipsum"
+summary: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
 visibleProblem: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Content output was high. Engagement was low. Leadership had concluded the problem was brand, voice, or channel strategy."
 hiddenSystemIssue: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor. The communications team had no shared operating model. Each campaign was built in isolation with no feedback loop to program outcomes."
 stakes: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. An annual fundraising cycle and a board request for a communications audit had created urgency without direction."

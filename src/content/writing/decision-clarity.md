@@ -1,9 +1,9 @@
 ---
-title: "Decision Clarity Is Not a Soft Skill"
+title: "Sed ut perspiciatis unde omnis iste natus"
 contentType: essay
 eyebrow: "Essay"
-dek: "How treating decisions as designed objects rather than managed events changes what teams are capable of."
-premise: "Most decision problems are structure problems. The fix is not a better process — it is a visible, shared operating model for how decisions actually get made."
+dek: "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit consequuntur."
+premise: "Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur."
 readingTime: "8 min read"
 primaryTopic: "Decision Systems"
 status: published

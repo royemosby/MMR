@@ -1,10 +1,10 @@
 ---
-title: "Civic Technology Platform Launch"
+title: "Sed do eiusmod tempor incididunt"
 contentType: case-study
-clientName: "Public Sector Agency"
-strategicTitle: "From Procurement to Public Trust in Twelve Months"
-category: "Civic Technology"
-summary: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. A public-facing digital platform stalled at the integration stage — until the operating model was rebuilt around public trust, not just technical delivery."
+clientName: "Sed Do Eiusmod Agency"
+strategicTitle: "Sed do eiusmod tempor incididunt ut labore et dolore"
+category: "Sed Eiusmod"
+summary: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua quis nostrud exercitation ullamco."
 visibleProblem: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. The platform had cleared procurement and was technically sound. But integration with existing agency workflows had stalled and launch confidence was low."
 hiddenSystemIssue: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor. The agency lacked a shared model for decision-making across its three divisions. Every integration question became a territorial negotiation."
 stakes: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. A mandated public launch tied to legislative funding commitments and visible constituent expectations."

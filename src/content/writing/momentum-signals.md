@@ -1,9 +1,9 @@
 ---
-title: "What Momentum Actually Looks Like"
+title: "At vero eos et accusamus et iusto odio"
 contentType: essay
 eyebrow: "Essay"
-dek: "Velocity is not the same as progress. The signals that tell you an initiative is moving are not the ones most teams track."
-premise: "Momentum is a structural condition. It can be designed, measured, and deliberately restored when it breaks down."
+dek: "Nam libero tempore cum soluta nobis eligendi optio cumque nihil impedit quominus."
+premise: "Temporibus autem quibusdam et aut officiis debitis rerum necessitatibus saepe eveniet ut et voluptates repudiandae."
 readingTime: "6 min read"
 primaryTopic: "Strategic Momentum"
 status: published

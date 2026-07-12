@@ -1,9 +1,9 @@
 ---
-title: "When the Plan and the Work Diverge"
+title: "Excepteur sint occaecat cupidatat non proident"
 contentType: field-note
 fieldNoteNumber: 1
 seriesLabel: "Systems Witch Field Notes"
-signal: "The first sign of an operating problem is usually a plan that no longer matches the work."
+signal: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore."
 readingTime: "3 min read"
 status: published
 ---

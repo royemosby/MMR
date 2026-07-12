@@ -1,10 +1,10 @@
 ---
-title: "From Roadmap to Reality"
+title: "Lorem ipsum dolor sit amet"
 contentType: case-study
-clientName: "Mission-Driven Organization"
-strategicTitle: "Building the Operating Layer That Made Strategy Move"
-category: "Digital Transformation"
-summary: "A complex digital initiative was delivering outputs but not outcomes — until the operating layer was rebuilt around decision clarity, visible risk, and stakeholder trust."
+clientName: "Lorem Ipsum Organization"
+strategicTitle: "Lorem ipsum dolor sit amet consectetur adipiscing elit"
+category: "Lorem Ipsum Category"
+summary: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim ad minim veniam."
 visibleProblem: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. The team had a roadmap, a budget, and strong individual contributors. But delivery was stalling and stakeholder confidence was eroding."
 hiddenSystemIssue: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor. The decision-making structure had not kept pace with the work. Dependencies were invisible, priorities were contested."
 stakes: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. A flagship product launch tied to organizational credibility and a board-level commitment to digital transformation."
