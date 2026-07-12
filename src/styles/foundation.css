@@ -23,6 +23,15 @@
   --space-48: 3rem;
   --space-64: 4rem;
   --space-96: 6rem;
+  /* Reading widths — use these for editorial content containers */
+  --reading-width-article: 45rem;
+  /* 720px — long-form articles */
+  --reading-width-field-note: 41.25rem;
+  /* 660px — field notes */
+  --reading-width-case-study: 53.75rem;
+  /* 860px — case study body */
+  --container-article-header: 62.5rem;
+  /* 1000px — article header (wider than body) */
 }
 
 * {
@@ -55,6 +64,12 @@ a {
 img {
   display: block;
   max-width: 100%;
+}
+
+/* Global focus indicator — components may override with their own styled variant */
+:focus-visible {
+  outline: 2px solid var(--color-oxblood);
+  outline-offset: 2px;
 }
 
 .site {
@@ -255,6 +270,12 @@ img {
 
 .site__main>* {
   grid-column: 1 / -1;
+}
+
+/* Constrains content to article reading width and centers within its grid column */
+.reading-column {
+  max-width: var(--reading-width-article);
+  width: 100%;
 }
 
 .section-heading {
@@ -548,6 +569,11 @@ img {
 .interface-button[aria-disabled='true'] {
   opacity: 0.45;
   cursor: not-allowed;
+}
+
+/* Buttons use background/border changes as their focus indicator; suppress the global outline */
+.interface-button:focus-visible {
+  outline: none;
 }
 
 .interface-link-wrap {
@@ -882,5 +908,16 @@ img {
 
   .site__footer {
     padding: var(--space-24) 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
   }
 }
