@@ -1,0 +1,24 @@
+---
+interface Props {
+	noteId?: string;
+	quote: string;
+	author?: string;
+	date?: string;
+}
+
+const {
+	noteId = 'Field Note N12',
+	quote,
+	author = 'Authored by MMR',
+	date = '03.14.24'
+} = Astro.props;
+---
+
+<article class="field-note-card">
+	<p class="field-note-card__id">{noteId}</p>
+	<blockquote class="field-note-card__quote">{quote}</blockquote>
+	<div class="field-note-card__meta">
+		<p>{author}</p>
+		<p>{date}</p>
+	</div>
+</article>

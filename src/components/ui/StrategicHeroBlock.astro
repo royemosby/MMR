@@ -1,0 +1,36 @@
+---
+interface Props {
+	eyebrow?: string;
+	title: string;
+	note?: string;
+	mediaSrc?: string;
+	mediaAlt?: string;
+	mediaCaption?: string;
+}
+
+const {
+	eyebrow = 'Editorial Variant',
+	title,
+	note = 'Ref. Archive 2024.V2',
+	mediaSrc,
+	mediaAlt = '',
+	mediaCaption
+} = Astro.props;
+
+const hasMedia = Boolean(mediaSrc);
+---
+
+<article class:list={["strategic-hero", hasMedia && 'strategic-hero--media']}>
+	{hasMedia ? (
+		<>
+			<img class="strategic-hero__media" src={mediaSrc} alt={mediaAlt} loading="lazy" />
+			{mediaCaption ? <p class="strategic-hero__media-caption">{mediaCaption}</p> : null}
+		</>
+	) : (
+		<>
+			<p class="strategic-hero__eyebrow">{eyebrow}</p>
+			<h3 class="strategic-hero__title">{title}</h3>
+			<p class="strategic-hero__note">{note}</p>
+		</>
+	)}
+</article>

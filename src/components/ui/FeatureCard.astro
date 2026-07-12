@@ -1,0 +1,29 @@
+---
+interface Props {
+	eyebrow?: string;
+	title: string;
+	description: string;
+	imageSrc: string;
+	imageAlt: string;
+	tag?: string;
+}
+
+const {
+	eyebrow = 'Systems Analysis',
+	title,
+	description,
+	imageSrc,
+	imageAlt,
+	tag = '2024'
+} = Astro.props;
+---
+
+<article class="feature-card">
+	<div class="feature-card__media-wrap">
+		<img class="feature-card__media" src={imageSrc} alt={imageAlt} loading="lazy" />
+		<span class="feature-card__tag">{tag}</span>
+	</div>
+	<p class="feature-card__eyebrow">{eyebrow}</p>
+	<h3 class="feature-card__title">{title}</h3>
+	<p class="feature-card__desc">{description}</p>
+</article>

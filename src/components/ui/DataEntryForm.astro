@@ -1,0 +1,28 @@
+---
+import InterfaceButton from './InterfaceButton.astro';
+---
+
+<form class="registry-form" action="#" method="post">
+	<div class="registry-form__grid">
+		<label class="registry-form__field">
+			<span>Full Name</span>
+			<input type="text" name="fullName" placeholder="Entry Required" />
+			<small>Default State</small>
+		</label>
+		<label class="registry-form__field">
+			<span>Identity ID</span>
+			<input type="text" name="identity" value="ML-7782-X" />
+			<small>Verification complete</small>
+		</label>
+	</div>
+	<label class="registry-form__field registry-form__field--error">
+		<span>Email Endpoint</span>
+		<input type="email" name="email" value="maggie.lynn@notvalid" />
+		<small>Invalid archival endpoint protocol.</small>
+	</label>
+	<label class="registry-form__field">
+		<span>Strategic Brief</span>
+		<textarea name="brief" rows="5" placeholder="Draft your operational requirements..."></textarea>
+	</label>
+	<InterfaceButton type="submit" variant="primary" fullWidth={true}>Submit to Registry</InterfaceButton>
+</form>

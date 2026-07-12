@@ -1,0 +1,33 @@
+---
+interface Props {
+	variant?: 'primary' | 'secondary';
+	href?: string;
+	type?: 'button' | 'submit' | 'reset';
+	disabled?: boolean;
+	fullWidth?: boolean;
+	stateLabel?: string;
+}
+
+const {
+	variant = 'primary',
+	href,
+	type = 'button',
+	disabled = false,
+	fullWidth = false,
+	stateLabel
+} = Astro.props;
+
+const className = `interface-button interface-button--${variant}${fullWidth ? ' interface-button--full' : ''}`;
+---
+
+{href ? (
+	<a class={className} href={href} aria-disabled={disabled ? 'true' : undefined}>
+		<span><slot>Action</slot></span>
+		{stateLabel ? <small class="interface-button__state">{stateLabel}</small> : null}
+	</a>
+) : (
+	<button class={className} type={type} disabled={disabled}>
+		<span><slot>Action</slot></span>
+		{stateLabel ? <small class="interface-button__state">{stateLabel}</small> : null}
+	</button>
+)}

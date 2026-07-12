@@ -1,0 +1,19 @@
+---
+interface Props {
+	href: string;
+	stateLabel?: string;
+}
+
+const {
+	href,
+	stateLabel = 'Interactive State'
+} = Astro.props;
+---
+
+<div class="interface-link-wrap">
+	<a class="interface-link" href={href}>
+		<span><slot /></span>
+		<span aria-hidden="true">-></span>
+	</a>
+	<p class="interface-link__state">{stateLabel}</p>
+</div>
