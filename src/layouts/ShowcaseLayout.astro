@@ -1,0 +1,67 @@
+---
+import PageHero from '../components/site/PageHero.astro';
+import PrimaryNav from '../components/site/PrimaryNav.astro';
+import SiteFooter from '../components/site/SiteFooter.astro';
+
+interface Props {
+	title: string;
+	description?: string;
+	portraitSrc?: string;
+	portraitAlt?: string;
+}
+
+const {
+	title,
+	description = 'Professional showcase placeholder page.',
+	portraitSrc,
+	portraitAlt
+} = Astro.props;
+
+const navigation = [
+	{ href: '/', label: 'Home' },
+	{ href: '/about', label: 'About' },
+	{ href: '/contact', label: 'Contact' },
+	{ href: '/field-notes', label: 'Field Notes' },
+	{ href: '/frameworks', label: 'Frameworks' },
+	{ href: '/speaking', label: 'Speaking' },
+	{ href: '/work', label: 'Work' }
+];
+
+const footerLinks = [
+	{ href: '/about', label: 'Archive' },
+	{ href: '/frameworks', label: 'Frameworks' },
+	{ href: '/speaking', label: 'Speaking' },
+	{ href: '/contact', label: 'Contact' }
+];
+
+const currentPath = Astro.url.pathname.replace(/\/$/, '') || '/';
+---
+
+<style is:global>@import '../styles/foundation.css';</style>
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="icon" href="/favicon.ico" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<meta name="description" content={description} />
+		<title>{title} | MMR</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
+	</head>
+	<body>
+		<div class="site">
+			<div class="site__shell">
+				<PrimaryNav navigation={navigation} currentPath={currentPath} />
+				<PageHero title={title} description={description} portraitSrc={portraitSrc} portraitAlt={portraitAlt} />
+				<main class="site__main">
+				<slot />
+				</main>
+			</div>
+			<SiteFooter footerLinks={footerLinks} />
+		</div>
+	</body>
+</html>
