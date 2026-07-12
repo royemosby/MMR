@@ -1,0 +1,46 @@
+---
+interface Metric {
+	value: string;
+	label: string;
+	qualifier?: string;
+}
+
+interface Props {
+	heading?: string;
+	narrative: string;
+	outcomes?: string[];
+	metrics?: Metric[];
+}
+
+const {
+	heading = 'What Changed',
+	narrative,
+	outcomes,
+	metrics,
+} = Astro.props;
+---
+
+<section class="outcomes-block">
+	<h2 class="outcomes-block__heading">{heading}</h2>
+	<p class="outcomes-block__narrative">{narrative}</p>
+	{outcomes && outcomes.length > 0 && (
+		<ul class="outcomes-block__outcomes">
+			{outcomes.map((outcome) => (
+				<li class="outcomes-block__outcome-item">{outcome}</li>
+			))}
+		</ul>
+	)}
+	{metrics && metrics.length > 0 && (
+		<ul class="outcomes-block__metrics" aria-label="Key metrics">
+			{metrics.map((metric) => (
+				<li class="outcomes-block__metric">
+					<span class="outcomes-block__metric-value">{metric.value}</span>
+					<span class="outcomes-block__metric-label">{metric.label}</span>
+					{metric.qualifier && (
+						<span class="outcomes-block__metric-qualifier">{metric.qualifier}</span>
+					)}
+				</li>
+			))}
+		</ul>
+	)}
+</section>

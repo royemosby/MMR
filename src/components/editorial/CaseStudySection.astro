@@ -1,0 +1,16 @@
+---
+interface Props {
+	heading: string;
+	/** Applies a subtle inset accent — use for the Hidden System Issue section */
+	accent?: boolean;
+}
+
+const { heading, accent = false } = Astro.props;
+---
+
+<section class:list={['case-study-section', accent && 'case-study-section--accent']}>
+	<h2 class="case-study-section__heading">{heading}</h2>
+	<div class="case-study-section__body">
+		<slot />
+	</div>
+</section>

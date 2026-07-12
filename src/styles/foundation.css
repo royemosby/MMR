@@ -1740,6 +1740,282 @@ details[open] .artifact-figure__trigger-label::before {
   margin: 0;
 }
 
+/* CaseStudyHeader */
+
+.case-study-header {
+  grid-column: 1 / -1;
+  padding: var(--space-48) 0 var(--space-32);
+  border-bottom: 1px solid var(--color-rule);
+  display: grid;
+  gap: var(--space-48);
+}
+
+.case-study-header--has-visual {
+  grid-template-columns: 7fr 5fr;
+  align-items: start;
+}
+
+.case-study-header__text {
+  display: grid;
+  gap: var(--space-16);
+  align-content: start;
+}
+
+.case-study-header__category {
+  margin: 0;
+  color: var(--color-oxblood);
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 0.68rem;
+  font-weight: 600;
+}
+
+.case-study-header__client {
+  margin: 0;
+  font-size: 0.88rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--color-muted);
+}
+
+.case-study-header__title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  line-height: 1.02;
+  letter-spacing: -0.02em;
+}
+
+.case-study-header__summary {
+  margin: 0;
+  max-width: var(--reading-width-case-study);
+  font-size: 1.1rem;
+  line-height: 1.65;
+  color: var(--color-muted);
+}
+
+.case-study-header__confidentiality {
+  margin: 0;
+  font-size: 0.78rem;
+  font-style: italic;
+  color: var(--color-muted);
+  padding: var(--space-8) var(--space-12);
+  border-left: 2px solid var(--color-rule);
+}
+
+.case-study-header__metadata {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(8rem, 1fr));
+  column-gap: var(--space-24);
+  row-gap: var(--space-12);
+  margin: var(--space-8) 0 0;
+  padding-top: var(--space-16);
+  border-top: 1px solid var(--color-rule);
+}
+
+.case-study-header__meta-label {
+  font-size: 0.66rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-weight: 600;
+  color: var(--color-muted);
+  margin-bottom: var(--space-4);
+}
+
+.case-study-header__meta-value {
+  font-size: 0.88rem;
+  line-height: 1.4;
+  color: var(--color-ink);
+  margin: 0;
+}
+
+.case-study-header__visual-wrap {
+  overflow: hidden;
+  border: 1px solid var(--color-rule);
+}
+
+.case-study-header__visual {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  display: block;
+  filter: grayscale(20%);
+}
+
+/* CaseStudySection */
+
+.case-study-section {
+  grid-column: 1 / -1;
+  max-width: var(--reading-width-case-study);
+  display: grid;
+  gap: var(--space-16);
+  padding: var(--space-32) 0;
+  border-bottom: 1px solid var(--color-rule);
+}
+
+/* Subtle accent for Hidden System Issue — a core strategic differentiator */
+.case-study-section--accent {
+  max-width: none;
+  padding: var(--space-32);
+  background: rgba(111, 143, 177, 0.06);
+  border: 1px solid rgba(111, 143, 177, 0.2);
+  border-left: 3px solid var(--color-french-blue);
+}
+
+.case-study-section__heading {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: var(--color-muted);
+}
+
+.case-study-section__body {
+  display: grid;
+  gap: var(--space-16);
+}
+
+.case-study-section__body p {
+  margin: 0;
+  font-size: 1.05rem;
+  line-height: 1.75;
+}
+
+/* OutcomesBlock */
+
+.outcomes-block {
+  grid-column: 1 / -1;
+  max-width: var(--reading-width-case-study);
+  display: grid;
+  gap: var(--space-16);
+  padding: var(--space-32) 0;
+  border-bottom: 1px solid var(--color-rule);
+}
+
+.outcomes-block__heading {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: var(--color-muted);
+}
+
+.outcomes-block__narrative {
+  margin: 0;
+  font-size: 1.05rem;
+  line-height: 1.75;
+}
+
+.outcomes-block__outcomes {
+  margin: 0;
+  padding-left: 1.25rem;
+  display: grid;
+  gap: var(--space-8);
+  font-size: 1.05rem;
+  line-height: 1.65;
+}
+
+.outcomes-block__metrics {
+  list-style: none;
+  margin: var(--space-8) 0 0;
+  padding: var(--space-16) 0 0;
+  border-top: 1px solid var(--color-rule);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(9rem, 1fr));
+  gap: var(--space-16);
+}
+
+.outcomes-block__metric {
+  display: grid;
+  gap: var(--space-4);
+  align-content: start;
+  padding: var(--space-16);
+  border: 1px solid var(--color-rule);
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.outcomes-block__metric-value {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  line-height: 1;
+  color: var(--color-ink);
+}
+
+.outcomes-block__metric-label {
+  display: block;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--color-muted);
+  font-weight: 600;
+}
+
+.outcomes-block__metric-qualifier {
+  display: block;
+  font-size: 0.72rem;
+  color: var(--color-muted);
+  font-style: italic;
+  line-height: 1.4;
+}
+
+/* LeadershipLessonBlock */
+
+.leadership-lesson {
+  grid-column: 1 / -1;
+  max-width: var(--reading-width-case-study);
+  display: grid;
+  gap: var(--space-24);
+  padding: var(--space-32) 0;
+}
+
+.leadership-lesson__heading {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: var(--color-muted);
+}
+
+.leadership-lesson__body {
+  padding: var(--space-24) var(--space-32);
+  background: rgba(255, 255, 255, 0.28);
+  border: 1px solid var(--color-rule);
+  border-left: 3px solid var(--color-brass);
+  display: grid;
+  gap: var(--space-16);
+}
+
+.leadership-lesson__body p {
+  margin: 0;
+  font-size: 1.05rem;
+  line-height: 1.75;
+}
+
+.leadership-lesson__framework-link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-8);
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--color-oxblood);
+  text-decoration: none;
+}
+
+.leadership-lesson__framework-link:hover {
+  text-decoration: underline;
+  text-underline-offset: 0.12em;
+}
+
 @media (max-width: 900px) {
 
   .site__shell,
@@ -1817,6 +2093,18 @@ details[open] .artifact-figure__trigger-label::before {
 
   .related-thinking__type {
     min-width: 5rem;
+  }
+
+  .case-study-header--has-visual {
+    grid-template-columns: 1fr;
+  }
+
+  .case-study-section--accent {
+    padding: var(--space-24);
+  }
+
+  .leadership-lesson__body {
+    padding: var(--space-24);
   }
 }
 
