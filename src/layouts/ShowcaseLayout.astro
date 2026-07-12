@@ -8,23 +8,28 @@ interface Props {
 	description?: string;
 	portraitSrc?: string;
 	portraitAlt?: string;
+	/** Pass noHero on pages that use an editorial header component (ArticleHeader,
+	 * CaseStudyHeader, etc.) as their own page header instead of PageHero. */
+	noHero?: boolean;
 }
 
 const {
 	title,
 	description = 'Professional showcase placeholder page.',
 	portraitSrc,
-	portraitAlt
+	portraitAlt,
+	noHero = false
 } = Astro.props;
 
 const navigation = [
 	{ href: '/', label: 'Home' },
 	{ href: '/about', label: 'About' },
-	{ href: '/contact', label: 'Contact' },
+	{ href: '/writing', label: 'Writing' },
 	{ href: '/field-notes', label: 'Field Notes' },
 	{ href: '/frameworks', label: 'Frameworks' },
 	{ href: '/speaking', label: 'Speaking' },
-	{ href: '/work', label: 'Work' }
+	{ href: '/work', label: 'Work' },
+	{ href: '/contact', label: 'Contact' }
 ];
 
 const footerLinks = [
@@ -56,7 +61,7 @@ const currentPath = Astro.url.pathname.replace(/\/$/, '') || '/';
 		<div class="site">
 			<div class="site__shell">
 				<PrimaryNav navigation={navigation} currentPath={currentPath} />
-				<PageHero title={title} description={description} portraitSrc={portraitSrc} portraitAlt={portraitAlt} />
+				{!noHero && <PageHero title={title} description={description} portraitSrc={portraitSrc} portraitAlt={portraitAlt} />}
 				<main class="site__main">
 				<slot />
 				</main>
