@@ -1,27 +1,74 @@
 ---
 import ShowcaseLayout from '../layouts/ShowcaseLayout.astro';
+import EditorialPageHeader from '../components/editorial/EditorialPageHeader.astro';
+import RelatedThinkingModule from '../components/editorial/RelatedThinkingModule.astro';
+
+const frameworks = [
+	{
+		name: 'The Operating Layer Model',
+		description:
+			'A structure for the space between strategy and execution — covering priorities, decisions, risks, rhythms, and the narrative that holds them together.',
+		slug: 'operating-layer-model',
+	},
+	{
+		name: 'Decision Clarity System',
+		description:
+			'A repeatable approach to making decisions visible, durable, and trusted — from framing through documentation and stakeholder alignment.',
+		slug: 'decision-clarity-system',
+	},
+	{
+		name: 'Stakeholder Trust Architecture',
+		description:
+			'How to design the communication rhythms, visibility structures, and narrative systems that build and maintain trust with stakeholders over time.',
+		slug: 'stakeholder-trust-architecture',
+	},
+	{
+		name: 'Strategic Momentum Diagnostics',
+		description:
+			'A set of diagnostic questions and signal patterns for identifying where momentum is stalling, what is causing it, and what to do next.',
+		slug: 'strategic-momentum-diagnostics',
+	},
+];
+
+const relatedWriting = [
+	{ contentType: 'Writing', title: 'Read the essays', href: '/writing' },
+	{ contentType: 'Work', title: 'See the case studies', href: '/work' },
+];
 ---
 
 <ShowcaseLayout
 	title="Frameworks"
 	description="Strategic frameworks and repeatable operating models for mission-driven digital work."
+	noHero
 >
+	<EditorialPageHeader
+		eyebrow="Frameworks"
+		heading="Repeatable structures for complex work."
+		intro="Named frameworks drawn from direct practice — not theory. Each one is designed to be adapted to the specific operating conditions of the work, not applied wholesale."
+	/>
+
 	<div class="section-heading">
-		<p class="section-heading__eyebrow">Methods</p>
+		<p class="section-heading__eyebrow">The Frameworks</p>
 		<div class="section-heading__line"></div>
-		<span class="section-heading__label">Strategic frameworks</span>
+		<span class="section-heading__label">Detail pages coming</span>
 	</div>
-	<section class="content-panel">
-		<header class="content-panel__header">
-			<p class="content-panel__eyebrow">Frameworks</p>
-			<h2 class="content-panel__title">Repeatable structures for complex work.</h2>
-		</header>
-		<div class="content-panel__content">
-			<p class="content-panel__body">
-				A collection of named frameworks for operating clarity, decision structure, and strategic
-				momentum. Each framework is drawn from direct practice and designed to be adapted, not
-				just applied.
-			</p>
-		</div>
-	</section>
+
+	<ul class="framework-list">
+		{frameworks.map((fw) => (
+			<li class="framework-entry">
+				<h2 class="framework-entry__name">{fw.name}</h2>
+				<p class="framework-entry__description">{fw.description}</p>
+				<span class="framework-entry__coming" aria-label="Detail page coming soon">
+					In development
+				</span>
+			</li>
+		))}
+	</ul>
+
+	<RelatedThinkingModule
+		eyebrow="Related Thinking"
+		heading="The frameworks in practice."
+		body="Essays and case studies that apply these frameworks to real operating problems."
+		entries={relatedWriting}
+	/>
 </ShowcaseLayout>
