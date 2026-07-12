@@ -1,16 +1,16 @@
 ---
-title: "When the Plan and the Work Diverge"
+title: "The Stakeholder Who Goes Quiet"
 contentType: field-note
-fieldNoteNumber: 1
+fieldNoteNumber: 2
 seriesLabel: "Systems Witch Field Notes"
-signal: "The first sign of an operating problem is usually a plan that no longer matches the work."
+signal: "Disengagement is rarely passive. When a stakeholder stops asking questions, they have usually stopped trusting the answers."
 readingTime: "3 min read"
 status: published
 ---
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.
 
-## Ut enim ad minim
+## Sed do eiusmod tempor
 
 Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
 
@@ -18,4 +18,6 @@ Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequa
 - Sunt in culpa qui officia deserunt mollit anim
 - Id est laborum lorem ipsum dolor sit amet
 
-Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam eaque ipsa quae ab illo inventore.
+> At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti.
+
+Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus.

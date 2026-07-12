@@ -1,12 +1,11 @@
 ---
-title: "The Operating Structure Behind Trust"
-contentType: flagship-essay
-eyebrow: "Flagship Essay"
-dek: "How trust becomes a designed system rather than an assumed outcome."
-premise: "Trust is not a feeling. It is an operating condition that can be built, damaged, and repaired through deliberate structural decisions."
-readingTime: "12 min read"
-primaryTopic: "Operating Systems"
-featuredVisual: "https://picsum.photos/seed/mml-trust/1200/900"
+title: "Decision Clarity Is Not a Soft Skill"
+contentType: essay
+eyebrow: "Essay"
+dek: "How treating decisions as designed objects rather than managed events changes what teams are capable of."
+premise: "Most decision problems are structure problems. The fix is not a better process — it is a visible, shared operating model for how decisions actually get made."
+readingTime: "8 min read"
+primaryTopic: "Decision Systems"
 status: published
 ---
 
@@ -18,7 +17,7 @@ Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu 
 
 Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
 
-Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est qui dolorem ipsum quia dolor sit amet.
+Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.
 
 ### Consectetur adipiscing elit
 
@@ -31,12 +30,10 @@ Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed 
 
 ## Sed ut perspiciatis
 
-At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati.
+At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident.
 
 Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus.
 
 ## Nam libero tempore
 
-Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus.
-
-Ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat. Lorem ipsum dolor sit amet consectetur adipiscing elit.
+Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores.
