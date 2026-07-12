@@ -1,0 +1,32 @@
+---
+interface Props {
+	title: string;
+	description: string;
+	eyebrow?: string;
+	portraitSrc?: string;
+	portraitAlt?: string;
+}
+
+const {
+	title,
+	description,
+	eyebrow = 'Professional Showcase',
+	portraitSrc,
+	portraitAlt = ''
+} = Astro.props;
+
+const hasPortrait = Boolean(portraitSrc);
+---
+
+<section class:list={['site__hero', 'hero', hasPortrait && 'hero--portrait']}>
+	<div class="hero__text">
+		<p class="hero__eyebrow">{eyebrow}</p>
+		<h1 class="hero__title">{title}</h1>
+		<p class="hero__lede">{description}</p>
+	</div>
+	{hasPortrait && (
+		<div class="hero__portrait-wrap">
+			<img class="hero__portrait" src={portraitSrc} alt={portraitAlt} loading="eager" />
+		</div>
+	)}
+</section>

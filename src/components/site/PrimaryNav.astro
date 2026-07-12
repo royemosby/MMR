@@ -1,0 +1,36 @@
+---
+interface NavItem {
+	href: string;
+	label: string;
+}
+
+interface Props {
+	navigation: NavItem[];
+	currentPath: string;
+}
+
+const { navigation, currentPath } = Astro.props;
+---
+
+<header class="site__masthead">
+	<a class="site__brand" href="/">MAGGIE LYNN</a>
+	<div class="site__nav">
+		<nav aria-label="Primary">
+			<ul class="nav-list">
+				{navigation.map((item) => {
+					const itemPath = item.href === '/' ? '/' : item.href.replace(/\/$/, '');
+					const isCurrent = currentPath === itemPath;
+
+					return (
+						<li class="nav-list__item">
+							<a class="nav-list__link" href={item.href} aria-current={isCurrent ? 'page' : undefined}>
+								{item.label}
+							</a>
+						</li>
+					);
+				})}
+			</ul>
+		</nav>
+		<a class="nav-list__cta" href="/contact">Inquire</a>
+	</div>
+</header>
