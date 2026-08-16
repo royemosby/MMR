@@ -2,90 +2,86 @@
 import { getCollection } from 'astro:content';
 import ShowcaseLayout from '../layouts/ShowcaseLayout.astro';
 import InterfaceButton from '../components/ui/InterfaceButton.astro';
-import FeatureCard from '../components/ui/FeatureCard.astro';
 import FieldNoteCard from '../components/ui/FieldNoteCard.astro';
-
-const allFieldNotes = await getCollection('field-notes', ({ data }) => data.status === 'published');
-const fieldNotes = allFieldNotes
-	.sort((a, b) => a.data.fieldNoteNumber - b.data.fieldNoteNumber)
-	.slice(0, 3);
+import EditorialStatement from '../components/editorial/EditorialStatement.astro';
+import CapabilityThreeUp from '../components/editorial/CapabilityThreeUp.astro';
+import FeaturedCase from '../components/editorial/FeaturedCase.astro';
+import ClosingCTA from '../components/editorial/ClosingCTA.astro';
 ---
 
 <ShowcaseLayout
-	title="The operating structure behind trust."
-	description="I help mission-driven teams turn complex digital work into clear decisions, trusted execution, and measurable momentum by designing the systems, signals, and stories that let strategy move."
+	title="I design the operating structure behind complex work."
+	description="I help mission-driven organizations turn ambitious priorities into work people can actually move, through clear decisions, visible risk, workable governance, and enough shared context to act."
+	eyebrow="Strategic implementation + operations"
 	portraitSrc="/images/portrait-home.jpg"
-	portraitAlt="Maggie Lynn"
+	portraitAlt="Maggie Lynn standing in a library-lined interior"
 >
-	<!-- Hero CTAs -->
-	<section class="content-panel">
-		<div class="content-panel__content">
-			<div style="display:flex;gap:1rem;flex-wrap:wrap;">
-				<InterfaceButton href="/work" variant="primary">View the Work</InterfaceButton>
-				<InterfaceButton href="/frameworks" variant="secondary">Explore the Frameworks</InterfaceButton>
-			</div>
-		</div>
-		<div class="content-panel__meta">
-			<p>Current Focus<span class="content-panel__meta-value">Strategy-to-execution systems for mission-driven digital work</span></p>
-		</div>
-	</section>
+	<Fragment slot="hero-cta">
+		<InterfaceButton href="/work" variant="primary">Explore the work</InterfaceButton>
+		<InterfaceButton href="https://maggielynn.substack.com/" variant="secondary">Read Field Notes</InterfaceButton>
+	</Fragment>
 
-	<!-- The Thesis -->
-	<div class="section-heading">
-		<p class="section-heading__eyebrow">The Thesis</p>
-		<div class="section-heading__line"></div>
-	</div>
-	<section class="content-panel content-panel--split">
-		<header class="content-panel__header">
-			<h2 class="content-panel__title">Strategy needs an operating layer.</h2>
-		</header>
-		<div class="content-panel__content">
-			<p class="content-panel__body">Most complex work does not fail because people lack vision. It fails in the space between intent and execution, where priorities blur, decisions stall, risks stay invisible, and stakeholders lose the thread.</p>
-			<p class="content-panel__body">That space is where I work: building the structures, rhythms, and narrative clarity that help teams understand what is happening, what matters now, and how to move next.</p>
-		</div>
-		<div class="content-panel__content">
-			<p class="content-panel__eyebrow">01. Decision Clarity</p>
-			<p class="content-panel__body">Every major move needs a visible owner, context, tradeoff, and next step. I help teams make decisions durable enough to guide the work instead of reopening it.</p>
-			<p class="content-panel__eyebrow">02. Visible Momentum</p>
-			<p class="content-panel__body">Progress only builds trust when people can see it. I create the rhythms, signals, and communication structures that show what is moving, what is blocked, and what needs attention.</p>
-		</div>
-	</section>
+	<EditorialStatement
+		eyebrow="The operating structure behind trust"
+		headline="Strategy doesn't become real on its own."
+		body={[
+			"The plan can be solid. The people can be capable. Everyone can even agree on what they're trying to do. Complex work still starts to drift when decisions don't hold, risk stays hidden, ownership gets fuzzy, or the meaning of the work changes without the operating structure changing with it.",
+			"That middle layer is where I work: the place where priorities have to become decisions, decisions have to become coordinated action, and the organization finds out whether the system can actually carry what it has promised.",
+			"I build the structures that help people know what matters, what changed, who decides, and what they're supposed to do next. Trust doesn't appear because everyone keeps showing up to the meeting. Trust has to be designed into the way the work moves: decisions that hold, risks that surface early, context people can find, and enough clarity for people to act without waiting for rescue."
+		]}
+		linkLabel="Why I work this way"
+		linkHref="/about"
+	/>
 
-	<!-- Operating Structures / Capabilities -->
-	<div class="section-heading">
-		<p class="section-heading__eyebrow">Operating Structures</p>
-		<div class="section-heading__line"></div>
-		<span class="section-heading__label">Capabilities</span>
-	</div>
-	<div class="content-grid">
-		<article class="content-grid__item">
-			<p class="content-grid__label">Alignment Systems</p>
-			<h3 class="content-grid__title">Alignment Systems</h3>
-			<p class="content-grid__caption">Turning broad goals into shared priorities, stakeholder roles, decision paths, and working rhythms that help complex teams move together.</p>
-		</article>
-		<article class="content-grid__item">
-			<p class="content-grid__label">Project Health Signals</p>
-			<h3 class="content-grid__title">Project Health Signals</h3>
-			<p class="content-grid__caption">Making risk, dependencies, budget pressure, team strain, and stakeholder confidence visible early enough to act before friction becomes failure.</p>
-		</article>
-		<article class="content-grid__item">
-			<p class="content-grid__label">Launch & Transition Readiness</p>
-			<h3 class="content-grid__title">Launch &amp; Transition Readiness</h3>
-			<p class="content-grid__caption">Designing the final stretch of complex work with clear criteria, accepted risks, handoff plans, and confidence in what comes next.</p>
-		</article>
-	</div>
+	<CapabilityThreeUp
+		eyebrow="How I work"
+		headline="I make complex work easier to see, decide, and sustain."
+		capabilities={[
+			{
+				number: '01',
+				title: 'Make complexity legible',
+				body: 'I create the shared view: what matters, what changed, where risk is forming, and which decisions still need to hold.',
+				inPractice: 'Portfolio health signals, durable decision records, executive updates, and narrative resets.'
+			},
+			{
+				number: '02',
+				title: 'Design the operating structure',
+				body: 'I turn organizational priorities into roles, governance, working rhythms, and resource choices a cross-functional team can actually use.',
+				inPractice: 'Governance models, resource plans, launch criteria, and operating cadences.'
+			},
+			{
+				number: '03',
+				title: 'Help change survive launch',
+				body: "I design for adoption, continuity, handoff, and reinforcement so the work doesn't depend on one person remembering how everything works.",
+				inPractice: 'Adoption plans, training structures, handoffs, and post-launch operating practices.'
+			}
+		]}
+		sectionLinkLabel="See how this shows up in the work"
+		sectionLinkHref="/work"
+	/>
 
-	<!-- Featured Case Study -->
-	<FeatureCard
-		eyebrow="Featured Case Study"
-		title="Launch Confidence Under Pressure"
-		description="A compressed launch timeline required clearer decision visibility, sharper triage rhythms, and a shared definition of what was truly launch-critical."
-		imageSrc="https://images.unsplash.com/photo-1531297484001-80022131f5a1?auto=format&fit=crop&w=900&q=80"
-		imageAlt="Notebook and planning materials on a desk"
-		tag="Case Study"
+	<FeaturedCase
+		label="Case Study"
+		eyebrow="Featured Work"
+		title="The Platform Was the Deliverable. Adoption Was the Work."
+		summary="I led an approximately $1 million multiyear statewide referral-platform initiative, building the partner, rollout, and public-facing systems the technology needed to become useful in practice."
+		ctaLabel="Explore the work"
+		ctaHref="/work"
+		comparison={{
+			left: {
+				heading: 'What we were building',
+				body: 'A statewide digital platform designed to help families and practitioners find and connect with relevant services.'
+			},
+			right: {
+				heading: 'What it would take to make it real',
+				body: 'A coordinated rollout across organizational teams, community partners, communications, referral practices, and the people expected to use the system in their everyday work.'
+			},
+			closingLine: 'The technology was the deliverable. The operating system around it was the implementation.'
+		}}
 	/>
 
 	<!-- Field Notes -->
+<<<<<<< HEAD
 	<div class="section-heading">
 		<p class="section-heading__eyebrow">Field Notes</p>
 		<div class="section-heading__line"></div>
@@ -108,15 +104,51 @@ const fieldNotes = allFieldNotes
 		<header class="content-panel__header">
 			<h2 class="content-panel__title">Complex work needs more than a plan.</h2>
 			<p class="content-panel__body">It needs aligned stakeholders, visible risks, trusted decisions, and a shared story of what happens next.</p>
+=======
+	<section class="field-notes-section">
+		<header class="field-notes-section__header">
+			<p class="field-notes-section__eyebrow">Field Notes</p>
+			<h2 class="field-notes-section__headline">Notes from the machinery of complex work.</h2>
+			<p class="field-notes-section__intro">Most of my writing begins with a small operational haunting: a decision no one remembers making, a weekly update that restores shared reality, or a scope change that is actually a change in what the work means. The metaphor gets us in the door. The operating insight is why we stay.</p>
+>>>>>>> 10c273f (refactor: update FieldNoteCard and ShowcaseLayout components for improved structure and accessibility; add new editorial components and styles)
 		</header>
-		<div class="content-panel__content" style="display:flex;gap:1rem;flex-wrap:wrap;align-items:center;">
-			<input
-				type="text"
-				placeholder="What kind of work needs clarity?"
-				style="flex:1;min-width:14rem;border:1px solid var(--color-rule);background:rgba(255,255,255,0.62);padding:0.72rem 0.7rem;font:inherit;color:#31271f;"
-				aria-label="Describe the kind of work that needs clarity"
+		<div class="field-notes-section__grid">
+			<FieldNoteCard
+				title="Every Project Needs a &#8220;Previously On&#8230;&#8221;"
+				summary="A project recap isn't nostalgia. It's how the work remembers what happened, why it matters, and where the story is going next."
+				href="https://maggielynn.substack.com/p/every-project-needs-a-previously"
+				external={true}
 			/>
-			<InterfaceButton href="/contact" variant="primary">Start a Conversation</InterfaceButton>
+			<FieldNoteCard
+				title="The Weekly Update Is a Ritual"
+				summary="A note on orientation, rhythm, and the recurring work of restoring shared reality."
+				href="https://maggielynn.substack.com/p/field-note-the-weekly-update-is-a"
+				external={true}
+			/>
+			<FieldNoteCard
+				title="Designing the Experience of Delivery"
+				summary="The systems around complex work don't just organize delivery. They shape whether people experience the work as clear, trustworthy, navigable, or quietly unsafe."
+				href="https://maggielynn.substack.com/p/essay-designing-the-experience-of"
+				external={true}
+			/>
+		</div>
+		<div class="field-notes-section__footer">
+			<a
+				class="interface-button interface-button--secondary"
+				href="https://maggielynn.substack.com/"
+				target="_blank"
+				rel="noopener noreferrer"
+			>
+				<span>Read all Field Notes ↗</span>
+			</a>
 		</div>
 	</section>
+
+	<ClosingCTA
+		eyebrow="Contact"
+		headline="Good strategy deserves a system that can carry it."
+		body="Tell me what the work is trying to become—and where it keeps getting stuck. I'm interested in senior leadership roles, speaking invitations, and conversations about strategic implementation, portfolio operations, transformation, and the operating structures that help mission-driven work survive contact with reality."
+		ctaLabel="Start a conversation"
+		ctaHref="/contact"
+	/>
 </ShowcaseLayout>

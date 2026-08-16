@@ -3,9 +3,16 @@ import PageHero from '../components/site/PageHero.astro';
 import PrimaryNav from '../components/site/PrimaryNav.astro';
 import SiteFooter from '../components/site/SiteFooter.astro';
 
+interface NavItem {
+	href: string;
+	label: string;
+	external?: boolean;
+}
+
 interface Props {
 	title: string;
 	description?: string;
+	eyebrow?: string;
 	portraitSrc?: string;
 	portraitAlt?: string;
 	/** Pass noHero on pages that use an editorial header component (ArticleHeader,
@@ -16,27 +23,25 @@ interface Props {
 const {
 	title,
 	description = 'Professional showcase placeholder page.',
+	eyebrow,
 	portraitSrc,
 	portraitAlt,
 	noHero = false
 } = Astro.props;
 
-const navigation = [
-	{ href: '/', label: 'Home' },
+const navigation: NavItem[] = [
 	{ href: '/about', label: 'About' },
-	{ href: '/writing', label: 'Writing' },
-	{ href: '/field-notes', label: 'Field Notes' },
-	{ href: '/frameworks', label: 'Frameworks' },
-	{ href: '/speaking', label: 'Speaking' },
+	{ href: 'https://maggielynn.substack.com/', label: 'Field Notes', external: true },
 	{ href: '/work', label: 'Work' },
-	{ href: '/contact', label: 'Contact', cta: true }
+	{ href: '/contact', label: 'Contact' }
 ];
 
-const footerLinks = [
-	{ href: '/about', label: 'Archive' },
-	{ href: '/frameworks', label: 'Frameworks' },
-	{ href: '/speaking', label: 'Speaking' },
-	{ href: '/contact', label: 'Contact' }
+const footerLinks: NavItem[] = [
+	{ href: '/about', label: 'About' },
+	{ href: 'https://maggielynn.substack.com/', label: 'Field Notes', external: true },
+	{ href: '/work', label: 'Work' },
+	{ href: '/contact', label: 'Contact' },
+	{ href: '#', label: 'LinkedIn' }
 ];
 
 const currentPath = Astro.url.pathname.replace(/\/$/, '') || '/';
@@ -61,7 +66,11 @@ const currentPath = Astro.url.pathname.replace(/\/$/, '') || '/';
 		<div class="site">
 			<div class="site__shell">
 				<PrimaryNav navigation={navigation} currentPath={currentPath} />
-				{!noHero && <PageHero title={title} description={description} portraitSrc={portraitSrc} portraitAlt={portraitAlt} />}
+				{!noHero && (
+					<PageHero title={title} description={description} eyebrow={eyebrow} portraitSrc={portraitSrc} portraitAlt={portraitAlt}>
+						<slot name="hero-cta" slot="cta" />
+					</PageHero>
+				)}
 				<main class="site__main">
 				<slot />
 				</main>

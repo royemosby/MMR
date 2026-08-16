@@ -1,28 +1,33 @@
 ---
 interface Props {
-	noteId?: string;
-	quote: string;
-	author?: string;
-	date?: string;
+	title: string;
+	summary?: string;
 	href?: string;
+	external?: boolean;
+	date?: string;
+	noteLabel?: string;
 }
 
 const {
-	noteId = 'Field Note N12',
-	quote,
-	author = 'Authored by MMR',
-	date = '03.14.24',
+	title,
+	summary,
 	href,
+	external = false,
+	date,
+	noteLabel = 'Field Note'
 } = Astro.props;
+
+const externalAttrs = external ? { target: '_blank', rel: 'noopener noreferrer' } : {};
 ---
 
 <article class="field-note-card">
-	<p class="field-note-card__id">{noteId}</p>
-	<blockquote class="field-note-card__quote">
-		{href ? <a class="field-note-card__link" href={href}>{quote}</a> : quote}
-	</blockquote>
-	<div class="field-note-card__meta">
-		<p>{author}</p>
-		<p>{date}</p>
-	</div>
+	<p class="field-note-card__id">{noteLabel}</p>
+	<h3 class="field-note-card__title">
+		{href
+			? <a class="field-note-card__link" href={href} {...externalAttrs} aria-label={external ? `${title} (opens in new tab)` : undefined}>{title}{external && <span class="field-note-card__external" aria-hidden="true"> ↗</span>}</a>
+			: title
+		}
+	</h3>
+	{summary && <p class="field-note-card__summary">{summary}</p>}
+	{date && <p class="field-note-card__date">{date}</p>}
 </article>
