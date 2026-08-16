@@ -2824,3 +2824,502 @@ details[open] .artifact-figure__trigger-label::before {
     animation-iteration-count: 1 !important;
   }
 }
+
+/* ─── PageIntro ─────────────────────────────────────────── */
+
+.page-intro {
+  padding: var(--space-64) 0 var(--space-48);
+  border-bottom: 1px solid var(--color-rule);
+  display: grid;
+  gap: var(--space-24);
+}
+
+.page-intro__eyebrow {
+  margin: 0;
+  color: var(--color-oxblood);
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 0.68rem;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+.page-intro__headline {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(2.25rem, 6vw, 4rem);
+  font-weight: 400;
+  line-height: 1.02;
+  letter-spacing: -0.02em;
+  max-width: 22ch;
+}
+
+.page-intro__deck {
+  margin: 0;
+  font-size: 1.1rem;
+  line-height: 1.65;
+  color: var(--color-muted);
+  max-width: 38rem;
+}
+
+/* ─── EditorialStatement tonal variant + progression ────── */
+
+.editorial-statement--tonal {
+  max-width: none;
+  background: var(--color-note);
+  padding: var(--space-96) var(--space-48);
+  border-bottom: none;
+  border-top: 1px solid var(--color-rule);
+}
+
+.editorial-statement--tonal .editorial-statement__eyebrow,
+.editorial-statement--tonal .editorial-statement__headline,
+.editorial-statement--tonal .editorial-statement__body {
+  max-width: 36rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.editorial-statement--tonal .editorial-statement__body p {
+  font-size: 1.1rem;
+}
+
+.editorial-statement__progression {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-24);
+  padding-top: var(--space-32);
+  margin-top: var(--space-8);
+  border-top: 1px solid var(--color-rule);
+}
+
+@media (max-width: 48rem) {
+  .editorial-statement__progression {
+    grid-template-columns: 1fr;
+  }
+}
+
+.progression-item {
+  display: grid;
+  gap: var(--space-8);
+  padding-top: var(--space-16);
+  border-top: 1px solid var(--color-rule);
+}
+
+@media (min-width: 48rem) {
+  .progression-item {
+    padding-top: 0;
+    border-top: none;
+  }
+}
+
+.progression-item__label {
+  margin: 0;
+  font-size: 0.63rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-oxblood);
+}
+
+.progression-item__question {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-style: italic;
+  line-height: 1.4;
+  color: var(--color-ink);
+}
+
+/* ─── EditorialSplit ────────────────────────────────────── */
+
+.editorial-split {
+  display: grid;
+  gap: var(--space-32);
+  padding: var(--space-48) 0;
+  border-bottom: 1px solid var(--color-rule);
+}
+
+@media (min-width: 56rem) {
+  .editorial-split {
+    grid-template-columns: 2fr 3fr;
+    gap: var(--space-64);
+    align-items: start;
+  }
+}
+
+.editorial-split__label {
+  display: grid;
+  gap: var(--space-12);
+  align-content: start;
+}
+
+.editorial-split__eyebrow {
+  margin: 0;
+  color: var(--color-oxblood);
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 0.68rem;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+.editorial-split__headline {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 3.5vw, 2.25rem);
+  font-weight: 400;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.editorial-split__body {
+  display: grid;
+  gap: var(--space-16);
+}
+
+.editorial-split__body p {
+  margin: 0;
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: var(--color-muted);
+}
+
+/* ─── LeadershipPrinciples ──────────────────────────────── */
+
+.leadership-principles {
+  display: grid;
+  gap: var(--space-32);
+  padding: var(--space-48) 0;
+  border-bottom: 1px solid var(--color-rule);
+}
+
+.leadership-principles__header {
+  display: grid;
+  gap: var(--space-12);
+}
+
+.leadership-principles__eyebrow {
+  margin: 0;
+  color: var(--color-oxblood);
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 0.68rem;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+.leadership-principles__headline {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 3.5vw, 2.25rem);
+  font-weight: 400;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.leadership-principles__list {
+  border-top: 1px solid var(--color-rule);
+}
+
+.principle-row {
+  display: grid;
+  grid-template-columns: 3rem 1fr;
+  gap: var(--space-8) var(--space-16);
+  padding: var(--space-20) 0;
+  border-bottom: 1px solid var(--color-rule);
+  align-items: baseline;
+}
+
+@media (min-width: 48rem) {
+  .principle-row {
+    grid-template-columns: 5rem 1fr 2fr;
+    gap: var(--space-24);
+  }
+}
+
+.principle-row__number {
+  margin: 0;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-oxblood);
+  padding-top: 0.2em;
+}
+
+.principle-row__title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 400;
+  line-height: 1.2;
+}
+
+.principle-row__description {
+  margin: 0;
+  font-size: 0.97rem;
+  line-height: 1.65;
+  color: var(--color-muted);
+  grid-column: 2 / -1;
+}
+
+@media (min-width: 48rem) {
+  .principle-row__description {
+    grid-column: auto;
+  }
+}
+
+/* ─── CareerThroughline ─────────────────────────────────── */
+
+.career-throughline {
+  display: grid;
+  gap: var(--space-48);
+  padding: var(--space-48) 0;
+  border-bottom: 1px solid var(--color-rule);
+}
+
+.career-throughline__header {
+  display: grid;
+  gap: var(--space-12);
+}
+
+.career-throughline__eyebrow {
+  margin: 0;
+  color: var(--color-oxblood);
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 0.68rem;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+.career-throughline__headline {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 3.5vw, 2.25rem);
+  font-weight: 400;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.career-chapters {
+  border-top: 1px solid var(--color-rule);
+  padding-top: var(--space-32);
+  display: grid;
+  gap: var(--space-48);
+}
+
+@media (min-width: 56rem) {
+  .career-chapters {
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-32);
+  }
+}
+
+.career-chapter {
+  display: grid;
+  gap: var(--space-8);
+  align-content: start;
+}
+
+.career-chapter__number {
+  margin: 0;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-oxblood);
+  margin-bottom: var(--space-4);
+}
+
+.career-chapter__title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  font-weight: 400;
+  line-height: 1.2;
+}
+
+.career-chapter--current .career-chapter__title {
+  font-size: 1.35rem;
+}
+
+.career-chapter__context-label,
+.career-chapter__added-label {
+  margin: var(--space-12) 0 var(--space-4);
+  font-size: 0.63rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+}
+
+.career-chapter__context {
+  margin: 0;
+  font-size: 0.88rem;
+  line-height: 1.55;
+  color: var(--color-muted);
+}
+
+.career-chapter__added {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--color-ink);
+}
+
+/* ─── ThinkingInPublic ──────────────────────────────────── */
+
+.thinking-in-public {
+  display: grid;
+  gap: var(--space-48);
+  padding: var(--space-48) 0;
+  border-bottom: 1px solid var(--color-rule);
+}
+
+@media (min-width: 56rem) {
+  .thinking-in-public {
+    grid-template-columns: 3fr 2fr;
+    gap: var(--space-64);
+    align-items: start;
+  }
+}
+
+.thinking-in-public__main {
+  display: grid;
+  gap: var(--space-24);
+}
+
+.thinking-in-public__eyebrow {
+  margin: 0;
+  color: var(--color-oxblood);
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 0.68rem;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+.thinking-in-public__headline {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 3.5vw, 2.25rem);
+  font-weight: 400;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  max-width: 24ch;
+}
+
+.thinking-in-public__body {
+  display: grid;
+  gap: var(--space-16);
+}
+
+.thinking-in-public__body p {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--color-muted);
+}
+
+.thinking-in-public__sidebar {
+  padding-top: var(--space-24);
+  border-top: 1px solid var(--color-rule);
+}
+
+@media (min-width: 56rem) {
+  .thinking-in-public__sidebar {
+    padding-top: 0;
+    border-top: none;
+    padding-left: var(--space-32);
+    border-left: 1px solid var(--color-rule);
+  }
+}
+
+.topics-index {
+  display: grid;
+  gap: 0;
+}
+
+.topics-index__label {
+  margin: 0 0 var(--space-16);
+  font-size: 0.63rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+}
+
+.topics-index__item {
+  padding: var(--space-12) 0;
+  border-bottom: 1px solid var(--color-rule);
+  margin: 0;
+  font-size: 0.88rem;
+  line-height: 1.5;
+  color: var(--color-ink);
+}
+
+.topics-index__item:first-of-type {
+  border-top: 1px solid var(--color-rule);
+}
+
+/* ─── CredentialStrip ───────────────────────────────────── */
+
+.credential-strip {
+  padding: var(--space-32) 0;
+  border-bottom: 1px solid var(--color-rule);
+}
+
+.credential-strip__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-24);
+  padding-top: var(--space-24);
+  border-top: 1px solid var(--color-rule);
+}
+
+@media (min-width: 48rem) {
+  .credential-strip__grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.credential-item {
+  display: grid;
+  gap: var(--space-4);
+  align-content: start;
+}
+
+.credential-item__label {
+  margin: 0;
+  font-size: 0.63rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-oxblood);
+}
+
+.credential-item__primary {
+  margin: 0;
+  font-size: 0.88rem;
+  font-weight: 600;
+  line-height: 1.4;
+  color: var(--color-ink);
+}
+
+.credential-item__supporting {
+  margin: 0;
+  font-size: 0.8rem;
+  line-height: 1.5;
+  color: var(--color-muted);
+}
+
+/* ─── ClosingCTA actions row ────────────────────────────── */
+
+.closing-cta__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-24);
+  align-items: center;
+}
