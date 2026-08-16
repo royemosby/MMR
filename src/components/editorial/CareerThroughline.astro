@@ -1,0 +1,36 @@
+---
+interface Chapter {
+	number: string;
+	title: string;
+	context: string;
+	whatItAdded: string;
+	current?: boolean;
+}
+
+interface Props {
+	eyebrow: string;
+	headline: string;
+	chapters: Chapter[];
+}
+
+const { eyebrow, headline, chapters } = Astro.props;
+---
+
+<section class="career-throughline">
+	<header class="career-throughline__header">
+		<p class="career-throughline__eyebrow">{eyebrow}</p>
+		<h2 class="career-throughline__headline">{headline}</h2>
+	</header>
+	<div class="career-chapters">
+		{chapters.map((ch) => (
+			<article class:list={['career-chapter', ch.current && 'career-chapter--current']}>
+				<p class="career-chapter__number">{ch.number}</p>
+				<h3 class="career-chapter__title">{ch.title}</h3>
+				<p class="career-chapter__context-label">Context</p>
+				<p class="career-chapter__context">{ch.context}</p>
+				<p class="career-chapter__added-label">What it added</p>
+				<p class="career-chapter__added">{ch.whatItAdded}</p>
+			</article>
+		))}
+	</div>
+</section>

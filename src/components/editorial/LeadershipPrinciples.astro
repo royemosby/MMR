@@ -1,0 +1,31 @@
+---
+interface Principle {
+	number: string;
+	title: string;
+	description: string;
+}
+
+interface Props {
+	eyebrow: string;
+	headline: string;
+	principles: Principle[];
+}
+
+const { eyebrow, headline, principles } = Astro.props;
+---
+
+<section class="leadership-principles">
+	<header class="leadership-principles__header">
+		<p class="leadership-principles__eyebrow">{eyebrow}</p>
+		<h2 class="leadership-principles__headline">{headline}</h2>
+	</header>
+	<div class="leadership-principles__list" role="list">
+		{principles.map((p) => (
+			<div class="principle-row" role="listitem">
+				<p class="principle-row__number">{p.number}</p>
+				<h3 class="principle-row__title">{p.title}</h3>
+				<p class="principle-row__description">{p.description}</p>
+			</div>
+		))}
+	</div>
+</section>
