@@ -1,0 +1,18 @@
+---
+interface Props {
+	eyebrow: string;
+	headline: string;
+	body: string;
+	ctaLabel: string;
+	ctaHref: string;
+}
+
+const { eyebrow, headline, body, ctaLabel, ctaHref } = Astro.props;
+---
+
+<section class="closing-cta">
+	<p class="closing-cta__eyebrow">{eyebrow}</p>
+	<h2 class="closing-cta__headline">{headline}</h2>
+	<p class="closing-cta__body">{body}</p>
+	<a class="interface-button interface-button--primary" href={ctaHref}><span>{ctaLabel}</span></a>
+</section>

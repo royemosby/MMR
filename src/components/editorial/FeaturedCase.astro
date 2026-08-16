@@ -1,0 +1,53 @@
+---
+interface ComparisonColumn {
+	heading: string;
+	body: string;
+}
+
+interface Comparison {
+	left: ComparisonColumn;
+	right: ComparisonColumn;
+	closingLine: string;
+}
+
+interface Props {
+	label: string;
+	eyebrow: string;
+	title: string;
+	summary: string;
+	ctaLabel: string;
+	ctaHref: string;
+	comparison?: Comparison;
+}
+
+const { label, eyebrow, title, summary, ctaLabel, ctaHref, comparison } = Astro.props;
+---
+
+<section class="featured-case">
+	<header class="featured-case__header">
+		<p class="featured-case__label">{label}</p>
+		<p class="featured-case__eyebrow">{eyebrow}</p>
+		<h2 class="featured-case__title">{title}</h2>
+		<p class="featured-case__summary">{summary}</p>
+	</header>
+
+	{comparison && (
+		<div class="featured-case__comparison">
+			<div class="featured-case__comparison-grid">
+				<div class="comparison-col">
+					<p class="comparison-col__label">{comparison.left.heading}</p>
+					<p class="comparison-col__body">{comparison.left.body}</p>
+				</div>
+				<div class="comparison-col">
+					<p class="comparison-col__label">{comparison.right.heading}</p>
+					<p class="comparison-col__body">{comparison.right.body}</p>
+				</div>
+			</div>
+			<p class="featured-case__comparison-close">{comparison.closingLine}</p>
+		</div>
+	)}
+
+	<div class="featured-case__action">
+		<a class="interface-button interface-button--primary" href={ctaHref}><span>{ctaLabel}</span></a>
+	</div>
+</section>

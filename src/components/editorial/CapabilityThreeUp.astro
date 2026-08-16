@@ -1,0 +1,41 @@
+---
+interface Capability {
+	number: string;
+	title: string;
+	body: string;
+	inPractice: string;
+}
+
+interface Props {
+	eyebrow: string;
+	headline: string;
+	capabilities: Capability[];
+	sectionLinkLabel: string;
+	sectionLinkHref: string;
+}
+
+const { eyebrow, headline, capabilities, sectionLinkLabel, sectionLinkHref } = Astro.props;
+---
+
+<section class="capability-three-up">
+	<header class="capability-three-up__header">
+		<p class="capability-three-up__eyebrow">{eyebrow}</p>
+		<h2 class="capability-three-up__headline">{headline}</h2>
+	</header>
+	<div class="capability-three-up__grid">
+		{capabilities.map((cap) => (
+			<article class="capability__item">
+				<p class="capability__number">{cap.number}</p>
+				<h3 class="capability__title">{cap.title}</h3>
+				<p class="capability__body">{cap.body}</p>
+				<div class="capability__proof">
+					<p class="capability__proof-label">In Practice</p>
+					<p class="capability__proof-text">{cap.inPractice}</p>
+				</div>
+			</article>
+		))}
+	</div>
+	<footer class="capability-three-up__footer">
+		<a class="editorial-statement__link" href={sectionLinkHref}>{sectionLinkLabel} →</a>
+	</footer>
+</section>
