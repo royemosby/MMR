@@ -1,0 +1,25 @@
+---
+interface Prompt {
+	label: string;
+	title: string;
+	body: string;
+}
+
+interface Props {
+	prompts: Prompt[];
+}
+
+const { prompts } = Astro.props;
+---
+
+<section class="conversation-prompts">
+	<div class="conversation-prompts__grid">
+		{prompts.map((p) => (
+			<div class="conversation-prompt">
+				<p class="conversation-prompt__label">{p.label}</p>
+				<h2 class="conversation-prompt__title">{p.title}</h2>
+				<p class="conversation-prompt__body">{p.body}</p>
+			</div>
+		))}
+	</div>
+</section>

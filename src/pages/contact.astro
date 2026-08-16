@@ -1,33 +1,68 @@
 ---
 import ShowcaseLayout from '../layouts/ShowcaseLayout.astro';
+import PageIntro from '../components/editorial/PageIntro.astro';
+import ConversationPrompts from '../components/editorial/ConversationPrompts.astro';
+import ContactDetails from '../components/editorial/ContactDetails.astro';
 ---
 
 <ShowcaseLayout
 	title="Contact"
-	description="A placeholder contact page for inquiries, collaborations, and direct outreach."
+	description="Start a conversation. I'm open to senior leadership roles, speaking invitations, and conversations about strategic implementation, transformation, and operating systems."
+	noHero={true}
 >
-	<div class="section-heading">
-		<p class="section-heading__eyebrow">Access</p>
-		<div class="section-heading__line"></div>
-		<span class="section-heading__label">Inquiry structure</span>
-	</div>
-	<section class="content-panel content-panel--split">
-		<header class="content-panel__header">
-			<p class="content-panel__eyebrow">Inquiries</p>
-			<h2 class="content-panel__title">Direct outreach and collaboration intake.</h2>
-		</header>
-		<div class="content-panel__content">
-			<p class="content-panel__body">
-			Use this page for email, scheduling, social links, or any preferred intake method for new
-			conversations.
-			</p>
-		</div>
-		<div class="content-panel__content">
-			<ul class="content-panel__list">
-				<li>Primary contact method</li>
-				<li>Response window or availability</li>
-				<li>Project or speaking intake details</li>
-			</ul>
-		</div>
-	</section>
+	<PageIntro
+		eyebrow="Contact"
+		headline="Start a conversation."
+		deck="I\u2019m open to senior leadership roles, speaking invitations, and conversations about the messy, important work of turning strategy into execution\u2014operations, transformation, and the systems that make complex work actually hold together."
+	>
+		<Fragment slot="cta">
+			<a class="interface-button interface-button--primary" href="mailto:maggie@reasonablepeople.io">
+				<span>Email Maggie</span>
+			</a>
+			<a class="page-intro__email" href="mailto:maggie@reasonablepeople.io">
+				maggie@reasonablepeople.io
+			</a>
+		</Fragment>
+	</PageIntro>
+
+	<ConversationPrompts
+		prompts={[
+			{
+				label: 'Leadership',
+				title: 'Senior leadership',
+				body: "I\u2019m interested in roles spanning strategic operations, transformation, portfolio leadership, and the work of turning consequential priorities into sustained execution."
+			},
+			{
+				label: 'Speaking',
+				title: 'Talks + workshops',
+				body: 'I speak about strategic implementation, trust, delivery experience, risk, decision-making, and the systems that shape how complex work actually feels.'
+			},
+			{
+				label: 'Conversation',
+				title: 'Something interesting',
+				body: "If you\u2019re sitting with a messy, high-stakes problem\u2014strategy that won\u2019t land; execution that keeps stalling; adoption that looks good on paper but doesn\u2019t hold in practice\u2014those are my favorite kinds of conversations."
+			}
+		]}
+	/>
+
+	<ContactDetails
+		eyebrow="Elsewhere"
+		links={[
+			{
+				label: 'Email',
+				text: 'maggie@reasonablepeople.io',
+				href: 'mailto:maggie@reasonablepeople.io'
+			},
+			{
+				label: 'LinkedIn',
+				text: 'Connect on LinkedIn',
+				href: 'https://www.linkedin.com/in/maggiemlynn/',
+				external: true
+			}
+		]}
+	/>
+
+	<p class="contact-closing">
+		Good work usually starts with someone saying, \u201cHere\u2019s the weird part.\u201d
+	</p>
 </ShowcaseLayout>
