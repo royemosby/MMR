@@ -5,14 +5,21 @@ interface Props {
 	body: string;
 	ctaLabel: string;
 	ctaHref: string;
+	secondaryLinkLabel?: string;
+	secondaryLinkHref?: string;
 }
 
-const { eyebrow, headline, body, ctaLabel, ctaHref } = Astro.props;
+const { eyebrow, headline, body, ctaLabel, ctaHref, secondaryLinkLabel, secondaryLinkHref } = Astro.props;
 ---
 
 <section class="closing-cta">
 	<p class="closing-cta__eyebrow">{eyebrow}</p>
 	<h2 class="closing-cta__headline">{headline}</h2>
 	<p class="closing-cta__body">{body}</p>
-	<a class="interface-button interface-button--primary" href={ctaHref}><span>{ctaLabel}</span></a>
+	<div class="closing-cta__actions">
+		<a class="interface-button interface-button--primary" href={ctaHref}><span>{ctaLabel}</span></a>
+		{secondaryLinkLabel && secondaryLinkHref && (
+			<a class="editorial-statement__link" href={secondaryLinkHref}>{secondaryLinkLabel} →</a>
+		)}
+	</div>
 </section>
