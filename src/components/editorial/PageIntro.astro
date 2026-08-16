@@ -12,4 +12,7 @@ const { eyebrow, headline, deck } = Astro.props;
 	<p class="page-intro__eyebrow">{eyebrow}</p>
 	<h1 class="page-intro__headline">{headline}</h1>
 	<p class="page-intro__deck">{deck}</p>
+	<div class="page-intro__cta">
+		<slot name="cta" />
+	</div>
 </section>

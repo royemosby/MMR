@@ -1,0 +1,35 @@
+---
+interface ContactLink {
+	label: string;
+	text: string;
+	href: string;
+	external?: boolean;
+}
+
+interface Props {
+	eyebrow: string;
+	links: ContactLink[];
+}
+
+const { eyebrow, links } = Astro.props;
+---
+
+<section class="contact-details">
+	<p class="contact-details__eyebrow">{eyebrow}</p>
+	<div class="contact-details__list">
+		{links.map((link) => (
+			<div class="contact-detail-row">
+				<p class="contact-detail-row__label">{link.label}</p>
+				<a
+					class="contact-detail-row__link"
+					href={link.href}
+					target={link.external ? '_blank' : undefined}
+					rel={link.external ? 'noopener noreferrer' : undefined}
+					aria-label={link.external ? `${link.text} (opens in new tab)` : undefined}
+				>
+					{link.text}{link.external && <span aria-hidden="true"> ↗</span>}
+				</a>
+			</div>
+		))}
+	</div>
+</section>

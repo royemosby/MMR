@@ -3323,3 +3323,170 @@ details[open] .artifact-figure__trigger-label::before {
   gap: var(--space-24);
   align-items: center;
 }
+
+/* ─── PageIntro CTA slot ────────────────────────────────── */
+
+.page-intro__cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-12) var(--space-24);
+  align-items: center;
+  min-height: 0;
+}
+
+.page-intro__cta:empty {
+  display: none;
+}
+
+.page-intro__email {
+  font-size: 0.95rem;
+  color: var(--color-muted);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(107, 98, 88, 0.4);
+  transition: color 180ms ease, border-color 180ms ease;
+}
+
+.page-intro__email:hover,
+.page-intro__email:focus-visible {
+  color: var(--color-ink);
+  border-color: var(--color-ink);
+}
+
+.page-intro__email:focus-visible {
+  outline: 2px solid var(--color-oxblood);
+  outline-offset: var(--space-4);
+}
+
+/* ─── ConversationPrompts ───────────────────────────────── */
+
+.conversation-prompts {
+  padding: var(--space-48) 0;
+  border-top: 1px solid var(--color-rule);
+  border-bottom: 1px solid var(--color-rule);
+}
+
+.conversation-prompts__grid {
+  display: grid;
+  gap: var(--space-48);
+}
+
+@media (min-width: 48rem) {
+  .conversation-prompts__grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-32);
+  }
+}
+
+.conversation-prompt {
+  display: grid;
+  gap: var(--space-12);
+  align-content: start;
+  padding-top: var(--space-16);
+  border-top: 1px solid var(--color-rule);
+}
+
+@media (min-width: 48rem) {
+  .conversation-prompt {
+    border-top: none;
+    padding-top: 0;
+  }
+}
+
+.conversation-prompt__label {
+  margin: 0;
+  font-size: 0.63rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-oxblood);
+}
+
+.conversation-prompt__title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  font-weight: 400;
+  line-height: 1.2;
+}
+
+.conversation-prompt__body {
+  margin: 0;
+  font-size: 0.97rem;
+  line-height: 1.65;
+  color: var(--color-muted);
+}
+
+/* ─── ContactDetails ────────────────────────────────────── */
+
+.contact-details {
+  display: grid;
+  gap: var(--space-24);
+  max-width: 36rem;
+  padding: var(--space-48) 0;
+}
+
+.contact-details__eyebrow {
+  margin: 0;
+  color: var(--color-oxblood);
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 0.68rem;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+.contact-details__list {
+  border-top: 1px solid var(--color-rule);
+}
+
+.contact-detail-row {
+  display: grid;
+  gap: var(--space-8);
+  padding: var(--space-20) 0;
+  border-bottom: 1px solid var(--color-rule);
+}
+
+.contact-detail-row__label {
+  margin: 0;
+  font-size: 0.63rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+}
+
+.contact-detail-row__link {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--color-ink);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color 180ms ease, color 180ms ease;
+  width: fit-content;
+}
+
+.contact-detail-row__link:hover,
+.contact-detail-row__link:focus-visible {
+  color: var(--color-oxblood);
+  border-bottom-color: var(--color-oxblood);
+}
+
+.contact-detail-row__link:focus-visible {
+  outline: 2px solid var(--color-oxblood);
+  outline-offset: var(--space-4);
+}
+
+/* ─── Contact closing line ──────────────────────────────── */
+
+.contact-closing {
+  margin: 0;
+  padding: var(--space-64) 0;
+  font-family: var(--font-display);
+  font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+  font-style: italic;
+  font-weight: 400;
+  line-height: 1.4;
+  color: var(--color-ink);
+  max-width: 32rem;
+  border-bottom: 1px solid var(--color-rule);
+}
