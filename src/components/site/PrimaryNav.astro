@@ -2,6 +2,7 @@
 interface NavItem {
 	href: string;
 	label: string;
+	external?: boolean;
 	cta?: boolean;
 }
 
@@ -13,14 +14,17 @@ interface Props {
 const { navigation, currentPath } = Astro.props;
 ---
 
-<header class="site__masthead">
+<header class="site__masthead" id="site-masthead">
 	<a class="site__brand" href="/">MAGGIE LYNN</a>
 	<div class="site__nav">
 		<nav aria-label="Primary">
 			<ul class="nav-list">
 				{navigation.map((item) => {
 					const itemPath = item.href === '/' ? '/' : item.href.replace(/\/$/, '');
-					const isCurrent = currentPath === itemPath;
+					const isCurrent = !item.external && currentPath === itemPath;
+					const externalAttrs = item.external
+						? { target: '_blank', rel: 'noopener noreferrer' }
+						: {};
 
 					return (
 						<li class="nav-list__item">
@@ -38,3 +42,20 @@ const { navigation, currentPath } = Astro.props;
 		</nav>
 	</div>
 </header>
+
+<script>
+	const masthead = document.getElementById('site-masthead');
+	if (masthead) {
+		const observer = new IntersectionObserver(
+			([entry]) => {
+				masthead.classList.toggle('site__masthead--scrolled', !entry.isIntersecting);
+			},
+			{ rootMargin: '0px 0px 0px 0px', threshold: 0 }
+		);
+		// Sentinel element placed above the header in the document
+		const sentinel = document.createElement('div');
+		sentinel.style.cssText = 'position:absolute;top:0;height:1px;width:1px;pointer-events:none;';
+		document.body.prepend(sentinel);
+		observer.observe(sentinel);
+	}
+</script>
