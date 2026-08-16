@@ -7,6 +7,7 @@ interface NavItem {
 	href: string;
 	label: string;
 	external?: boolean;
+	cta?: boolean;
 }
 
 interface Props {
@@ -33,7 +34,7 @@ const navigation: NavItem[] = [
 	{ href: '/about', label: 'About' },
 	{ href: 'https://maggielynn.substack.com/', label: 'Field Notes', external: true },
 	{ href: '/work', label: 'Work' },
-	{ href: '/contact', label: 'Contact' }
+	{ href: '/contact', label: 'Contact', cta: true }
 ];
 
 const footerLinks: NavItem[] = [
