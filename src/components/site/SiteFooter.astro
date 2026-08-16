@@ -2,6 +2,7 @@
 interface FooterLink {
 	href: string;
 	label: string;
+	external?: boolean;
 }
 
 interface Props {
@@ -15,17 +16,19 @@ const { footerLinks } = Astro.props;
 	<div class="site__footer-shell">
 		<div class="site__footer-left">
 			<a class="site__footer-brand" href="/">MAGGIE LYNN</a>
-			<ul class="site__footer-utility" aria-label="Legal">
-				<li><a class="site__footer-link" href="#">Privacy</a></li>
-				<li><a class="site__footer-link" href="#">Terms</a></li>
-				<li><a class="site__footer-link" href="#">Index</a></li>
-				<li><a class="site__footer-link" href="#">Network</a></li>
-			</ul>
+			<p class="site__footer-descriptor">Strategic implementation and operations for complex, mission-driven work</p>
 		</div>
 		<ul class="site__footer-nav">
 			{footerLinks.map((item) => (
 				<li>
-					<a class="site__footer-link" href={item.href}>{item.label}</a>
+					<a
+						class="site__footer-link"
+						href={item.href}
+						target={item.external ? '_blank' : undefined}
+						rel={item.external ? 'noopener noreferrer' : undefined}
+					>
+						{item.label}
+					</a>
 				</li>
 			))}
 		</ul>

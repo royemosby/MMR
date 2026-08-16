@@ -23,6 +23,9 @@ const hasPortrait = Boolean(portraitSrc);
 		<p class="hero__eyebrow">{eyebrow}</p>
 		<h1 class="hero__title">{title}</h1>
 		<p class="hero__lede">{description}</p>
+		<div class="hero__cta">
+			<slot name="cta" />
+		</div>
 	</div>
 	{hasPortrait && (
 		<div class="hero__portrait-wrap">
