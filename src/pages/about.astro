@@ -1,31 +1,158 @@
 ---
 import ShowcaseLayout from '../layouts/ShowcaseLayout.astro';
+import PageIntro from '../components/editorial/PageIntro.astro';
+import EditorialStatement from '../components/editorial/EditorialStatement.astro';
+import EditorialSplit from '../components/editorial/EditorialSplit.astro';
+import LeadershipPrinciples from '../components/editorial/LeadershipPrinciples.astro';
+import CareerThroughline from '../components/editorial/CareerThroughline.astro';
+import ThinkingInPublic from '../components/editorial/ThinkingInPublic.astro';
+import CredentialStrip from '../components/editorial/CredentialStrip.astro';
+import ClosingCTA from '../components/editorial/ClosingCTA.astro';
 ---
 
 <ShowcaseLayout
 	title="About"
-	description="A placeholder biography page for background, values, and professional point of view."
+	description="I learned to think about systems by working inside ones that affected real people. My career has moved through communications, public service, statewide implementation, and complex digital work."
+	noHero={true}
 >
-	<div class="section-heading">
-		<p class="section-heading__eyebrow">Profile</p>
-		<div class="section-heading__line"></div>
-		<span class="section-heading__label">Background and point of view</span>
-	</div>
-	<section class="content-panel">
-		<header class="content-panel__header">
-			<p class="content-panel__eyebrow">Biography</p>
-			<h2 class="content-panel__title">Professional context and operating philosophy.</h2>
-		</header>
-		<div class="content-panel__content">
-			<p class="content-panel__body">
-			Use this page for a short professional biography, areas of expertise, and the perspective
-			that shapes the work.
-			</p>
-		</div>
-		<div class="content-panel__meta">
-			<p>Focus<span class="content-panel__meta-value">Experience, values, methodology</span></p>
-			<p>Suggested proof<span class="content-panel__meta-value">Credentials, milestones, affiliations</span></p>
-			<p>Voice<span class="content-panel__meta-value">Measured, specific, credible</span></p>
-		</div>
-	</section>
+	<PageIntro
+		eyebrow="About"
+		headline="I learned to think about systems by working inside ones that affected real people."
+		deck="My career has moved through communications, public service, statewide implementation, and complex digital work. The through-line is simpler: I pay attention to the gap between what an organization intends to do and what people can actually experience, understand, and carry forward."
+	/>
+
+	<EditorialStatement
+		eyebrow="The through-line"
+		headline="The work changed. The question didn't."
+		body={[
+			"The question I keep coming back to is: what has to be true for this to actually work for the people depending on it?",
+			"Sometimes that has meant a family trying to understand where to find help. Sometimes it has meant community partners being asked to adopt a new referral process. Sometimes it is a cross-functional team trying to execute a transformation while the conditions around it keep changing.",
+			"At a different altitude, the question is still the same: can people see what matters, make the decisions they need to make, and understand what happens next?",
+			"That is the thread connecting most of my work."
+		]}
+		progression={[
+			{ label: 'For a person', question: 'Can I understand what to do?' },
+			{ label: 'For a team', question: 'Can we coordinate around the same reality?' },
+			{ label: 'For an organization', question: 'Can the system carry what we have promised?' }
+		]}
+	/>
+
+	<EditorialSplit
+		eyebrow="Systems and people"
+		headline="A system can be technically correct and still fail in practice."
+		body={[
+			"My training in social work gave me a vocabulary for something I was already noticing: behavior does not happen in a vacuum. People respond to context, incentives, relationships, power, information, and the environments around them.",
+			"That perspective followed me into implementation work.",
+			"A process can make perfect sense on paper and still ask too much of the people using it. A platform can launch successfully and still fail to become part of anyone's actual workflow. A decision can be documented and still not create enough shared understanding for people to act.",
+			"That is why I tend to treat adoption, communication, governance, and human experience as part of the operating system—not as cleanup work after the \u201creal\u201d implementation is finished."
+		]}
+	/>
+
+	<LeadershipPrinciples
+		eyebrow="Leadership"
+		headline="I lead by making reality easier to see."
+		principles={[
+			{
+				number: '01',
+				title: 'Make the real situation visible',
+				description: 'I want leaders and teams working from the same picture of what is happening: where risk is forming, what changed, what is constrained, and which assumptions are no longer true.'
+			},
+			{
+				number: '02',
+				title: 'Give decisions somewhere to live',
+				description: 'A decision is only useful if people know it was made, understand what it changes, and can rely on it long enough to move the work forward.'
+			},
+			{
+				number: '03',
+				title: 'Translate across functions',
+				description: 'Complex work usually crosses executives, specialists, vendors, clients, and delivery teams. I spend a lot of time creating enough shared language and context for those groups to act together without pretending they see the problem exactly the same way.'
+			},
+			{
+				number: '04',
+				title: 'Think past launch',
+				description: 'I pay attention to ownership, adoption, handoff, governance, and what happens when the person who knows everything is unavailable. Launch is an event. Implementation has to survive it.'
+			}
+		]}
+	/>
+
+	<CareerThroughline
+		eyebrow="Professional context"
+		headline="Three chapters. One increasingly complicated version of the same problem."
+		chapters={[
+			{
+				number: '01',
+				title: 'Public systems',
+				context: 'Communications, public service, social services, and military-family support',
+				whatItAdded: 'A close view of how policies, programs, information, and institutional choices are experienced by the people they are supposed to serve.'
+			},
+			{
+				number: '02',
+				title: 'Statewide implementation',
+				context: 'Cross-agency nonprofit and public-sector implementation, including Community Connections',
+				whatItAdded: 'The realization that technology, policy, or strategy only becomes useful through adoption, partner participation, communication, training, ownership, and operating structure.'
+			},
+			{
+				number: '03',
+				title: 'Complex digital and organizational work',
+				context: 'Large cross-functional initiatives, portfolio leadership, transformation, launches, and mission-driven digital work',
+				whatItAdded: 'A broader operating lens: how decisions, resources, risk, governance, client context, and organizational capacity interact across many consequential initiatives at once.',
+				current: true
+			}
+		]}
+	/>
+
+	<EditorialStatement
+		eyebrow="Point of view"
+		headline="Trust is an operating condition."
+		body={[
+			"I\u2019m interested in trust as a condition a system can produce or squander.",
+			"People are more able to trust complex work when they can understand what is happening, see that decisions mean something, know where risk will surface, and believe the system will continue to function when conditions change.",
+			"That does not require perfect certainty. It requires enough structure that uncertainty can be handled without everyone having to rediscover reality from scratch. That is what I mean by the operating structure behind trust."
+		]}
+		tonal={true}
+	/>
+
+	<ThinkingInPublic
+		eyebrow="Writing + speaking"
+		headline="I like making the invisible parts of complex work easier to talk about."
+		body={[
+			"I write and speak about strategic implementation, trust, delivery experience, decision-making, risk, portfolio operations, and the strange organizational rituals that determine whether complex work feels navigable or impossible.",
+			"Some of that thinking becomes conference talks and workshops. Some of it becomes Field Notes. Most of it starts with noticing something slightly weird about how work actually happens."
+		]}
+		linkLabel="Read Field Notes"
+		linkHref="https://maggielynn.substack.com/"
+		linkExternal={true}
+		topics={[
+			'Strategic implementation and trust',
+			'Designing the experience of delivery',
+			'Risk before the dashboard sees it',
+			'Decision hygiene and shared reality',
+			'Portfolio operations and organizational visibility'
+		]}
+	/>
+
+	<CredentialStrip
+		credentials={[
+			{ label: 'PMP', primary: 'Project Management Professional' },
+			{ label: 'MSW', primary: 'Master of Social Work' },
+			{
+				label: 'Mission-driven systems',
+				primary: 'Experience across public service, nonprofit, and digital organizations'
+			},
+			{
+				label: 'Speaker + writer',
+				primary: 'Strategic implementation, delivery, risk, trust, and transformation'
+			}
+		]}
+	/>
+
+	<ClosingCTA
+		eyebrow="What\u2019s next"
+		headline="I\u2019m interested in complex, consequential work where execution is integral from the start."
+		body="That includes senior leadership roles, transformation and strategic-initiative work, speaking, and conversations with people trying to build operating systems that can actually carry what their organizations are asking of them."
+		ctaLabel="Explore the work"
+		ctaHref="/work"
+		secondaryLinkLabel="Start a conversation"
+		secondaryLinkHref="mailto:maggie.lynn@reasonablepeople.io"
+	/>
 </ShowcaseLayout>
