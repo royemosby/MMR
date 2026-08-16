@@ -32,6 +32,7 @@ const { navigation, currentPath } = Astro.props;
 								class:list={[item.cta ? 'nav-list__cta' : 'nav-list__link']}
 								href={item.href}
 								aria-current={isCurrent ? 'page' : undefined}
+								{...externalAttrs}
 							>
 								{item.label}
 							</a>
