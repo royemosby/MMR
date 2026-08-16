@@ -1,5 +1,4 @@
 ---
-import { getCollection } from 'astro:content';
 import ShowcaseLayout from '../layouts/ShowcaseLayout.astro';
 import InterfaceButton from '../components/ui/InterfaceButton.astro';
 import FieldNoteCard from '../components/ui/FieldNoteCard.astro';
@@ -81,36 +80,12 @@ import ClosingCTA from '../components/editorial/ClosingCTA.astro';
 	/>
 
 	<!-- Field Notes -->
-<<<<<<< HEAD
-	<div class="section-heading">
-		<p class="section-heading__eyebrow">Field Notes</p>
-		<div class="section-heading__line"></div>
-		<span class="section-heading__label">Observations from the space between strategy and execution.</span>
-	</div>
-	<div class="content-grid">
-		{fieldNotes.map((note) => (
-			<FieldNoteCard
-				noteId={`${note.data.seriesLabel} — No. ${String(note.data.fieldNoteNumber).padStart(2, '0')}`}
-				quote={note.data.title}
-				author={note.data.signal}
-				date={note.data.readingTime ?? ''}
-				href={`/field-notes/${note.id}`}
-			/>
-		))}
-	</div>
-
-	<!-- Closing CTA -->
-	<section class="content-panel">
-		<header class="content-panel__header">
-			<h2 class="content-panel__title">Complex work needs more than a plan.</h2>
-			<p class="content-panel__body">It needs aligned stakeholders, visible risks, trusted decisions, and a shared story of what happens next.</p>
-=======
+	<!-- Field Notes -->
 	<section class="field-notes-section">
 		<header class="field-notes-section__header">
 			<p class="field-notes-section__eyebrow">Field Notes</p>
 			<h2 class="field-notes-section__headline">Notes from the machinery of complex work.</h2>
 			<p class="field-notes-section__intro">Most of my writing begins with a small operational haunting: a decision no one remembers making, a weekly update that restores shared reality, or a scope change that is actually a change in what the work means. The metaphor gets us in the door. The operating insight is why we stay.</p>
->>>>>>> 10c273f (refactor: update FieldNoteCard and ShowcaseLayout components for improved structure and accessibility; add new editorial components and styles)
 		</header>
 		<div class="field-notes-section__grid">
 			<FieldNoteCard
