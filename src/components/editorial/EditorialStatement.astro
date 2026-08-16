@@ -1,20 +1,39 @@
 ---
+interface ProgressionItem {
+	label: string;
+	question: string;
+}
+
 interface Props {
 	eyebrow: string;
 	headline: string;
 	body: string[];
-	linkLabel: string;
-	linkHref: string;
+	linkLabel?: string;
+	linkHref?: string;
+	progression?: ProgressionItem[];
+	tonal?: boolean;
 }
 
-const { eyebrow, headline, body, linkLabel, linkHref } = Astro.props;
+const { eyebrow, headline, body, linkLabel, linkHref, progression, tonal = false } = Astro.props;
 ---
 
-<section class="editorial-statement">
+<section class:list={['editorial-statement', tonal && 'editorial-statement--tonal']}>
 	<p class="editorial-statement__eyebrow">{eyebrow}</p>
 	<h2 class="editorial-statement__headline">{headline}</h2>
 	<div class="editorial-statement__body">
 		{body.map((paragraph) => <p>{paragraph}</p>)}
 	</div>
-	<a class="editorial-statement__link" href={linkHref}>{linkLabel} →</a>
+	{linkLabel && linkHref && (
+		<a class="editorial-statement__link" href={linkHref}>{linkLabel} →</a>
+	)}
+	{progression && progression.length > 0 && (
+		<div class="editorial-statement__progression">
+			{progression.map((item) => (
+				<div class="progression-item">
+					<p class="progression-item__label">{item.label}</p>
+					<p class="progression-item__question">{item.question}</p>
+				</div>
+			))}
+		</div>
+	)}
 </section>
