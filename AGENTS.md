@@ -13,17 +13,30 @@ npm run astro      # astro CLI passthrough
 
 > Run `npm run build` after any route, template, or style changes to confirm all static pages build cleanly.
 
+## Client Briefs & Planning Workflow
+
+Client inputs arrive as **PDF or markdown files** placed in the project root. The workflow is:
+
+1. **Read the brief** — Use `pdftotext "<file>" -` for PDFs; read markdown files directly. Always read the complete document before planning.
+2. **Survey current state** — Check the affected page(s) and `src/components/editorial/` before writing a plan.
+3. **Write the plan** — Output a markdown file to the project root named `{subject}-plan.md` (e.g. `homepage-revision-plan.md`). Use the `/plan-from-brief` prompt for a consistent plan structure.
+4. **Review** — The user reviews and revises the plan before implementation begins.
+5. **Implement** — When told to implement, follow the plan's build order.
+
+Plan files in the root are working documents, not permanent artifacts. Use the [plan-from-brief prompt](.github/prompts/plan-from-brief.prompt.md) to generate them consistently.
+
 ## Architecture
 
 - **Framework**: Astro 6, static output, no client-side JS framework. TypeScript strict mode via `astro/tsconfigs/strict`.
-- **Layout**: `src/layouts/ShowcaseLayout.astro` — single layout for all pages. Composes `PrimaryNav`, `PageHero`, and `SiteFooter` from `src/components/site/`. Accepts `title`, `description`, `portraitSrc`, and `portraitAlt` props; `description` has a default fallback.
-- **Navigation & routing**: The navigation array lives in `ShowcaseLayout.astro`. Add new pages/routes there when creating new routes.
+- **Layout**: `src/layouts/ShowcaseLayout.astro` — single layout for all pages. Composes `PrimaryNav`, `PageHero`, and `SiteFooter` from `src/components/site/`. Key props: `title`, `description`, `eyebrow`, `portraitSrc`, `portraitAlt`. Pass `noHero={true}` on pages that use their own hero component (e.g. `PageIntro`, `ArticleHeader`).
+- **Navigation & routing**: The navigation array and footer links live in `ShowcaseLayout.astro`. The nav renders `Contact` as a CTA button via `cta: true` on the nav item.
 - **Styles**: Global styles are in `src/styles/foundation.css`, imported via `<style is:global>` in the layout. All design tokens (colors, spacing, typography) are CSS custom properties on `:root`.
+- **PDF reading**: `pdftotext` is available at `/opt/homebrew/bin/pdftotext`. Use `pdftotext "<file>" -` to extract text.
 
 ## Site Sections & URL Structure
 
 | Section | URL | Notes |
-|---------|-----|-------|
+| --------- | ----- | ------- |
 | Home | `/` | Existing |
 | About | `/about` | Existing |
 | Contact | `/contact` | Existing |
@@ -73,44 +86,50 @@ Optional: `role`, `sector`, `timeline`, `platform`, `metrics[]`, `visualAsset`, 
 src/components/
   site/       # Site chrome — PrimaryNav, PageHero, SiteFooter
   ui/         # Reusable UI primitives (existing)
-  editorial/  # (to be created) Content-type components
+  editorial/  # Content-type components (many already built — see table below)
 ```
 
 ### Existing UI Components
 
 | Component | Notes |
-|-----------|-------|
+| ----------- | ------- |
 | `InterfaceButton.astro` | `variant`: `primary` \| `secondary`. Renders `<a>` when `href` provided, `<button>` otherwise. |
 | `InterfaceLink.astro` | Inline text links. |
 | `FeatureCard.astro` | `eyebrow`, `title`, `description`, `imageSrc`, `imageAlt`, `tag` |
-| `FieldNoteCard.astro` | Blog-style field note cards |
+| `FieldNoteCard.astro` | `title`, `summary?`, `href?`, `external?`, `date?`, `noteLabel?` — supports external Substack links |
 | `StrategicHeroBlock.astro` | Large editorial hero blocks |
 | `DataEntryForm.astro` | Contact/form UI |
 
-### Editorial Components (to be built)
+### Built Editorial Components
 
-All editorial components must: accept optional props without layout collapse; maintain semantic heading/link structure; have visible keyboard focus states; support responsive stacking.
-
-| Component | Used In | Notes |
-|-----------|---------|-------|
-| `EditorialPageHeader` | Writing index | Eyebrow, H1, intro copy; text constrained to ~640–720px, left-aligned |
-| `FeaturedFlagshipArticle` | Writing index | Two-column desktop; text 6–7 cols, visual 4–5 cols; visual is optional |
-| `EssayTeaser` | Writing index | Text-led; avoid image-first card grid; supports full-row link |
-| `FieldNoteArchiveRow` | Writing index, Field Notes | Single-column archive list; thin rule separators; number always visible |
-| `ArticleHeader` | `/writing/[slug]` | Wider than body; body copy starts below at narrow reading width |
-| `RichTextArticleBody` | `/writing/[slug]`, `/field-notes/[slug]` | Supports: p, h2, h3, ol, ul, inline link, strong, em, PullQuote, image+caption, table, OperatingModelBlock, ChecklistCallout, DiagnosticQuestionCallout, ArtifactFigure |
-| `OperatingModelBlock` | Articles, Case Studies | 3–6 steps; horizontal desktop, stacked mobile; use ordered list semantics |
-| `ChecklistCallout` | Articles | Semantic list; no fake checkboxes; restrained inset background |
-| `DiagnosticQuestionCallout` | Articles, Field Notes | Plain text questions; optional related framework link |
-| `PullQuote` | Articles, Field Notes | `<blockquote>` semantics; max 1–2 per article; no redundant quote marks |
-| `ArtifactFigure` | Articles, Case Studies | Image/diagram/PDF preview; alt text + caption required; optional expand (keyboard-accessible) |
-| `CaseStudyHeader` | `/work/[slug]` | Category label, client name, title, summary, optional metadata, optional visual |
-| `CaseStudySection` | `/work/[slug]` | Heading + rich text body + optional asset/callout; H2 semantic structure |
-| `OutcomesBlock` | `/work/[slug]` | Narrative + optional metrics list; metrics not mandatory; avoid oversized "big number" tiles |
-| `LeadershipLessonBlock` | `/work/[slug]` | Final synthesis section; restrained visual treatment; no testimonial-card styling |
-| `ReadNextModule` | Article pages | 2–3 manually selected entries; no algorithmic recommendations; no carousel |
-| `RelatedThinkingModule` | Case Studies, Writing index footer | Manual content selection; editorial list or compact cards |
-| `CompactAuthorLine` | Article pages | Name, optional headshot, one-sentence role, about link; keep compact |
+| Component | File | Notes |
+| ----------- | ------ | ------- |
+| `PageIntro` | `editorial/PageIntro.astro` | Text-led page hero (no portrait); use with `noHero={true}` |
+| `EditorialStatement` | `editorial/EditorialStatement.astro` | `eyebrow`, `headline`, `body[]`, `linkLabel?`, `linkHref?`, `progression?`, `tonal?` |
+| `EditorialSplit` | `editorial/EditorialSplit.astro` | Asymmetric 2-col (35/65); eyebrow, headline left; body paragraphs right |
+| `CapabilityThreeUp` | `editorial/CapabilityThreeUp.astro` | 3-column how-I-work with proof lines |
+| `FeaturedCase` | `editorial/FeaturedCase.astro` | Featured case study with optional 2-col comparison callout |
+| `LeadershipPrinciples` | `editorial/LeadershipPrinciples.astro` | Ruled index rows: number / title / description |
+| `CareerThroughline` | `editorial/CareerThroughline.astro` | 3-chapter career progression; `current?` flag on final chapter |
+| `ThinkingInPublic` | `editorial/ThinkingInPublic.astro` | 2-col: narrative left, topics index right |
+| `CredentialStrip` | `editorial/CredentialStrip.astro` | 4-col compact proof band |
+| `ClosingCTA` | `editorial/ClosingCTA.astro` | `eyebrow`, `headline`, `body`, `ctaLabel`, `ctaHref`, `secondaryLinkLabel?`, `secondaryLinkHref?` |
+| `ArticleHeader` | `editorial/ArticleHeader.astro` | Article page header |
+| `ArtifactFigure` | `editorial/ArtifactFigure.astro` | Image/diagram with alt + caption |
+| `CaseStudyHeader` | `editorial/CaseStudyHeader.astro` | Case study page header |
+| `CaseStudySection` | `editorial/CaseStudySection.astro` | H2 section + body + optional asset |
+| `ChecklistCallout` | `editorial/ChecklistCallout.astro` | Semantic checklist callout |
+| `CompactAuthorLine` | `editorial/CompactAuthorLine.astro` | Name, role, about link |
+| `DiagnosticQuestionCallout` | `editorial/DiagnosticQuestionCallout.astro` | Plain text diagnostic questions |
+| `EssayTeaser` | `editorial/EssayTeaser.astro` | Text-led essay teaser |
+| `FieldNoteArchiveRow` | `editorial/FieldNoteArchiveRow.astro` | Archive list row with number |
+| `LeadershipLessonBlock` | `editorial/LeadershipLessonBlock.astro` | Final synthesis section |
+| `OperatingModelBlock` | `editorial/OperatingModelBlock.astro` | 3–6 step operating model |
+| `OutcomesBlock` | `editorial/OutcomesBlock.astro` | Narrative + optional metrics |
+| `PullQuote` | `editorial/PullQuote.astro` | `<blockquote>` semantics |
+| `ReadNextModule` | `editorial/ReadNextModule.astro` | 2–3 manually curated next reads |
+| `RelatedThinkingModule` | `editorial/RelatedThinkingModule.astro` | Manual editorial list or compact cards |
+| `RichTextArticleBody` | `editorial/RichTextArticleBody.astro` | Full rich text body renderer |
 
 ## Design Conventions
 
