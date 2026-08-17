@@ -2,13 +2,11 @@
 import { getCollection } from 'astro:content';
 import ShowcaseLayout from '../../layouts/ShowcaseLayout.astro';
 import EditorialPageHeader from '../../components/editorial/EditorialPageHeader.astro';
-import RelatedThinkingModule from '../../components/editorial/RelatedThinkingModule.astro';
+import EditorialStatement from '../../components/editorial/EditorialStatement.astro';
+import ClosingCTA from '../../components/editorial/ClosingCTA.astro';
 
-const caseStudies = await getCollection('work', ({ data }) => data.status === 'published');
-
-const relatedWriting = [
-	{ contentType: 'Writing', title: 'Explore the writing', href: '/writing' },
-];
+const caseStudies = (await getCollection('work', ({ data }) => data.status === 'published'))
+	.sort((a, b) => (a.data.order ?? 99) - (b.data.order ?? 99));
 ---
 
 <ShowcaseLayout
@@ -18,8 +16,8 @@ const relatedWriting = [
 >
 	<EditorialPageHeader
 		eyebrow="Work"
-		heading="Operating interventions, not just deliverables."
-		intro="Selected engagements where the operating layer was the work. Each case study names the visible problem, the hidden system issue, and what actually changed."
+		heading="The plan is rarely the hard part."
+		intro="I lead work where strategy has to survive shifting conditions, cross-functional ownership, technical constraints, and the realities of how people and organizations actually operate. Below, I share three examples of what that looks like at different points in the work: defining the direction, getting to launch, and building the systems that make change usable after the technology exists."
 	/>
 
 	{caseStudies.length > 0 && (
@@ -47,11 +45,22 @@ const relatedWriting = [
 		</>
 	)}
 
-	<RelatedThinkingModule
-		eyebrow="Related Reading"
-		heading="The thinking behind the work."
-		body="Essays and field notes on the operating frameworks and strategic approaches that shape each engagement."
-		entries={relatedWriting}
-		ctaHref="/writing"
-		ctaLabel="Explore the writing"
+	<EditorialStatement
+		eyebrow="The pattern"
+		headline="Different work. Familiar failure modes."
+		body={[
+			"A statewide public-service platform, a museum launch, and a digital strategy engagement do not look particularly similar from the outside.",
+			"Underneath, the same operating problems appear again and again. A decision exists, but people are working from different versions of it. Risk is obvious in conversation before it appears in formal reporting. A strategy changes, but the structure around the work does not. A new system launches, but nobody has designed what happens when real people start using it. A team has plenty of information and still cannot tell what matters most.",
+			"That repetition is useful. It means I can look past the visible form of the project and start asking what the work actually needs: better decision structure, clearer ownership, shared context, stronger feedback loops, a more honest view of risk, or an operating model that can survive the next change."
+		]}
+	/>
+
+	<ClosingCTA
+		eyebrow="What\u2019s next"
+		headline="I\u2019m interested in the work that gets complicated between the strategy and the outcome."
+		body="I\u2019m interested in senior leadership roles, strategic initiatives, transformation, and conversations about how organizations make consequential work easier to see, decide, and carry forward."
+		ctaLabel="Start a conversation"
+		ctaHref="mailto:maggie@reasonablepeople.io"
+		secondaryLinkLabel="More about how I work"
+		secondaryLinkHref="/about"
 	/>
