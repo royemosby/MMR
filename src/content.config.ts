@@ -75,6 +75,7 @@ const work = defineCollection({
 		artifactFigure: z.string().optional(),
 		anonymized: z.boolean().optional(),
 		confidentialityNote: z.string().optional(),
+		order: z.number().optional(),
 	}),
 });
 
